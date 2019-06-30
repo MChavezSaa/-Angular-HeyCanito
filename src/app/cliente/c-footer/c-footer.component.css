@@ -1,0 +1,13 @@
+.footer-copyright{
+    color: #ff8000;
+    font-weight: 600;
+    text-align: center;
+}
+
+.footer{
+    position: absolute;
+    width: 100%;
+    margin-top: 200px;
+    height: 50px;
+    clear: both;
+}
