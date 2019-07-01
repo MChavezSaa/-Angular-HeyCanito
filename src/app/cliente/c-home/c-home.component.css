@@ -3,9 +3,11 @@
     height: 400px;
 }
 
-h1, em {
-    font-family: 'Playfair Display', serif;
+.tittle {
     text-align: center;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    margin: 25px;
 
 }
 
@@ -26,5 +28,8 @@ img.mr-3{
 .fa-heart{
     color: rgb(244,244,244);
     font-size: 12px;
+}
+.container{
+    margin-bottom: 20px;
 }
 
