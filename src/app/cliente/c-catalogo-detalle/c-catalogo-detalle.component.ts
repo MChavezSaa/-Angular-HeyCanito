@@ -20,6 +20,7 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
     })
   }
   ngOnChanges(): void {
+    this.id= this.rutaActiva.snapshot.params.id;
      console.log(this.id);
     this.productService.getCategoria(this.id).subscribe((res: any[]) => {
       this.productService.products = res;
