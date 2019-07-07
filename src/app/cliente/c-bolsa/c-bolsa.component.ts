@@ -11,7 +11,7 @@ export class CBolsaComponent implements OnInit {
   constructor() { }
   bolsa: IBolsa[] = [
     {
-
+//commit
      nombre: 'Torta fondant',
      descripcion: 'Torta fondant',
      cantidad: 10,
