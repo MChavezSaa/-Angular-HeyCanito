@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CHomeComponent } from './cliente/c-home/c-home.component';
 import { CFooterComponent } from './cliente/c-footer/c-footer.component';
@@ -40,7 +42,16 @@ import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-regi
     CRegistrarClienteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    /*RouterModule.forRoot([
+      {path:'product/product-list', },
+      {path:'welcome',},
+      {path:'',redirectTo:'welcome',pathMatch:'full'},
+      {path:'**', }
+    ]) */
   ],
   providers: [],
   bootstrap: [AppComponent]
