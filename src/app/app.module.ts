@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes} from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CHomeComponent } from './cliente/c-home/c-home.component';
@@ -18,6 +21,90 @@ import { ALoginComponent } from './administrador/a-login/a-login.component';
 import { ARegistrarProductosComponent } from './administrador/a-registrar-productos/a-registrar-productos.component';
 import { CLoginComponent } from './cliente/c-login/c-login.component';
 import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-registrar-cliente.component';
+import { ClienteComponent} from './cliente/cliente.component';
+import { AdministradorComponent} from './administrador/administrador.component';
+import { HttpClient } from 'selenium-webdriver/http';
+
+const routes:Routes=[
+   //-------------------- RUTAS CLIENTE---------------------------
+  {path:'',redirectTo:'/home', pathMatch:'full'},
+  {path:'home',component:ClienteComponent,
+    children:[
+      {
+        path:'',
+        component:CHomeComponent
+      },
+      {
+        path:'catalogo',
+        component:CCatalogoComponent
+      },
+      {
+        path:'catalogoDetalle:id',
+        component:CCatalogoDetalleComponent
+      },
+      {
+        path:'bolsa',
+        component:CBolsaComponent
+      },
+      {
+        path:'detalleProducto',
+        component:CDetalleProductoComponent
+      },
+      {
+        path:'opinion',
+        component:COpinionComponent
+      },
+      {
+        path:'login',
+        component:CLoginComponent
+      }
+    ]
+  },
+  //-------------------- RUTAS ADMINISTRADOR---------------------------
+  {path: 'adm', component:ALoginComponent},
+  {path: 'administrador', component: AdministradorComponent,
+    children:[
+      {
+        path: '',
+        component: CHomeComponent
+      },
+      {
+        path:'aprobarPedidos',
+        component:AAprobarPedidosComponent
+      },
+      {
+        path:'listarProductos',
+        component:AListarProductosComponent
+      },
+      {
+        path:'registrarProductos',
+        component:ARegistrarProductosComponent
+      },
+      {
+        path: 'catalogo',
+        component: CCatalogoComponent
+      },
+      {
+        path: 'catalogoDetalle',
+        component: CCatalogoDetalleComponent
+      },
+      {
+        path: 'bolsa',
+        component: CBolsaComponent
+      },
+      {
+        path: 'detalleProducto',
+        component: CDetalleProductoComponent
+      },
+      {
+        path: 'opinion',
+        component: COpinionComponent
+      }
+    ]
+  }
+];
+
+
 
 @NgModule({
   declarations: [
@@ -37,10 +124,16 @@ import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-regi
     ALoginComponent,
     ARegistrarProductosComponent,
     CLoginComponent,
-    CRegistrarClienteComponent
+    CRegistrarClienteComponent,
+    ClienteComponent,
+    AdministradorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
