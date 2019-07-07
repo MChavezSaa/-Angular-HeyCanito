@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { ProductoService } from '../../servicio/producto.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-c-catalogo-detalle',
@@ -7,13 +8,20 @@ import { ProductoService } from '../../servicio/producto.service';
   styleUrls: ['./c-catalogo-detalle.component.css']
 })
 export class CCatalogoDetalleComponent implements OnInit, OnChanges {
-  @Input() categoria: string;
-  constructor(private productService: ProductoService) { }
+  id: string;
+  constructor(private productService: ProductoService,private rutaActiva: ActivatedRoute) { }
   ngOnInit() {
+    this.id= this.rutaActiva.snapshot.params.id;
+    console.log(this.id);
+    this.productService.getCategoria(this.id).subscribe((res: any[]) => {
+      this.productService.products = res;
+      this.productService.filteredProducts = res;
+      console.log(this.productService.products);
+    })
   }
   ngOnChanges(): void {
-     console.log(this.categoria);
-    this.productService.getCategoria(this.categoria).subscribe((res: any[]) => {
+     console.log(this.id);
+    this.productService.getCategoria(this.id).subscribe((res: any[]) => {
       this.productService.products = res;
       this.productService.filteredProducts = res;
       console.log(this.productService.products);
