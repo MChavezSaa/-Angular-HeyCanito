@@ -39,7 +39,7 @@ const routes:Routes=[
         component:CCatalogoComponent
       },
       {
-        path:'catalogoDetalle',
+        path:'catalogoDetalle:id',
         component:CCatalogoDetalleComponent
       },
       {
