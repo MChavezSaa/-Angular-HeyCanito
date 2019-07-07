@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HeyCanito3';
+  categoria = "torta";
+  test:string = "empanada";
+
+  prueba(value:string):void{
+    this.test=value;
+    
+  }
 }
