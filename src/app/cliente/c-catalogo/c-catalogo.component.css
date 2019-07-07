@@ -1,0 +1,33 @@
+.row{
+    vertical-align: middle;
+}
+
+.tortasCat{
+    background-image: url("../../../assets/bannertorta2.jpg");
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    color: aliceblue;
+    -webkit-text-stroke: 2px black;
+}
+
+.empanadasCat{
+    background-image: url("../../../assets/empanadas.jpg");
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    color: aliceblue;
+    -webkit-text-stroke: 2px black;
+}
+
+.panCat{
+    background-image: url("../../../assets/panes.jpg");
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+    color: aliceblue;
+    -webkit-text-stroke: 2px black;
+}
