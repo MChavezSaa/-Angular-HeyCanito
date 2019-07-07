@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBolsa } from './cliente/c-bolsa/IBolsa';
+import { IBolsa } from './IBolsa';
 
 @Component({
   selector: 'app-c-bolsa',
