@@ -18,6 +18,8 @@ import { ALoginComponent } from './administrador/a-login/a-login.component';
 import { ARegistrarProductosComponent } from './administrador/a-registrar-productos/a-registrar-productos.component';
 import { CLoginComponent } from './cliente/c-login/c-login.component';
 import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-registrar-cliente.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { AdministradorComponent } from './administrador/administrador.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-regi
     ALoginComponent,
     ARegistrarProductosComponent,
     CLoginComponent,
-    CRegistrarClienteComponent
+    CRegistrarClienteComponent,
+    ClienteComponent,
+    AdministradorComponent
   ],
   imports: [
     BrowserModule
