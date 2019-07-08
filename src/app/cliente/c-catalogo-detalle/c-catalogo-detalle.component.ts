@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CCatalogoDetalleComponent implements OnInit, OnChanges {
   id: string;
-  constructor(private productService: ProductoService,private rutaActiva: ActivatedRoute) { }
+  constructor(public productService: ProductoService,private rutaActiva: ActivatedRoute) { }
   ngOnInit() {
     this.id= this.rutaActiva.snapshot.params.id;
     console.log(this.id);

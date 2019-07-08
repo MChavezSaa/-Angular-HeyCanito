@@ -3,6 +3,7 @@ import { Iproduct } from '../producto';
 import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
+import { IOpinion } from '../opnion';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Observable, timer } from 'rxjs';
 export class ProductoService {
   public filteredProducts: Iproduct[];
   public products: Iproduct[];
+  public opinion: IOpinion[];
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Iproduct[]> {
@@ -27,5 +29,8 @@ export class ProductoService {
   }
   updateProduct(id, product){
     return this.http.put('http://localhost:3000/producto/'+ id, product);
+  }
+  getOpinion(): Observable<IOpinion[]> {
+    return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
   }
 }
