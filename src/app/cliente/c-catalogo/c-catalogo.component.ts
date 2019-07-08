@@ -16,6 +16,6 @@ export class CCatalogoComponent implements OnInit {
 
   prueba(value:string):void{
     this.test=value;
-    this.router.navigate(['catalogo/', this.test]);
+    this.router.navigate(['home/catalogo/', this.test]);
   }
 }
