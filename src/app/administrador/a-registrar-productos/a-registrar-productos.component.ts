@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Iproduct } from 'src/app/producto';
 import { ProductoService} from '../../servicio/producto.service';
 import { FormGroup, FormBuilder, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-a-registrar-productos',
@@ -14,6 +15,7 @@ export class ARegistrarProductosComponent implements OnInit {
   formProduct: FormGroup;
 
   constructor(
+    private router: Router,
     public productService: ProductoService,
     private formBuilder: FormBuilder) {
       
@@ -49,6 +51,7 @@ export class ARegistrarProductosComponent implements OnInit {
 
   saveData() {
     this.guardarProducto(this.formProduct.value);
+    this.router.navigate(['administrador/listarProductos']);
     console.log(this.formProduct.value);
   }
 }
