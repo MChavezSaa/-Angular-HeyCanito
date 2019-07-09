@@ -7,97 +7,92 @@
         <div class="col-md-12">
           <div class="form-group" >
 
-            <div class="row">
-              <div class="col-md-6">
-                <!--Nombre producto-->
-                <form>
-                  <div class="form-group">
-                    <h6 for="nombreProducto">Nombre Producto</h6>
-                    <input type="text" class="form-control" id="nombreProducto" placeholder="Ingrese nombre producto">
-                  </div>
-                </form>
-                <!--Fin Nombre producto-->
-              </div>
-              <div class="col-md-6">
-                <!-- Subir imagen-->
-                <form>
-                  <div class="form-group">
-                    <h6 for="imagenProducto">Seleccione una imagen para el producto</h6>
-                    <input type="file" class="form-control-file" id="imagenProducto">
-                  </div>
-                </form>
-                <!-- fin Subir imagen-->
-              </div>
-            </div>
+            <form [formGroup]="formProduct" (ngSubmit)="saveData()" novalidate>
 
-            <div class="row">
-              <div class="col-md-6">
-                <!--Seleccionar categoria-->
-                <form>
-                  <h6>Categoria</h6>
-                  <select class="form-control">
-                    <option selected>Seleccione una categoria</option>
-                    <option>Tortas</option>
-                    <option>Panaderia</option>
-                    <option>Empanadas</option>
-                  </select>
-                </form>
-                <!--Fin seleccionar categoria-->
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                    <div class="form-group">
+                      <h6 for="nombreProducto">Nombre Producto</h6>
+                      <input formControlName="nombre"  class="form-control" type="text"
+                        placeholder="Ingrese nombre producto">
+                    </div>
+                  <!--Fin Nombre producto-->
+                </div>
+                <div class="col-md-6">
+                  <!-- Subir imagen-->
+                    <div class="form-group">
+                      <h6 for="imagenProducto">Seleccione una imagen para el producto</h6>
+                      <input formControlName="imagen" type="file" class="form-control-file">
+                    </div>
+                  <!-- fin Subir imagen-->
+                </div>
               </div>
-              <div class="col-md-6">
-                <!--Precio producto-->
-                <form>
-                  <div class="form-group">
-                    <h6 for="precioProducto">Precio Producto</h6>
-                    <input type="text" class="form-control" id="precioProducto"
-                      placeholder="Ingrese precio para el producto">
-                  </div>
-                </form>
-                <!--Fin Precio producto-->
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Seleccionar categoria-->
+                    <h6>Categoria</h6>
+                    <select formControlName="categoria" class="form-control">
+                      <option selected>Seleccione una categoria</option>
+                      <option>Tortas</option>
+                      <option>Panaderia</option>
+                      <option>Empanadas</option>
+                    </select>
+                  <!--Fin seleccionar categoria-->
+                </div>
+                <div class="col-md-6">
+                  <!--Precio producto-->
+                    <div class="form-group">
+                      <h6 for="precioProducto">Precio Producto</h6>
+                      <input formControlName="precio" type="text" class="form-control"
+                        placeholder="Ingrese precio para el producto">
+                    </div>
+                  <!--Fin Precio producto-->
+                </div>
               </div>
-            </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Seleccionar cantidad personas-->
+                    <div class="form-group">
+                      <h6 for="cantidadProducto">Cantidad del producto</h6>
+                      <input formControlName="cantidad_personas" type="number" class="form-control"
+                        placeholder="Ingrese la cantidad para el producto">
+                    </div>
+                  <!--Fin cantidad personas-->
+                </div>
+                <div class="col-md-6">
+                  <!--Ingresar tiempo de producción-->
+                    <div class="form-group">
+                      <h6 for="tiempoProduccionProducto">Días de producción del producto</h6>
+                      <input formControlName="tiempo_produccion" type="number" class="form-control"
+                        placeholder="Ingrese la cantidad de dias de producción">
+                    </div>
+                  <!--Fin tiempo de producción-->
+                </div>
+              </div>
+              <!--Ingresar Descripción-->
+                <div class="form-group">
+                  <h6 for="descripcionProducto">Descripción del producto</h6>
+                  <textarea formControlName="descripcion" class="form-control"
+                    placeholder="Ingrese una descripción para el producto"></textarea>
+                </div>
+              <!-- fin Ingresar Descripción-->
+              
+              <!--Botones-->
+              <div class="col-md-12" style="text-align: right">
+                <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                <button type="submit" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
+              </div>
+              <!--Fin Botones-->
 
-            <div class="row">
-              <div class="col-md-6">
-                <!--Seleccionar cantidad personas-->
-                <form>
-                  <div class="form-group">
-                    <h6 for="cantidadProducto">Cantidad del producto</h6>
-                    <input type="number" class="form-control" id="cantidadProducto"
-                      placeholder="Ingrese la cantidad para el producto">
-                  </div>
-                </form>
-                <!--Fin cantidad personas-->
-              </div>
-              <div class="col-md-6">
-                <!--Ingresar tiempo de producción-->
-                <form>
-                  <div class="form-group">
-                    <h6 for="tiempoProduccionProducto">Días de producción del producto</h6>
-                    <input type="number" class="form-control" id="tiempoProduccionProducto"
-                      placeholder="Ingrese la cantidad de dias de producción">
-                  </div>
-                </form>
-                <!--Fin tiempo de producción-->
-              </div>
-            </div>
-            <!--Ingresar Descripción-->
-            <form>
-              <div class="form-group">
-                <h6 for="descripcionProducto">Descripción del producto</h6>
-                <textarea name="descipcionProducto" class="form-control"
-                  placeholder="Ingrese una descripción para el producto"></textarea>
-              </div>
+
+
             </form>
-            <!-- fin Ingresar Descripción-->
 
-            <!--Botones-->
-            <div class="col-md-12" style="text-align: right">
-              <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
-              <button type= "submit" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
-            </div>
-            <!--Fin Botones-->
 
+           
 
           </div>
         </div>
