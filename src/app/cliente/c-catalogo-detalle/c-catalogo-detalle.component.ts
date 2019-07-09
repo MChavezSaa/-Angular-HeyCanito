@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { ProductoService } from '../../servicio/producto.service';
+import { Iproduct } from '../../producto';
 import { ActivatedRoute, Params } from '@angular/router';
 import { IBolsa } from '../../IBolsa';
 
@@ -11,7 +12,8 @@ import { IBolsa } from '../../IBolsa';
 export class CCatalogoDetalleComponent implements OnInit, OnChanges {
   id: string;
   bolsa: IBolsa[];
-  constructor(private productService: ProductoService,private rutaActiva: ActivatedRoute) { }
+  prod: Iproduct[]= [];
+  constructor(public productService: ProductoService,private rutaActiva: ActivatedRoute) { }
   ngOnInit() {
     this.id= this.rutaActiva.snapshot.params.id;
     console.log(this.id);
@@ -22,15 +24,16 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
     })
   }
   ngOnChanges(): void {
-    this.id= this.rutaActiva.snapshot.params.id;
+    /*this.id= this.rutaActiva.snapshot.params.id;
      console.log(this.id);
     this.productService.getCategoria(this.id).subscribe((res: any[]) => {
       this.productService.products = res;
       this.productService.filteredProducts = res;
       console.log(this.productService.products);
-    })
+    })*/
   }
-
+  
+ 
   
 }
   
