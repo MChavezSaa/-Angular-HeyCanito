@@ -23,6 +23,8 @@ import { CLoginComponent } from './cliente/c-login/c-login.component';
 import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-registrar-cliente.component';
 import { ClienteComponent} from './cliente/cliente.component';
 import { AdministradorComponent} from './administrador/administrador.component';
+import {SocialLoginModule,AuthServiceConfig,GoogleLoginProvider} from 'angular5-social-login';
+import { getAuthServiceConfigs } from './socialloginConfig';
 
 const routes:Routes=[
    //-------------------- RUTAS CLIENTE---------------------------
@@ -132,9 +134,13 @@ const routes:Routes=[
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SocialLoginModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

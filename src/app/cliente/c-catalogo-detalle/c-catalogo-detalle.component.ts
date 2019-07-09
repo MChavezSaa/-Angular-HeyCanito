@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { ProductoService } from '../../servicio/producto.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import { IBolsa } from '../../IBolsa';
 
 @Component({
   selector: 'app-c-catalogo-detalle',
@@ -9,6 +10,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CCatalogoDetalleComponent implements OnInit, OnChanges {
   id: string;
+  bolsa: IBolsa[];
   constructor(private productService: ProductoService,private rutaActiva: ActivatedRoute) { }
   ngOnInit() {
     this.id= this.rutaActiva.snapshot.params.id;
@@ -28,6 +30,7 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
       console.log(this.productService.products);
     })
   }
+
   
 }
   

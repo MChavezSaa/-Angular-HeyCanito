@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, GoogleLoginProvider } from 'angular5-social-login';
 
 @Component({
   selector: 'app-c-login',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private socialAuthService: AuthService) { }
 
   ngOnInit() {
   }
-
+  public signinWithGoogle () {
+    let socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+ 
+    this.socialAuthService.signIn(socialPlatformProvider)
+    .then((userData) => {
+       //on success
+       //this will return user data from google. What you need is a user token which you will send it to the server
+       
+    });
+ }
 }
