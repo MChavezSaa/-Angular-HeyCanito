@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
@@ -24,6 +24,7 @@ import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-regi
 import { ClienteComponent} from './cliente/cliente.component';
 import { AdministradorComponent} from './administrador/administrador.component';
 import { AHomeComponent } from './administrador/a-home/a-home.component';
+import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
 
 const routes:Routes=[
    //-------------------- RUTAS CLIENTE---------------------------
@@ -67,6 +68,10 @@ const routes:Routes=[
       {
         path: '',
         component: AHomeComponent
+      },
+      {
+        path: 'vacio',
+        component: VacioComponent
       },
       {
         path: 'homeCliente',
@@ -131,7 +136,8 @@ const routes:Routes=[
     CRegistrarClienteComponent,
     ClienteComponent,
     AdministradorComponent,
-    AHomeComponent
+    AHomeComponent,
+    VacioComponent
   ],
   imports: [
     BrowserModule,

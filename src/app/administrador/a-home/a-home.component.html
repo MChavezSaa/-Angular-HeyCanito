@@ -9,15 +9,14 @@
       
       <ul class="list-unstyled components">
        <p class="titulo-menu">Panel de Admnistración</p>
-       <li><a [routerLink]="['/admin']"><i class="fas fa-home"></i> <span>Home</span> </a></li>
+       <li><a [routerLink]="['/administrador/vacio']"><i class="fas fa-home"></i> <span>Home</span> </a></li>
 
        <li>
          <a href="#productos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
              <i class="fa fa-th-large"></i> <span> Productos</span> 
          </a>
          <ul class="collapse list-unstyled" id="productos">
-           <li><a [routerLink]="['/listarProductos']"><i class="fas fa-birthday-cake"></i><span>Tortas</span> </a></li>
-           
+           <li><a [routerLink]="['/administrador/listarProductos']"><i class="fas fa-birthday-cake"></i><span>Tortas</span> </a></li>          
          </ul> 
        </li>
 
@@ -28,7 +27,7 @@
       
       
     </nav>
-    
+  
     <div class="container-fluid px-0">
       <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
       
@@ -36,7 +35,6 @@
          <i class="fa fa-align-justify"></i> 
        </button>
        
-       <!--<a class="navbar-brand" href="#">Navbar</a> -->
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
@@ -58,13 +56,10 @@
        </div>
 
      </nav>
-     
+  
+       
      <div class="container-fluid">
          <router-outlet></router-outlet>
-     </div>
-     
-   
-    </div>
-      
+     </div>    
  </div>
      
