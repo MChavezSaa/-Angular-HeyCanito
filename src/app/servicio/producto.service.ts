@@ -55,5 +55,6 @@ export class ProductoService {
     console.log(datos);
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
-  }  
+  }
+
 }
