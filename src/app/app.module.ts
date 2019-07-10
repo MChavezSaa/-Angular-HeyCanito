@@ -4,6 +4,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
+import { DefaultPipe } from './image.pipe';
 import { CHomeComponent } from './cliente/c-home/c-home.component';
 import { CFooterComponent } from './cliente/c-footer/c-footer.component';
 import { CNavbarComponent } from './cliente/c-navbar/c-navbar.component';
@@ -135,9 +136,13 @@ const routes:Routes=[
       {
         path: 'login',
         component: CLoginComponent
+      },
+      {
+        path: 'loginAdm',
+        component: ALoginComponent
       }
     ]
-  }
+  },
 ];
 
 
@@ -154,6 +159,7 @@ const routes:Routes=[
     CDetalleProductoComponent,
     COpinionComponent,
     AFooterComponent,
+    DefaultPipe,
     AListarProductosComponent,
     ANavbarComponent,
     AAprobarPedidosComponent,

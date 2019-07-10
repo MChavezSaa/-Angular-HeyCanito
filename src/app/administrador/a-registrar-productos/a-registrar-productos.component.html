@@ -38,7 +38,7 @@
                   <select formControlName="categoria" class="form-control">
                     <option selected>Seleccione una categoria</option>
                     <option>Tortas</option>
-                    <option>Panadería</option>
+                    <option>Panaderia</option>
                     <option>Empanadas</option>
                   </select>
                   <div *ngIf="formProduct.get('categoria').errors && (formProduct.get('categoria').touched 
@@ -101,13 +101,35 @@
 
               <!--Botones-->
               <div class="col-md-12" style="text-align: right">
-                <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                <button type="button" class="btn btn-danger botones" style="background: #ff0000" data-toggle="modal" data-target="#modalSalir"> Cancelar </button> &nbsp;
                 <button type="submit" [disabled]="!formProduct.valid" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
               </div>
               <!--Fin Botones-->
             </form>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalSalir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Salir de formulario de ingreso de productos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro que deseas salir del formulario de ingreso de productos?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal" [routerLink]="['/administrador/listarProductos']">Confirmar</button>
       </div>
     </div>
   </div>
