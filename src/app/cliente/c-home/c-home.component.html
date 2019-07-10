@@ -44,29 +44,28 @@
     <div class="card-body" *ngFor="let opi of productService.opinion">
       <ul class="list-group">
         <li class="list-group-item">
-          <!-- ngFor= "comment: listadoCommeent" -->
           <div class="media">
             <div class="media-body">
               <div class="media">
-                <div><img class="mr-3" src="../../../assets/user.png" width="60px"></div>
+                <div>
+                  <img class="mr-3" src="../../../assets/user.png" width="60px">
+                </div>
                 <div class="media-body">
                   <div class="row">
                     <div class="col-md-12">
-                      <h5>{{opi.nombreUsuario}}</h5>
-                          &nbsp;
-                          {{opi.comentario}}<br>
+                      <h5>{{opi.nombreUsuario}}</h5>&nbsp;
+                        {{opi.comentario}}<br>
                         <div class="text-right">
                           <button class="btn btn-danger" type="button">
                             <i class="fa fa-heart"></i>
                             &nbsp; Me Gusta
                           </button>
                         </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </div> 
               </div>
-
-            </div>
           </div>
         </li>
       </ul>
