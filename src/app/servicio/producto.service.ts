@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
+import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,13 @@ export class ProductoService {
   public opinion: IOpinion[];
 
   constructor(private http: HttpClient) { }
+
+  saveCliente(cliente: IRegistroCliente){
+    return this.http.post<IRegistroCliente[]>('http://localhost:3005/cliente', cliente);
+  }
+  getCliente(): Observable<IRegistroCliente[]> {
+    return this.http.get<IRegistroCliente[]>('http://localhost:3005/cliente').pipe(map((res: any) => res.data));
+  }
 
   getProducts(): Observable<Iproduct[]> {
     return this.http.get<Iproduct[]>('http://localhost:3005/productos').pipe(map((res: any) => res.data));
@@ -59,5 +67,7 @@ export class ProductoService {
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
   }
+
+ 
 
 }
