@@ -13,7 +13,7 @@
           id="search-field" style="background-color: #eaeaea;width: 80%;height: 38px;padding: 0px;margin-left: 17px;"
           name="search"/>
         </div>
-        <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <div class="col-md-4 d-flex justify-content-end align-self-start">
           <button class="btn btn-primary d-flex align-items-center align-self-center" 
             [routerLink]="['/administrador/registrarProductos']" routerLinkActive="router-link-active"
             type="button" style="height: 38px;background-color: rgb(21,221,4);">Agregar Producto 
@@ -81,7 +81,7 @@
           ¿Estás seguro que deseas eliminar el producto {{prod.nombre}} ?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+          
           <button type="button" class="btn btn-danger" (click)="deleteProduct(prod.id)" 
           [routerLink]="['/administrador/listarProductos']" data-dismiss="modal">Eliminar</button>
           
