@@ -23,6 +23,7 @@ import { CLoginComponent } from './cliente/c-login/c-login.component';
 import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-registrar-cliente.component';
 import { ClienteComponent} from './cliente/cliente.component';
 import { AdministradorComponent} from './administrador/administrador.component';
+import { AHomeComponent } from './administrador/a-home/a-home.component';
 
 const routes:Routes=[
    //-------------------- RUTAS CLIENTE---------------------------
@@ -60,11 +61,15 @@ const routes:Routes=[
     ]
   },
   //-------------------- RUTAS ADMINISTRADOR---------------------------
-  {path: 'adm', component:ALoginComponent},
+  {path: 'admin', component:ALoginComponent},
   {path: 'administrador', component: AdministradorComponent,
     children:[
       {
         path: '',
+        component: AHomeComponent
+      },
+      {
+        path: 'homeCliente',
         component: CHomeComponent
       },
       {
@@ -125,7 +130,8 @@ const routes:Routes=[
     CLoginComponent,
     CRegistrarClienteComponent,
     ClienteComponent,
-    AdministradorComponent
+    AdministradorComponent,
+    AHomeComponent
   ],
   imports: [
     BrowserModule,

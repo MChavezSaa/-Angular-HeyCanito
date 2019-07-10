@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoService } from '../../servicio/producto.service';
 
 @Component({
   selector: 'app-c-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService: ProductoService) { }
 
   ngOnInit() {
+    this.productService.getOpinion().subscribe((res: any[]) => {
+      this.productService.opinion = res;
+    })
   }
 
 }

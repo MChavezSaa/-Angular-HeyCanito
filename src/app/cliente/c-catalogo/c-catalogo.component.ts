@@ -17,6 +17,8 @@ export class CCatalogoComponent implements OnInit {
   prueba(value:string):void{
     console.log("entro aqui");
     this.test=value;
-    this.router.navigate(['/home/catalogo/', this.test]);
+
+
+    this.router.navigate(['home/catalogo/', this.test]);
   }
 }
