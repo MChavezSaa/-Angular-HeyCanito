@@ -28,7 +28,6 @@ export class CLoginComponent implements OnInit {
         console.log(res)
         err => console.log(err)
       });
-      
   }
  }
 
