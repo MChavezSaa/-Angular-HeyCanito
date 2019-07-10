@@ -33,4 +33,7 @@ export class ProductoService {
   getOpinion(): Observable<IOpinion[]> {
     return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
   }
+  saveOpinion(opinion: IOpinion) {
+    return this.http.post<IOpinion[]>('http://localhost:3005/opinion', opinion);
+  }
 }
