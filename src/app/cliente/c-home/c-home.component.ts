@@ -11,8 +11,8 @@ export class CHomeComponent implements OnInit {
   constructor(public productService: ProductoService) { }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((res: any[]) => {
-      this.productService.products = res;
+    this.productService.getOpinion().subscribe((res: any[]) => {
+      this.productService.opinion = res;
     })
   }
 

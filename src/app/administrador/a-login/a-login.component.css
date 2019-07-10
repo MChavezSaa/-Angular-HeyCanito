@@ -16,9 +16,7 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
   
-  element.style {
-  }
-  
+ 
   .register-photo .form-container {
     display: table;
     max-width: 900px;
@@ -27,6 +25,18 @@ body {
     box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   }
   
+      #logreg-forms .social-btn:nth-child(1){
+        margin-bottom: 5px;
+    }
+    #logreg-forms .social-btn span{
+        display: none;
+    }
+    #logreg-forms  .facebook-btn:after{
+        content:'Facebook';
+    }
   
+    #logreg-forms  .google-btn:after{
+        content:'Google+';
+    }
   
   
