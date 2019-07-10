@@ -3,7 +3,6 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-
 import { AppComponent } from './app.component';
 import { CHomeComponent } from './cliente/c-home/c-home.component';
 import { CFooterComponent } from './cliente/c-footer/c-footer.component';
@@ -25,6 +24,7 @@ import { ClienteComponent} from './cliente/cliente.component';
 import { AdministradorComponent} from './administrador/administrador.component';
 import { AHomeComponent } from './administrador/a-home/a-home.component';
 import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
+
 
 const routes:Routes=[
    //-------------------- RUTAS CLIENTE---------------------------
@@ -145,8 +145,12 @@ const routes:Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
+    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

@@ -11,7 +11,9 @@ import { IOpinion } from '../opnion';
 export class ProductoService {
   public filteredProducts: Iproduct[];
   public products: Iproduct[];
+  public bolsa: Iproduct[] = [];
   public opinion: IOpinion[];
+
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Iproduct[]> {
@@ -30,7 +32,29 @@ export class ProductoService {
   updateProduct(id, product){
     return this.http.put('http://localhost:3000/producto/'+ id, product);
   }
+
+
+  agregarProducto( producto: Iproduct){
+    console.log(producto.id);
+    var datos: Iproduct = {
+      id: producto.id,
+    nombre: producto.nombre,
+    precio: producto.precio,
+    descripcion: producto.descripcion,
+    categoria: producto.categoria,
+    imagen: producto.imagen,
+    cantidad_personas:producto.cantidad_personas,
+    tiempo_produccion: producto.tiempo_produccion
+    };
+    console.log(datos);
+    this.bolsa.push(datos);
+    console.log(this.bolsa.toString);
+    
+
   getOpinion(): Observable<IOpinion[]> {
     return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
+  }
+  saveOpinion(opinion: IOpinion) {
+    return this.http.post<IOpinion[]>('http://localhost:3005/opinion', opinion);
   }
 }

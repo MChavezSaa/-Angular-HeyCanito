@@ -43,12 +43,6 @@ export class ARegistrarProductosComponent implements OnInit {
     })
   }
   
-  crearProducto(){
-    let datos: any= this.formProduct.value;
-
-    this.guardarProducto(datos);
-  }
-
   saveData() {
     this.guardarProducto(this.formProduct.value);
     this.router.navigate(['administrador/listarProductos']);

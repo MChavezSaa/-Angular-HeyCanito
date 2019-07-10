@@ -10,22 +10,23 @@
     <h2>Bolsa de Compras</h2>
   </div> 
   <hr> 
-  <div *ngIf="bolsa && bolsa.length">
+  <div *ngIf="productService.bolsa.length">
     <div class="col-12">
       <div class="card">
         <div class="card-body">
           <div class="container">
             <div class="row">
               <div class="col-md-12">             
-                <div class="gift row" *ngFor="let bolsa of bolsa">              
-                  <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.url' height="100%"
+                <div class="gift row" *ngFor="let bolsa of productService.bolsa">  
+                    <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>           
+                  <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.imagen' height="100%"
                       width="100%" /></div>
                   <div class="gift__info col-sm-9 col-12" >
                     <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
                     <div class="gift__details">
                       <p><br />{{bolsa.descripcion}}<br /><br /></p>
                         <p>Cantidad: </p>
-                        <input type="number" [placeholder]='bolsa.cantidad'>
+                        <input type="number" value={{bolsa.cantidad_personas}} >
                     </div>
                     <div class="gift__bottom row">
                       <div class="gift__price-wrap col-12 col-sm-6">
@@ -44,7 +45,7 @@
     </div>
     <br>
     <div class="col-10" align="right">
-      <button type="button" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Pagar</button>    
+      <button  type="button" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Pagar</button>    
     </div>
     <br>
   </div>

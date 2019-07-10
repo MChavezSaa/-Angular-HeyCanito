@@ -18,7 +18,7 @@
               <p class="card-text">{{product.precio | currency:'USD':true:'2.0-3'}}</p>
             </div>
             <div class="col">
-              <a href="#" class="btn btn-primary" id="boton">Carrito</a>
+              <a class="btn btn-primary" (click)="productService.agregarProducto(product)" id="boton"> Agregar al Carrito</a>
             </div>
           </div>
         </div>

@@ -15,7 +15,10 @@ export class CCatalogoComponent implements OnInit {
   test:string = "empanada";
 
   prueba(value:string):void{
+    console.log("entro aqui");
     this.test=value;
+
+
     this.router.navigate(['home/catalogo/', this.test]);
   }
 }
