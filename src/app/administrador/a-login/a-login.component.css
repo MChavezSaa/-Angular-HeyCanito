@@ -16,4 +16,17 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
   
+  element.style {
+  }
+  
+  .register-photo .form-container {
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  
+  
   
