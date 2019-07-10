@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { ProductoService } from '../../servicio/producto.service';
+
 
 @Component({
   selector: 'app-a-listar-productos',
@@ -8,9 +9,12 @@ import { ProductoService } from 'src/app/servicio/producto.service';
 })
 export class AListarProductosComponent implements OnInit {
 
-  constructor(public productoService: ProductoService) { }
 
+  constructor(public productoService: ProductoService) { }
   ngOnInit() {
+    this.productoService.getProducts().subscribe((res: any[]) => {
+    this.productoService.products = res;
+    })
   }
  
   deleteProduct(id: number) {

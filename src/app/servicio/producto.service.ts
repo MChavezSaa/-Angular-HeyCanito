@@ -43,14 +43,15 @@ export class ProductoService {
     console.log(producto.id);
     var datos: Iproduct = {
       id: producto.id,
-    nombre: producto.nombre,
-    precio: producto.precio,
-    descripcion: producto.descripcion,
-    categoria: producto.categoria,
-    imagen: producto.imagen,
-    cantidad_personas:producto.cantidad_personas,
-    tiempo_produccion: producto.tiempo_produccion
+      nombre: producto.nombre,
+      precio: producto.precio,
+      descripcion: producto.descripcion,
+      categoria: producto.categoria,
+      imagen: producto.imagen,
+      cantidad_personas:producto.cantidad_personas,
+      tiempo_produccion: producto.tiempo_produccion
     };
+    
     console.log(datos);
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
