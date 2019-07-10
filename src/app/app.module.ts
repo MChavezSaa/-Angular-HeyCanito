@@ -66,8 +66,8 @@ const routes:Routes=[
         component: CRegistrarClienteComponent
       },
       {
-        path: 'login',
-        component: CLoginComponent
+        path: 'loginAdm',
+        component: ALoginComponent
       }
     ]
   },
@@ -130,9 +130,13 @@ const routes:Routes=[
       {
         path: 'login',
         component: CLoginComponent
+      },
+      {
+        path: 'loginAdm',
+        component: ALoginComponent
       }
     ]
-  }
+  },
 ];
 
 
