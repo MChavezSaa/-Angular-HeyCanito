@@ -1,5 +1,3 @@
-
-
 <!---Carousel-->
 <div id="carouselExampleIndicators" class="carousel slide text-truncate text-center custom" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -35,17 +33,17 @@
 
 <!--Sección comentarios-->
 
-  <div class="container">
-    <div class="row tittle">
-        <div>
-          <h1><em>¡Déjanos tus comentarios!</em></h1>
-        </div>
-      </div>
-  
+<div class="container">
+  <div class="row tittle">
+    <div>
+      <h1><em>¡Déjanos tus comentarios!</em></h1>
+    </div>
+  </div>
+
   <div class="card">
     <div class="card-body" *ngFor="let opi of productService.opinion">
       <ul class="list-group">
-        <li class="list-group-item" >
+        <li class="list-group-item">
           <!-- ngFor= "comment: listadoCommeent" -->
           <div class="media">
             <div class="media-body">
@@ -53,13 +51,16 @@
                 <div><img class="mr-3" src="../../../assets/user.png" width="60px"></div>
                 <div class="media-body">
                   <div class="row">
-                    <div class="col-md-12" >
-                      <p><a href="#">{{opi.nombreUsuario}}</a>&nbsp;
-                        <br>{{opi.comentario}}<br>
-                      <div class="text-right"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                          class="fa fa-star"></i><i class="fa fa-star"></i><i
-                          class="fa fa-star fa-star-half-o"></i><span>361</span><button class="btn btn-danger"
-                          type="button"><i class="fa fa-heart"></i>&nbsp; Me Gusta</button></div>
+                    <div class="col-md-12">
+                      <h5>{{opi.nombreUsuario}}</h5>
+                          &nbsp;
+                          {{opi.comentario}}<br>
+                        <div class="text-right">
+                          <button class="btn btn-danger" type="button">
+                            <i class="fa fa-heart"></i>
+                            &nbsp; Me Gusta
+                          </button>
+                        </div>
                     </div>
                   </div>
                 </div>

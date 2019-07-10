@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +32,12 @@ export class ProductoService {
     return this.http.put('http://localhost:3000/producto/'+ id, product);
   }
 
+  getOpinion(): Observable<IOpinion[]> {
+    return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
+  }
+  saveOpinion(opinion: IOpinion) {
+    return this.http.post<IOpinion[]>('http://localhost:3005/opinion', opinion);
+  }
 
   agregarProducto( producto: Iproduct){
     console.log(producto.id);
@@ -50,10 +55,5 @@ export class ProductoService {
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
   }
-  getOpinion(): Observable<IOpinion[]> {
-    return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
-  }
-  saveOpinion(opinion: IOpinion) {
-    return this.http.post<IOpinion[]>('http://localhost:3005/opinion', opinion);
-  }
+
 }
