@@ -48,7 +48,7 @@
                   <td style="vertical-align: middle">{{prod.tiempo_produccion}}</td>
                   <td style="vertical-align: middle">
                     <div style="width: 100px" >
-                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar">
+                      <button type="button" class="btn btn-danger" (click)="preguntaEliminar(prod)" data-toggle="modal" data-target="#modalEliminar">
                         <i class="far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
                       </button>&nbsp;
                       <button type="button" class="btn btn-warning">
@@ -65,7 +65,7 @@
     </div>
   </div>
 </body>
-<div *ngFor="let prod of productoService.products">
+<div >
   <!-- Modal -->
   <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -78,11 +78,11 @@
           </button>
         </div>
         <div class="modal-body">
-          ¿Estás seguro que deseas eliminar el producto {{prod.nombre}} ?
+          ¿Estás seguro que deseas eliminar el producto {{eliminar.nombre}} ?
         </div>
         <div class="modal-footer">
           
-          <button type="button" class="btn btn-danger" (click)="deleteProduct(prod.id)" 
+          <button type="button" class="btn btn-danger" (click)="deleteProduct(eliminar.id)" 
           [routerLink]="['/administrador/listarProductos']" data-dismiss="modal">Eliminar</button>
           
         </div>
