@@ -2,8 +2,10 @@
   <div class="wrapper">
 
     <nav id="sidebar" [ngClass]="{'mostrar-sidebar': !mostrarSidebar}">
-      <div class="sidebar-header">
-        <h3 style="">Administración HeyCanito!</h3>
+      <div class="sidebar-header" style="text-align: center">
+        <h3 >Administración HeyCanito!</h3>
+        <br>
+        <img src="../../../assets/man.png" width="100px">
       </div>
       
       
@@ -20,14 +22,9 @@
            <li><a [routerLink]="['/administrador/listarProductos']"><i class="fas fa-birthday-cake"></i><span>Listar Produtos</span> </a></li>          
           </ul> 
        </li>
-       
-
-
-       <li> <a [routerLink]="['/home']"><i class="fas fa-sign-out-alt"></i><span>Log Out</span> </a> </li>
+       <li> <a [routerLink]="['/home']"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span> </a> </li>
 
       </ul>
-      
-      
     </nav>
   
     <div class="container-fluid px-0">
@@ -51,7 +48,7 @@
              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                <a class="dropdown-item" [routerLink]="['perfil']">Perfil</a>
                <div class="dropdown-divider"></div>
-               <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar sesión</a>
+               <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar Sesión</a>
              </div>
            </li>
          </ul>
