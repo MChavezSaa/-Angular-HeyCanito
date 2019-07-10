@@ -19,8 +19,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <div class="gift row" *ngFor="let bolsa of productService.bolsa">
-                  <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
+                <div class="gift row" *ngFor="let bolsa of productService.bolsa">                 
                   <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.imagen' height="100%" width="100%" /></div>
                   <div class="gift__info col-sm-9 col-12">
                     <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
