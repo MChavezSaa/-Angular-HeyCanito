@@ -49,8 +49,7 @@ export class ProductoService {
     console.log(datos);
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
-    
-
+  }
   getOpinion(): Observable<IOpinion[]> {
     return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
   }
