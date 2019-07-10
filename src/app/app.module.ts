@@ -25,6 +25,7 @@ import { AdministradorComponent} from './administrador/administrador.component';
 import { AHomeComponent } from './administrador/a-home/a-home.component';
 import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
 import { RegistroFormComponent } from './administrador/a-login/registro-form/registro-form.component';
+import { RegistrarEmpleadoComponent } from './administrador/registrar-empleado/registrar-empleado.component';
 
 
 const routes:Routes=[
@@ -81,6 +82,10 @@ const routes:Routes=[
       {
         path: 'vacio',
         component: VacioComponent
+      },
+      {
+        path: 'registrarEmpleado',
+        component: RegistrarEmpleadoComponent
       },
       {
         path: 'homeCliente',
@@ -155,7 +160,8 @@ const routes:Routes=[
     AdministradorComponent,
     AHomeComponent,
     VacioComponent,
-    RegistroFormComponent
+    RegistroFormComponent,
+    RegistrarEmpleadoComponent
   ],
   imports: [
     BrowserModule,

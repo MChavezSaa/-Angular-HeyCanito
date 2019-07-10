@@ -5,16 +5,25 @@ import { map, switchMap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
 import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente';
+import { IRegistrarEmpleado } from '../administrador/registrar-empleado/IRegistrarEmpleado';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
   public filteredProducts: Iproduct[];
   public products: Iproduct[];
+  public empleados: IRegistrarEmpleado[];
   public bolsa: Iproduct[] = [];
   public opinion: IOpinion[];
 
   constructor(private http: HttpClient) { }
+
+  saveEmpleado(empleado: IRegistrarEmpleado){
+    return this.http.post<IRegistrarEmpleado[]>('http://localhost:3005/empleado', empleado);
+  }
+  getEmpleado(): Observable<IRegistrarEmpleado[]> {
+    return this.http.get<IRegistrarEmpleado[]>('http://localhost:3005/empleado').pipe(map((res: any) => res.data));
+  }
 
   saveCliente(cliente: IRegistroCliente){
     return this.http.post<IRegistroCliente[]>('http://localhost:3005/cliente', cliente);

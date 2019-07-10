@@ -1,0 +1,63 @@
+<div class="container">
+    <h2>Formulario de registro de empleados</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+          <div class="form-row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <form [formGroup]="formEmpleado" (ngSubmit)="saveEmpleado()" novalidate>
+      
+                  <div class="row">
+                    <div class="col-md-6">
+                      <!--Nombre producto-->
+                      <div class="form-group">
+                        <h6 for="nombreUsuario">Nombre de usuario</h6>
+                        <input formControlName="user" class="form-control" type="text" placeholder="Ingrese nombre usuario">
+                        <div *ngIf="formEmpleado.get('user').errors && (formEmpleado.get('user').touched 
+                            || formEmpleado.get('user').dirty)" class="alert alert-danger">El nombre de usuario es
+                          obligatorio
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <h6 for="password">Contraseña</h6>
+                        <input formControlName="password" class="form-control" type="text" placeholder="Ingrese contraseña">
+                        <div *ngIf="formEmpleado.get('password').errors && (formEmpleado.get('password').touched 
+                              || formEmpleado.get('password').dirty)" class="alert alert-danger">La contraseña es obligatoria
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <!--Nombre producto-->
+                      <div class="form-group">
+                        <h6 for="rol">Rol de usuario</h6>
+                        <input formControlName="rol" class="form-control" type="text" placeholder="Ingrese rol de usuario">
+                        <div *ngIf="formEmpleado.get('rol').errors && (formEmpleado.get('rol').touched 
+                              || formEmpleado.get('rol').dirty)" class="alert alert-danger">El rol de usuario es obligatorio
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <!--Botones-->
+                  <div class="col-md-12" style="text-align: right">
+                    <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                    <button type="submit" [disabled]="!formEmpleado.valid" class="btn btn-warning botones"
+                      style="background: #ff8800"> Guardar </button>
+                  </div>
+                  <!--Fin Botones-->
+      
+      
+      
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
