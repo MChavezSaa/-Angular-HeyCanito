@@ -19,10 +19,16 @@
                       style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
                       Inicio Sesión</h4>
                   </div>
-                  <div class="email-login" style="background-color:#ffffff;"><input type="email"
-                      class="email-imput form-control" style="margin-top:10px;" required placeholder="Email"
-                      minlength="6" /><input type="password" class="password-input form-control"
-                      style="margin-top:10px;" required placeholder="Contraseña" minlength="6" /></div>&nbsp;
+                  <div class="email-login" style="background-color:#ffffff; text-align: left; font-family: Georgia, 'Times New Roman', Times, serif">
+                    
+                    <h6 >Email</h6>
+                    <input type="email" class="email-imput form-control" style="margin-top:10px;" 
+                       required placeholder="Email" minlength="6" />
+                      <br>
+                    <h6>Contraseña</h6>
+                      <input type="password" class="password-input form-control"
+                      style="margin-top:10px;" required placeholder="Contraseña" minlength="6" />
+                  </div>&nbsp;
                   <div class="submit-row" style="margin-bottom:8px;padding-top:0px;"><a
                       class="btn btn-primary btn-block box-shadow" role="button" id="submit-id-submit"
                       [routerLink]="['/']" routerLinkActive="router-link-active"

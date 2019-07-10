@@ -10,6 +10,7 @@
       <div align="center">
           <p style="color: white">Juan Perez  </p>
       </div>   &nbsp;
+       
       
       
       <ul class="list-unstyled components">
@@ -26,8 +27,6 @@
           </ul> 
        </li>
        <li> <a [routerLink]="['/administrador/registrarEmpleado']"><i class="fas fa-users"></i><span>Registrar empleados</span> </a> </li>
-
-       <li> <a [routerLink]="['/home']"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span> </a> </li>
 
       </ul>
     </nav>
@@ -59,11 +58,11 @@
            
            </li>
          </ul>
-         <ul class="navbar-nav ml-auto">
-            <div>
-                <p style="color: black">Juan Perez  </p>
-            </div>   &nbsp;
-          <img src="../../../assets/man.png" width="50px">                          
+         <ul class="navbar-nav ml-auto" style="display: block">
+            
+          <img src="../../../assets/man.png" width="50px"> &nbsp; &nbsp; 
+          
+          <a [routerLink]="['/admin']"><i class="fas fa-sign-out-alt"></i><span>Cerrar Sesión</span> </a>
          </ul>
        </div>
 
