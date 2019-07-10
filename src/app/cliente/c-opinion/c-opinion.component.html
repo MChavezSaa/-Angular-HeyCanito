@@ -18,22 +18,54 @@
 
         <div class="col-sm-8">
             <div class="mb-4">
-              <legend>Nombre usuario</legend>
+              <legend>Nombre usuario (*)</legend>
               <input formControlName="nombreUsuario" class="form-control " placeholder="Ingrese nombre usuario">
+              <div *ngIf="formOpinion.get('nombreUsuario').errors && (formOpinion.get('nombreUsuario').touched 
+                        || formOpinion.get('nombreUsuario').dirty)" class="alert alert-danger"> El nombre de usuario es
+                obligatorio
+              </div>
             </div>
 
             <div class="mb-4">
               <legend>Comentarios</legend>
               <textarea formControlName="comentario" class="form-control "
-                placeholder="Ingrese un máximo de 2500 caracteres"></textarea>
+                placeholder="Ingrese un máximo de 2500 caracteres">
+              </textarea>
+              <div *ngIf="formOpinion.get('comentario').errors && (formOpinion.get('comentario').touched 
+                                  || formOpinion.get('comentario').dirty)" class="alert alert-danger"> Debes ingresar un comentario
+                para poder guardar
+              </div>
             </div>
             <div class="right" style="text-align: right">
-              <button type="button" class="btn btn-warning" [routerLink]="['/']" style="width: 15%">Atrás </button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalSalir" style="width: 15%">Atrás </button>
               &nbsp;
-              <button type="submit" class="btn btn-danger" style="width: 15%">Guardar</button>
+              <button type="submit" [disabled]="!formOpinion.valid"  class="btn btn-warning" style="width: 15%">Guardar</button>
             </div>
           <br>
         </div>
      </div>  
 </form>
 </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalSalir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Salir de Opiniones</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro que deseas salir de opiniones ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal" [routerLink]="['/']">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
