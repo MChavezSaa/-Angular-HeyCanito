@@ -6,6 +6,7 @@ import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
 import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente';
 import { IRegistrarEmpleado } from '../administrador/registrar-empleado/IRegistrarEmpleado';
+import { IPedido } from '../administrador/pedido/IPedido';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,15 @@ export class ProductoService {
   public opinion: IOpinion[];
 
   constructor(private http: HttpClient) { }
+
+
+  savePedido(empleado: IPedido){
+    return this.http.post<IPedido[]>('http://localhost:3005/pedido', empleado);
+  }
+  getPedido(): Observable<IPedido[]> {
+    return this.http.get<IPedido[]>('http://localhost:3005/pedido').pipe(map((res: any) => res.data));
+  }
+
 
   saveEmpleado(empleado: IRegistrarEmpleado){
     return this.http.post<IRegistrarEmpleado[]>('http://localhost:3005/empleado', empleado);
