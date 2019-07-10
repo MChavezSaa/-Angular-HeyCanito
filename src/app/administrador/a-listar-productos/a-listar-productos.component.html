@@ -47,7 +47,7 @@
                 <td>{{prod.cantidad_personas}}</td>
                 <td>{{prod.tiempo_produccion}}</td>
                 <td>
-                  <button type="button" class="btn btn-danger">
+                  <button type="button" class="btn btn-danger" (click)="deleteProduct(prod.id)">
                     <i class="far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
                   </button>&nbsp;
                   <button type="button" class="btn btn-warning">
