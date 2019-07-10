@@ -59,6 +59,14 @@ const routes:Routes=[
       {
         path:'login',
         component:CLoginComponent
+      },
+      {
+        path: 'registroCliente',
+        component: CRegistrarClienteComponent
+      },
+      {
+        path: 'login',
+        component: CLoginComponent
       }
     ]
   },
@@ -109,6 +117,14 @@ const routes:Routes=[
       {
         path: 'opinion',
         component: COpinionComponent
+      },
+      {
+        path: 'registroCliente',
+        component: CRegistrarClienteComponent
+      },
+      {
+        path: 'login',
+        component: CLoginComponent
       }
     ]
   }

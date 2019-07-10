@@ -39,7 +39,7 @@
                   <select formControlName="categoria" class="form-control">
                     <option selected>Seleccione una categoria</option>
                     <option>Tortas</option>
-                    <option>Panaderia</option>
+                    <option>Panadería</option>
                     <option>Empanadas</option>
                   </select>
                   <div *ngIf="formProduct.get('categoria').errors && (formProduct.get('categoria').touched 
@@ -106,14 +106,7 @@
                 <button type="submit" [disabled]="!formProduct.valid" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
               </div>
               <!--Fin Botones-->
-
-
-
             </form>
-
-
-
-
           </div>
         </div>
       </div>

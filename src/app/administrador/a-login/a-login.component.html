@@ -1,5 +1,8 @@
 <div class="row">
     <div class="col-4">
+
+    </div>
+    <div class="col-4">
         <div align="center">
             <div class="container">
                 <div class="row">
@@ -26,43 +29,41 @@
                                             id="submit-id-submit" [routerLink]="['/administrador/vacio']"
                                             routerLinkActive="router-link-active"
                                             style="background-color: #ff8000;font-size: 20px;padding-top: 5px;">Ingresar</a>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="form-check form-check-inline" id="form-check-rememberMe"><input
-                                                    class="form-check-input" type="checkbox" id="formCheck-1"
-                                                    for="remember" style="cursor:pointer;" name="check" /><label
-                                                    class="form-check-label" for="formCheck-1"><span
-                                                        class="label-text">Recuérdame</span></label>
+                                        <div class="d-flex justify-content-between" style="padding-top: 20px">
+                                            <div class="form-check form-check-inline" id="form-check-rememberMe" >
+                                                <input  class="form-check-input" type="checkbox" id="formCheck-1"
+                                                    for="remember" style="cursor:pointer;" name="check" />
+                                               <label class="form-check-label" for="formCheck-1">
+                                                    <span class="label-text">Recuérdame</span>
+                                                </label>
                                             </div>
                                             <a id="forgot-password-link" href="ErrorCanito.html">¿Olvidaste tu
                                                 contraseña?</a>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center login-box-seperator-container">
-                                        <div class="login-box-seperator"></div>
-                                        <div class="login-box-seperator-text">
-                                            <p
-                                                style="margin-bottom:0px;padding-left:10px;padding-right:10px;font-weight:400;color:rgb(201,201,201);">
-                                                También puedes</p>
+                                    
+                                    <div class="login-box-content" style="padding-top: 20px">
+                                        <div class="social-login">
+                                            <button class="btn facebook-btn social-btn" type="button" 
+                                                style="background: #0000CD; color: white; width: 100%"><span>
+                                                <i class="fab fa-facebook-f"></i> Ingresa con Facebook</span> 
+                                            </button>
                                         </div>
-                                        <div class="login-box-seperator"></div>
-                                    </div>
-                                    <div class="login-box-content">
-                                        <div class="fb-login box-shadow"><a
-                                                class="d-flex flex-row align-items-center social-login-link"
-                                                href="ErrorCanito.html"><i class="fa fa-facebook"
-                                                    style="margin-left:0px;padding-right:20px;padding-left:22px;width:56px;"></i>Ingresa
-                                                con Facebook</a></div>
-                                        <div class="gp-login box-shadow"><a
-                                                class="d-flex flex-row align-items-center social-login-link"
-                                                style="margin-bottom:10px;" href="ErrorCanito.html"><i
-                                                    class="fa fa-google"
-                                                    style="color:rgb(255,255,255);width:56px;"></i>Ingresa con Gmail</a>
+                                        
+                                        <div class="social-login" style="padding-top: 10px">
+                                            <button class="btn google-btn social-btn" type="button" 
+                                                style="background: #FF0000; color: white; width: 100%"><span>
+                                                <i class="fab fa-google-plus-g"></i> Ingresa con Google+</span> 
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="d-flex d-xl-flex justify-content-xl-center" id="login-box-footer"
-                                        style="padding: 10px 20px;padding-bottom: 78px;padding-top: 0px;"><a href="#"
+                                        style="padding: 10px 20px;padding-bottom: 10px;padding-top: 0px;">
+                                        <a  [routerLink]="['/home/registroCliente']" 
                                             style="color: #ff8000;font-size: 20px;"><br />¿No tienes una cuenta?
-                                            Regístrate<br /></a></div>
+                                            Regístrate<br />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -71,8 +72,4 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
-        <app-c-registrar-cliente></app-c-registrar-cliente>
-    </div>
-
 </div>
