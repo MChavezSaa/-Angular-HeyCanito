@@ -29,7 +29,7 @@ export class ProductoService {
     return this.http.post<Iproduct[]>('http://localhost:3005/producto', product);
   }
   deleteProduct(id){
-    return this.http.delete('http://localhost:3000/producto/'+ id );
+    return this.http.delete('http://localhost:3005/producto/'+ id );
   }
   updateProduct(id, product){
     return this.http.put('http://localhost:3000/producto/'+ id, product);
