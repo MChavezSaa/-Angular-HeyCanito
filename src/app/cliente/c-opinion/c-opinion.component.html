@@ -1,36 +1,39 @@
 <!--MIGAS DE PAN-->
-  <nav aria-label="breadcrumb ">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a [routerLink]="['/']" href="#" style="color: #ff8000;">Inicio</a></li>
-      <li class="breadcrumb-item active" style="color: #ff0000;">Opiniones</li>
-    </ol>
-  </nav>
+<nav aria-label="breadcrumb ">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/']" href="#" style="color: #ff8000;">Inicio</a></li>
+    <li class="breadcrumb-item active" style="color: #ff0000;">Opiniones</li>
+  </ol>
+</nav>
 <!--FIN MIGAS DE PAN-->
 
 <div class="container">
+  <form [formGroup]="formOpinion" (ngSubmit)="saveData()" novalidate>
+    <div class="row">
 
-  <div class="row">
+      <div class="col-sm-4">
+        <img src="../../../assets/opinion.JPG" width="100%">
+      </div>
 
-        <div class="col-sm-4">
-          <img src="../../../assets/opinion.JPG" width="100%">
+
+        <div class="col-sm-8">
+            <div class="mb-4">
+              <legend>Nombre usuario</legend>
+              <input formControlName="nombreUsuario" class="form-control " placeholder="Ingrese nombre usuario">
+            </div>
+
+            <div class="mb-4">
+              <legend>Comentarios</legend>
+              <textarea formControlName="comentario" class="form-control "
+                placeholder="Ingrese un máximo de 2500 caracteres"></textarea>
+            </div>
+            <div class="right" style="text-align: right">
+              <button type="button" class="btn btn-warning" [routerLink]="['/']" style="width: 15%">Atrás </button>
+              &nbsp;
+              <button type="submit" class="btn btn-danger" style="width: 15%">Guardar</button>
+            </div>
+          <br>
         </div>
-
-    <div class="col-sm-8">
-      <div class="mb-4">
-        <legend>Nombre usuario</legend>
-        <input class="form-control " placeholder="Ingrese nombre usuario">
-      </div>
-    
-      <div class="mb-4">
-        <legend>Comentarios</legend>
-        <textarea class="form-control " placeholder="Ingrese un máximo de 2500 caracteres" ></textarea>
-      </div>
-      <div class="right" style="text-align: right">
-        <button type="button" class="btn btn-warning" [routerLink]="['/']" style="width: 15%">Atrás </button>
-        &nbsp;
-        <button type="submit" class="btn btn-danger" style="width: 15%">Guardar</button>
-      </div>
-      <br>
-    </div>
-  </div>
+     </div>  
+</form>
 </div>

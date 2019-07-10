@@ -14,7 +14,7 @@ export class CBolsaComponent implements OnInit {
   constructor(public productService: ProductoService) { }
   bolsa: boolean =false;
   producto: Iproduct[];
-  
+
 
   ngOnInit() {
     this.producto = this.productService.bolsa;
