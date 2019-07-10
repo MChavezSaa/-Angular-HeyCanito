@@ -1,32 +1,33 @@
+<nav aria-label="breadcrumb">
+  <!--MIGAS DE PAN-->
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
+    <li class="breadcrumb-item active" style="color: #ff0000">Bolsa</li>
+  </ol>
+</nav>
+
 <body>
-  <div>
-    <h4>Bolsa de Compras</h4>
-  </div>
-  <div class="col-12">
-    <br>
-  </div>
   <hr>
   <div class="col-3" style="text-align:right; font-style:oblique">
     <h2>Bolsa de Compras</h2>
-  </div> 
-  <hr> 
+  </div>
+  <hr>
   <div *ngIf="productService.bolsa.length">
     <div class="col-12">
       <div class="card">
         <div class="card-body">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">             
-                <div class="gift row" *ngFor="let bolsa of productService.bolsa">  
-                    <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>           
-                  <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.imagen' height="100%"
-                      width="100%" /></div>
-                  <div class="gift__info col-sm-9 col-12" >
+              <div class="col-md-12">
+                <div class="gift row" *ngFor="let bolsa of productService.bolsa">
+                  <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
+                  <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.imagen' height="100%" width="100%" /></div>
+                  <div class="gift__info col-sm-9 col-12">
                     <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
                     <div class="gift__details">
                       <p><br />{{bolsa.descripcion}}<br /><br /></p>
-                        <p>Cantidad: </p>
-                        <input type="number" value={{bolsa.cantidad_personas}} >
+                      <p>Cantidad: </p>
+                      <input type="number" value={{bolsa.cantidad_personas}}>
                     </div>
                     <div class="gift__bottom row">
                       <div class="gift__price-wrap col-12 col-sm-6">
@@ -45,7 +46,7 @@
     </div>
     <br>
     <div class="col-10" align="right">
-      <button  type="button" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Pagar</button>    
+      <button type="button" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Pagar</button>
     </div>
     <br>
   </div>
