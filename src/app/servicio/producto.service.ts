@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
-//commit para merge
 @Injectable({
   providedIn: 'root'
 })
