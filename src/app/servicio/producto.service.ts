@@ -67,7 +67,14 @@ export class ProductoService {
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
   }
-
+  login(email, password){
+    let userLogin = { email: email, password: password};
+    return this.http.post('http://localhost:3005/login', userLogin).pipe(map((res:any)=>{
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('usuario', JSON.stringify(res.usuario));
+      return res;
+    }))
+  }
  
 
 }

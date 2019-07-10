@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ProductoService } from '../../servicio/producto.service';
 
 
 @Component({
@@ -7,11 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./c-login.component.css']
 })
 export class CLoginComponent implements OnInit {
-
-  constructor() { }
+  formLogin: FormGroup;
+  constructor(private FormBuilder: FormBuilder,public productService: ProductoService) {
+    this.formLogin = this.FormBuilder.group({
+      user: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
+   }
 
   ngOnInit() {
   }
-
+  login() {
+    console.log(this.formLogin.value.email);
+    console.log(this.formLogin.value.password);
+    this.productService.login(this.formLogin.value.user,
+      this.formLogin.value.password)
+      .subscribe((res: any[]) => {
+        console.log(res)
+        err => console.log(err)
+      });
+      
+  }
  }
 
