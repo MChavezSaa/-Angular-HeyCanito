@@ -22,43 +22,70 @@
         </div>
       </div>
       <div class="row" >
-        <div class="col-md-12">
-          <table id="example" class="table table-striped table-bordered" 
-            width="100%" >
-            <thead>
-              <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Descripción</th>
-                <th>Categoría</th>
-                <th>Cantidad de personas</th>
-                <th>Tiempo producción</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let prod of productoService.products">
-              <tr style="text-align: center">
-                <td> <img [src]="'../../assets/carnQueso.jpg'" style="width:40px"></td>
-                <td>{{prod.nombre}}</td>
-                <td>{{prod.precio}}</td>
-                <td>{{prod.descripcion}}</td>
-                <td>{{prod.categoria}}</td>
-                <td>{{prod.cantidad_personas}}</td>
-                <td>{{prod.tiempo_produccion}}</td>
-                <td>
-                  <button type="button" class="btn btn-danger" (click)="deleteProduct(prod.id)">
-                    <i class="far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                  </button>&nbsp;
-                  <button type="button" class="btn btn-warning">
-                    <i class="fas fa-pencil-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-md-12" >
+          <div class="table-responsive">
+            <table id="example" class="table table-striped table-bordered" width="100%">
+              <thead>
+                <tr style="text-align: center">
+                  <th style="vertical-align: middle">Imagen</th>
+                  <th style="vertical-align: middle">Nombre</th>
+                  <th style="vertical-align: middle">Precio</th>
+                  <th style="vertical-align: middle">Descripción</th>
+                  <th style="vertical-align: middle">Categoría</th>
+                  <th style="vertical-align: middle">Cantidad de personas</th>
+                  <th style="vertical-align: middle">Tiempo producción</th>
+                  <th style="vertical-align: middle">Acciones</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let prod of productoService.products">
+                <tr style="text-align: center">
+                  <td style="vertical-align: middle"> <img [src]='prod.imagen' style="width:50px"></td>
+                  <td style="vertical-align: middle">{{prod.nombre}}</td>
+                  <td style="vertical-align: middle">{{prod.precio}}</td>
+                  <td style="vertical-align: middle">{{prod.descripcion}}</td>
+                  <td style="vertical-align: middle">{{prod.categoria}}</td>
+                  <td style="vertical-align: middle">{{prod.cantidad_personas}}</td>
+                  <td style="vertical-align: middle">{{prod.tiempo_produccion}}</td>
+                  <td style="vertical-align: middle">
+                    <div style="width: 100px" >
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar">
+                        <i class="far fa-trash-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                      </button>&nbsp;
+                      <button type="button" class="btn btn-warning">
+                        <i class="fas fa-pencil-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </body>
+<div *ngFor="let prod of productoService.products">
+  <!-- Modal -->
+  <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Productos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro que deseas eliminar el producto {{prod.nombre}} ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteProduct(prod.id)" 
+          [routerLink]="['/administrador/listarProductos']" data-dismiss="modal">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
