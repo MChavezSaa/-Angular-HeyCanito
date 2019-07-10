@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { IRegistroCliente } from './IRegitroCliente';
-import { registroService } from 'src/app/servicio/registro.service';
 import { ProductoService } from 'src/app/servicio/producto.service';
 
 @Component({
@@ -22,8 +21,8 @@ export class CRegistrarClienteComponent implements OnInit {
     this.Registroform = this.formBuilder.group({
       nombres: ['', [Validators.required]],
       rut: ['', [Validators.required]],
-      apellido_paterno: ['', [Validators.required]],
-      apellido_materno: ['', [Validators.required]],
+      ap_paterno: ['', [Validators.required]],
+      ap_materno: ['', [Validators.required]],
       email: ['', [Validators.required]],
       contraseña: ['', [Validators.required]]
     });

@@ -1,8 +1,8 @@
 export interface IRegistroCliente {
     nombres: string,
     rut: string,
-    apellido_paterno:string,
-    apellido_materno: string,
+    ap_paterno:string,
+    ap_materno: string,
     email: string,
     contraseña: string
 }
