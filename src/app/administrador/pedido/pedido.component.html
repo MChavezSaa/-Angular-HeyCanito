@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Formulario de pedido</h2>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <form [formGroup]="formProduct" (ngSubmit)="saveData()" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <!--Nombre producto-->
+                    <div class="form-group">
+                        <h6>Modo de entrega</h6>
+                        <select formControlName="modo_entrega" class="form-control">
+                          <option selected>Seleccione un metodo</option>
+                          <option>retiro local</option>
+                          <option>despacho domicilio</option>
+                        </select>
+                        <div *ngIf="formProduct.get('modo_entrega').errors && (formProduct.get('modo_entrega').touched 
+                        || formProduct.get('modo_entrega').dirty)" class = "alert alert-danger">El modo de entrega es obligatorio
+                        </div>
+                    </div>
+                    <!--Fin Nombre producto-->
+                  </div>
+
+                  <div class="col-md-6">
+                    <!-- Subir imagen-->
+                    <div class="col-md-6">
+                        <!--Seleccionar categoria-->
+                        <h6>Metodo de pago</h6>
+                        <select formControlName="metodo_pago" class="form-control">
+                          <option selected>Seleccione un metodo</option>
+                          <option>Debito</option>
+                          <option>Credito</option>
+                        </select>
+                        <div *ngIf="formProduct.get('metodo_pago').errors && (formProduct.get('metodo_pago').touched 
+                        || formProduct.get('metodo_pago').dirty)" class="alert alert-danger">Ingrese metodo de pago
+                              </div>
+                        <!--Fin seleccionar categoria-->
+                      </div>
+                    <!-- fin Subir imagen-->
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6">
+                    <!--Seleccionar categoria-->
+                    <h6 for="direccion">Direccion</h6>
+                      <input formControlName="direccion" class="form-control" type="text"
+                        placeholder="Ingrese direccion ">
+                        <div *ngIf="formProduct.get('direccion').errors && (formProduct.get('direccion').touched 
+                        || formProduct.get('direccion').dirty)" class = "alert alert-danger">La direccion es obligatorio
+                        </div>              
+                    <!--Fin seleccionar categoria-->
+                  </div>                 
+                </div>      
+  
+                <!--Botones-->
+                <div class="col-md-12" style="text-align: right">
+                  <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                  <button type="submit" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
+                </div>
+                <!--Fin Botones-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
