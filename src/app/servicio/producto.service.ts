@@ -22,7 +22,7 @@ export class ProductoService {
     return this.http.get<Iproduct[]>('http://localhost:3005/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
   }
   saveProduct(product: Iproduct){
-    return this.http.post<Iproduct[]>('http://localhost:3000/producto', product);
+    return this.http.post<Iproduct[]>('http://localhost:3005/producto', product);
   }
   deleteProduct(id){
     return this.http.delete('http://localhost:3000/producto/'+ id );
