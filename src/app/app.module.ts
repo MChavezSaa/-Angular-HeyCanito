@@ -47,7 +47,7 @@ const routes:Routes=[
         component:CBolsaComponent
       },
       {
-        path:'detalleProducto',
+        path:'catalogo/detalleProducto/:id',
         component:CDetalleProductoComponent
       },
       {

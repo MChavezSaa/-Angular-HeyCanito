@@ -23,6 +23,9 @@ export class ProductoService {
     console.log(categoria);
     return this.http.get<Iproduct[]>('http://localhost:3005/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
   }
+  getProductoID( id:string): Observable<Iproduct[]> {
+    return this.http.get<Iproduct[]>('http://localhost:3005/producto/'+ id).pipe(map((res: any) => res.data));
+  }
   saveProduct(product: Iproduct){
     return this.http.post<Iproduct[]>('http://localhost:3005/producto', product);
   }
