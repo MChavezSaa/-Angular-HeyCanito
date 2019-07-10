@@ -39,12 +39,13 @@
               </thead>
               <tbody *ngFor="let prod of productoService.products">
                 <tr style="text-align: center">
-                  <td style="vertical-align: middle"> <img [src]='prod.imagen' style="width:50px"></td>
+
+                  <td style="vertical-align: middle"> <img style="width:50px" [src]="prod.imagen | default:'../../../assets/product-default.jpg'"></td>
                   <td style="vertical-align: middle">{{prod.nombre}}</td>
                   <td style="vertical-align: middle">{{prod.precio}}</td>
                   <td style="vertical-align: middle">{{prod.descripcion}}</td>
                   <td style="vertical-align: middle">{{prod.categoria}}</td>
-                  <td style="vertical-align: middle">{{prod.cantidad_personas}}</td>
+                  <td style="vertical-align: middle">{{prod.cantidad_personas }}</td>
                   <td style="vertical-align: middle">{{prod.tiempo_produccion}}</td>
                   <td style="vertical-align: middle">
                     <div style="width: 100px" >
