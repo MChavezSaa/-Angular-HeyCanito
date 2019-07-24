@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ProductoService } from '../../servicio/producto.service';
+import {Router} from '@angular/router';
+import {AuthService} from '../auth/auth.service';
+import {User} from '../user';
+
 
 
 @Component({
@@ -9,25 +13,25 @@ import { ProductoService } from '../../servicio/producto.service';
   styleUrls: ['./c-login.component.css']
 })
 export class CLoginComponent implements OnInit {
+
   formLogin: FormGroup;
-  constructor(private FormBuilder: FormBuilder,public productService: ProductoService) {
-    this.formLogin = this.FormBuilder.group({
-      user: ['', [Validators.required]],
+  constructor(private authService: AuthService, private router: Router,
+              private formBuilder: FormBuilder,
+              public productService: ProductoService) {
+    this.formLogin = this.formBuilder.group({
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
-   }
+   } 
 
   ngOnInit() {
   }
-  login() {
-    console.log(this.formLogin.value.email);
-    console.log(this.formLogin.value.password);
-    this.productService.login(this.formLogin.value.user,
-      this.formLogin.value.password)
-      .subscribe((res: any[]) => {
-        console.log(res)
-        err => console.log(err)
+
+  login(form: { value: any; }): void {
+      this.authService.login(form.value).subscribe(res => {
+        this.router.navigateByUrl('/home');
       });
   }
+
  }
 

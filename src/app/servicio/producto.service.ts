@@ -59,7 +59,7 @@ export class ProductoService {
     return this.http.delete('http://localhost:3005/producto/'+ id );
   }
   updateProduct(id, product){
-    return this.http.put('http://localhost:3000/producto/'+ id, product);
+    return this.http.put('http://localhost:3005/producto/'+ id, product);
   }
 
   getOpinion(): Observable<IOpinion[]> {
@@ -86,14 +86,17 @@ export class ProductoService {
     this.bolsa.push(datos);
     console.log(this.bolsa.toString);
   }
-  login(email, password){
-    let userLogin = { email: email, password: password};
+  login(email: string, password:string){
+    let userLogin ={
+      Email: email,
+      password: password
+    }
     return this.http.post('http://localhost:3005/login', userLogin).pipe(map((res:any)=>{
       localStorage.setItem('token', res.token);
       localStorage.setItem('usuario', JSON.stringify(res.usuario));
       return res;
     }))
   }
- 
 
+  
 }
