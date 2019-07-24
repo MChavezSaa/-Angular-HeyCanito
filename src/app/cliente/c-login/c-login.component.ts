@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ProductoService } from '../../servicio/producto.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
-import {User} from '../user';
 
 
 
@@ -29,9 +28,8 @@ export class CLoginComponent implements OnInit {
 
   login(form: { value: any; }): void {
       this.authService.login(form.value).subscribe(res => {
-        this.router.navigateByUrl('/home');
+         this.router.navigateByUrl('/home');
       });
   }
-
  }
 

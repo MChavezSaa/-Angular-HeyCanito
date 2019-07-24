@@ -21,7 +21,7 @@ export class AuthService {
       (res: IJwtResponse)=>{
         if(res){
           //guardar token  email==user
-          this.saveToken(res.email, res.accessToken);
+          this.saveToken(res.token, user.email);
         }
       })
     );
@@ -30,18 +30,35 @@ export class AuthService {
   logout(){
     this.token='';
     localStorage.removeItem("ACCESS_TOKEN");
-    localStorage.removeItem("EXPIRES_IN");
+    localStorage.removeItem("USER");
   }
-  private saveToken(EMAIL:string, expiresIn: string):void {
-    localStorage.setItem("ACCESS_TOKEN", EMAIL);
-    localStorage.setItem("EXPIRES_IN", expiresIn);
-    this.token= EMAIL;
+
+
+
+  private saveToken(token:string, user: string):void {
+    localStorage.setItem("ACCESS_TOKEN", token);
+    localStorage.setItem("USER", user);
+    this.token= token;
   }
-  private getToken(): string{
+
+
+  
+  public getToken(): string{
     if(!this.token){
       this.token = localStorage.getItem("ACCCESS_TOKEN");
     }
     return this.token;
   }
+  
+public getne(): boolean{
+  if(localStorage.getItem('USER')!= null){
+    console.log('entro a token');
+   // this.logout();
+    return true;
+  }else{
+    console.log('su puta madre');
+    return false;
+  }
+}
 
 }
