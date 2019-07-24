@@ -1,3 +1,58 @@
-<p>
-  a-login works!
-</p>
+<div class="row">
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+        <div align="center">
+            <div class="container" style="padding-top: 10%">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col">
+                                <div class="d-flex flex-column justify-content-center" id="login-box">
+                                    <div class="d-xl-flex justify-content-xl-center" style="margin: 42px;"><img
+                                            src="https://scontent.fpmc1-1.fna.fbcdn.net/v/t1.0-9/66209556_10220005048936664_1558829852910419968_n.jpg?_nc_cat=109&_nc_oc=AQkn9yWaaTgF_Kq2o_RoO5uIhKi3idgYHql2oQhLdTLBp2QYvn5znUv-xK7tEbKZDJk&_nc_ht=scontent.fpmc1-1.fna&oh=d8dbdb26224f01564382a585d3129061&oe=5DB1E4AE" />
+                                    </div>
+                                    <hr style="width: 100%;margin-bottom: 3px;margin-top: 0px;" />
+                                    <div class="login-box-header">
+                                        <h4
+                                            style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
+                                            Inicio Sesión</h4>
+                                    </div>
+                                    <div class="email-login"
+                                        style="background-color:#ffffff; padding-top: 10px; text-align: left; font-family: Georgia, 'Times New Roman', Times, serif">
+                                    
+                                        <h6>Nombre Usuario</h6>
+                                        <input type="text" class="form-control" style="margin-top:10px;" required placeholder="Nombre usuario"
+                                            minlength="6" />
+                                        <br>
+                                        <h6>Contraseña</h6>
+                                        <input type="password" class="password-input form-control" style="margin-top:10px;" required
+                                            placeholder="Contraseña" minlength="6" />
+                                    </div>&nbsp;&nbsp;
+                                    <div class="submit-row" style="margin-bottom:8px;padding-top:0px;"><a
+                                            class="btn btn-warning btn-block box-shadow" role="button"
+                                            id="submit-id-submit" [routerLink]="['/administrador/vacio']"
+                                            routerLinkActive="router-link-active"
+                                            style="background-color: #ff8000;font-size: 20px;padding-top: 5px;">Ingresar</a>
+                                        <div class="d-flex justify-content-between" style="padding-top: 20px">
+                                            <div class="form-check form-check-inline" id="form-check-rememberMe" >
+                                                <input  class="form-check-input" type="checkbox" id="formCheck-1"
+                                                    for="remember" style="cursor:pointer;" name="check" />
+                                               <label class="form-check-label" for="formCheck-1">
+                                                    <span class="label-text">Recuérdame</span>
+                                                </label>
+                                            </div>
+                                            <a id="forgot-password-link" href="ErrorCanito.html">¿Olvidaste tu
+                                                contraseña?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

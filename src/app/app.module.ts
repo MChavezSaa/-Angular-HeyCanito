@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-
 import { AppComponent } from './app.component';
+import { DefaultPipe } from './image.pipe';
 import { CHomeComponent } from './cliente/c-home/c-home.component';
 import { CFooterComponent } from './cliente/c-footer/c-footer.component';
 import { CNavbarComponent } from './cliente/c-navbar/c-navbar.component';
@@ -23,6 +23,12 @@ import { CLoginComponent } from './cliente/c-login/c-login.component';
 import { CRegistrarClienteComponent } from './cliente/c-registrar-cliente/c-registrar-cliente.component';
 import { ClienteComponent} from './cliente/cliente.component';
 import { AdministradorComponent} from './administrador/administrador.component';
+import { AHomeComponent } from './administrador/a-home/a-home.component';
+import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
+import { RegistroFormComponent } from './administrador/a-login/registro-form/registro-form.component';
+import { RegistrarEmpleadoComponent } from './administrador/registrar-empleado/registrar-empleado.component';
+import { PedidoComponent } from './administrador/pedido/pedido.component';
+
 
 const routes:Routes=[
    //-------------------- RUTAS CLIENTE---------------------------
@@ -46,7 +52,7 @@ const routes:Routes=[
         component:CBolsaComponent
       },
       {
-        path:'detalleProducto',
+        path:'catalogo/detalleProducto/:id',
         component:CDetalleProductoComponent
       },
       {
@@ -56,15 +62,35 @@ const routes:Routes=[
       {
         path:'login',
         component:CLoginComponent
+      },
+      {
+        path: 'registroCliente',
+        component: CRegistrarClienteComponent
+      },
+      {
+        path: 'loginAdm',
+        component: ALoginComponent
       }
     ]
   },
   //-------------------- RUTAS ADMINISTRADOR---------------------------
-  {path: 'adm', component:ALoginComponent},
+  {path: 'admin', component:ALoginComponent},
   {path: 'administrador', component: AdministradorComponent,
     children:[
       {
         path: '',
+        component: AHomeComponent
+      },
+      {
+        path: 'vacio',
+        component: VacioComponent
+      },
+      {
+        path: 'registrarEmpleado',
+        component: RegistrarEmpleadoComponent
+      },
+      {
+        path: 'homeCliente',
         component: CHomeComponent
       },
       {
@@ -98,9 +124,25 @@ const routes:Routes=[
       {
         path: 'opinion',
         component: COpinionComponent
+      },
+      {
+        path: 'registroCliente',
+        component: CRegistrarClienteComponent
+      },
+      {
+        path: 'pedido',
+        component: PedidoComponent
+      },
+      {
+        path: 'login',
+        component: CLoginComponent
+      },
+      {
+        path: 'loginAdm',
+        component: ALoginComponent
       }
     ]
-  }
+  },
 ];
 
 
@@ -117,6 +159,7 @@ const routes:Routes=[
     CDetalleProductoComponent,
     COpinionComponent,
     AFooterComponent,
+    DefaultPipe,
     AListarProductosComponent,
     ANavbarComponent,
     AAprobarPedidosComponent,
@@ -125,7 +168,12 @@ const routes:Routes=[
     CLoginComponent,
     CRegistrarClienteComponent,
     ClienteComponent,
-    AdministradorComponent
+    AdministradorComponent,
+    AHomeComponent,
+    VacioComponent,
+    RegistroFormComponent,
+    RegistrarEmpleadoComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,
@@ -133,8 +181,12 @@ const routes:Routes=[
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
+    
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

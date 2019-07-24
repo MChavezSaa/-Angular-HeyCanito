@@ -10,15 +10,16 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let product of productService.products">
       <div class="card">
-        <img [src]="product.imagen" class="card-img-top" height=300>
+        <a (click)="redireccionProducto(product.id)"><img [src]="product.imagen" class="card-img-top" height=300> </a>
         <div class="card-body">
-          <h5 class="card-title">{{product.nombre}}</h5>
+            <a (click)="redireccionProducto(product.id)"> <h5 class="card-title">{{product.nombre}}</h5></a>
           <div class="row">
-            <div class="col">
+              <a (click)="redireccionProducto(product.id)"> <div class="col">
               <p class="card-text">{{product.precio | currency:'USD':true:'2.0-3'}}</p>
-            </div>
+            </div></a>
             <div class="col">
-              <a href="#" class="btn btn-primary" id="boton">Carrito</a>
+              <a class="btn btn-primary" [routerLink]="['/home/bolsa']" (click)="productService.agregarProducto(product)" id="boton"> Agregar al
+                Carrito</a>
             </div>
           </div>
         </div>

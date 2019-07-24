@@ -1,27 +1,33 @@
-<body>
+<nav aria-label="breadcrumb">
+  <!--MIGAS DE PAN-->
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catalogo</a></li>
+    <li class="breadcrumb-item active" style="color: #ff0000">Detalle Producto</li>
+  </ol>
+</nav>
 
-
- 
+<body><hr>
   <div class="container">
     <h1 class="text-center">Detalle Producto</h1>
-    <div class="row">
+    <div class="row" *ngFor="let product of productService.products">
       <div class="col-md-7">
-        <div class="row">
+        <div class="row"><br>
           <div class="col-md-12 " style="text-align: center;"><img class="img-thumbnail img-fluid imagen1"
-              src="../assets/mil_hojas_web_2000x.jpg"></div>
+              [src]="product.imagen"></div>
         </div>
         <div class="row">
           <div class="col-6 col-sm-6 col-md-6"  style="text-align: center;"><img class="img-thumbnail img-fluid center-block imagen2"
-              src="../assets/descarga.jpg"></div>
+            [src]="product.imagen"></div>
           <div class="col-6 col-sm-6 col-md-6"  style="text-align: center;"><img class="img-thumbnail img-fluid center-block imagen2"
-              src="../assets/descarga.jpg"></div>
+            [src]="product.imagen"></div>
         </div>
-      </div>
-      <div class="col-md-5">
-        <h2>Producto.nombreproducto</h2>
-        <p>Producto.descripcion</p>
-        <h2 class="text-center text-success"><i class="fa fa-dollar"></i>&nbsp;Producto.precio</h2>
-        <button class="btn btn-danger btn-lg center-block" type="button">
+      </div><br>
+      <div class="col-md-5"><br>
+        <h2>{{product.nombre}}</h2><br>
+        <p>{{product.descripcion}}</p><br>
+        <h2 class="text-left text-success">Precio: {{product.precio | currency:'CLP '}}</h2><br>
+        <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button" (click)="productService.agregarProducto(product)">
           <i class="fa fa-cart-plus"></i>
           Añadir al Carrito</button>
       </div>

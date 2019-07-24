@@ -1,3 +1,79 @@
-<p>
-  c-login works!
-</p>
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <div align="center">
+      <div class="container">
+        <div class="row">
+          <div class="card">
+            <div class="card-body">
+              <div class="col">
+                <div class="d-flex flex-column justify-content-center" id="login-box">
+                  <div class="d-xl-flex justify-content-xl-center"><img
+                      src="https://scontent.fpmc1-1.fna.fbcdn.net/v/t1.0-9/66209556_10220005048936664_1558829852910419968_n.jpg?_nc_cat=109&_nc_oc=AQkn9yWaaTgF_Kq2o_RoO5uIhKi3idgYHql2oQhLdTLBp2QYvn5znUv-xK7tEbKZDJk&_nc_ht=scontent.fpmc1-1.fna&oh=d8dbdb26224f01564382a585d3129061&oe=5DB1E4AE" />
+                  </div>
+                  <hr style="width: 100%;margin-bottom: 3px;margin-top: 0px;" />
+                  <div class="login-box-header">
+                    <h4
+                      style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
+                      Inicio Sesión</h4>
+                  </div>
+                  <form [formGroup]="formLogin" (ngSubmit)="login()" novalidate>                 
+                     <div  class="email-login" style="background-color:#ffffff;">
+                      <div class="form-group">
+                          <input type="email" formControlName="email" class="email-imput form-control" style="margin-top:10px;" required placeholder="Email"
+                          minlength="6" />
+                          <input type="password" formControlName="password" class="password-input form-control" style="margin-top:10px;" required placeholder="Contraseña" minlength="6" />
+                      </div>                      
+                      </div>&nbsp;
+                  </form>
+                  <!-- boton submit-->
+                      <div class="submit-row" style="margin-bottom:8px;padding-top:0px;"><a
+                      class="btn btn-primary btn-block box-shadow" role="button" id="submit-id-submit"
+                      [routerLink]="['/']" routerLinkActive="router-link-active"
+                      style="background-color: #ff8000;font-size: 20px;padding-top: 5px;">Ingresar</a>
+                    <div class="d-flex justify-content-between" style="padding-top: 20px">
+                      <div class="form-check form-check-inline" id="form-check-rememberMe">
+                        <input class="form-check-input" type="checkbox" id="formCheck-1" for="remember"
+                          style="cursor:pointer;" name="check" />
+                        <label class="form-check-label" for="formCheck-1">
+                          <span class="label-text">Recuérdame</span>
+                        </label>
+                      </div>
+                      <a id="forgot-password-link" href="ErrorCanito.html">¿Olvidaste tu
+                        contraseña?</a>
+                    </div>
+                  </div>
+
+                  <div class="login-box-content" style="padding-top: 20px">
+                    <div class="social-login">
+                      <button class="btn facebook-btn social-btn" type="button"
+                        style="background: #0000CD; color: white; width: 100%"><span>
+                          <i class="fab fa-facebook-f"></i> Ingresa con Facebook</span>
+                      </button>
+                    </div>
+
+                    <div class="social-login" style="padding-top: 10px">
+                      <button class="btn google-btn social-btn" type="button"
+                        style="background: #FF0000; color: white; width: 100%"><span>
+                          <i class="fab fa-google-plus-g"></i> Ingresa con Google+</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="d-flex d-xl-flex justify-content-xl-center" id="login-box-footer"
+                    style="padding: 10px 20px;padding-bottom: 10px;padding-top: 0px;">
+                    <a [routerLink]="['/home/registroCliente']" style="color: #ff8000;font-size: 20px;"><br />¿No tienes
+                      una cuenta?
+                      Regístrate<br />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
