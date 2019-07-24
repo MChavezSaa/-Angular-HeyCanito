@@ -28,6 +28,8 @@ import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
 import { RegistroFormComponent } from './administrador/a-login/registro-form/registro-form.component';
 import { RegistrarEmpleadoComponent } from './administrador/registrar-empleado/registrar-empleado.component';
 import { PedidoComponent } from './administrador/pedido/pedido.component';
+import {AuthService} from '../app/cliente/auth/auth.service';
+import {User} from '../app/cliente/user';
 
 
 const routes:Routes=[
@@ -187,9 +189,7 @@ const routes:Routes=[
     FormsModule
     
   ],
-  providers: [
-    
-  ],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   
 })
