@@ -19,7 +19,9 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
+  URL_SERVER:string='http://localhost:3005';
 
+  /*PEDIDOS */
   savePedido(empleado: IPedido){
     return this.http.post<IPedido[]>('http://localhost:3005/pedido', empleado);
   }
@@ -27,7 +29,7 @@ export class ProductoService {
     return this.http.get<IPedido[]>('http://localhost:3005/pedido').pipe(map((res: any) => res.data));
   }
 
-
+  /*EMPLEADOS */
   saveEmpleado(empleado: IRegistrarEmpleado){
     return this.http.post<IRegistrarEmpleado[]>('http://localhost:3005/empleado', empleado);
   }
@@ -35,6 +37,7 @@ export class ProductoService {
     return this.http.get<IRegistrarEmpleado[]>('http://localhost:3005/empleado').pipe(map((res: any) => res.data));
   }
 
+  /*CLIENTES */
   saveCliente(cliente: IRegistroCliente){
     return this.http.post<IRegistroCliente[]>('http://localhost:3005/cliente', cliente);
   }
@@ -42,8 +45,9 @@ export class ProductoService {
     return this.http.get<IRegistroCliente[]>('http://localhost:3005/cliente').pipe(map((res: any) => res.data));
   }
 
+  /*PRODUCTOS */
   getProducts(): Observable<Iproduct[]> {
-    return this.http.get<Iproduct[]>('http://localhost:3005/productos').pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(`${this.URL_SERVER}/productos`).pipe(map((res: any) => res.data));
   }
   getCategoria( categoria:string): Observable<Iproduct[]> {
     console.log(categoria);
@@ -59,9 +63,9 @@ export class ProductoService {
     return this.http.delete('http://localhost:3005/producto/'+ id );
   }
   updateProduct(id, product){
-    return this.http.put('http://localhost:3000/producto/'+ id, product);
+    return this.http.put('http://localhost:3005/producto/'+ id, product);
   }
-
+  /* OPNINION */
   getOpinion(): Observable<IOpinion[]> {
     return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
   }
