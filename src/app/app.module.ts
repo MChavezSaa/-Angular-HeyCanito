@@ -134,6 +134,10 @@ const routes:Routes=[
         component: CRegistrarClienteComponent
       },
       {
+        path: 'pedido',
+        component: PedidoComponent
+      },
+      {
         path: 'login',
         component: CLoginComponent
       },
