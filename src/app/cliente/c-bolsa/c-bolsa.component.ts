@@ -20,4 +20,7 @@ export class CBolsaComponent implements OnInit {
     this.producto = this.productService.bolsa;
     
   }
+  quitarElemento(productoBolsa: Iproduct){
+      this.producto.splice(this.producto.indexOf(productoBolsa),1);
+  }
 }
