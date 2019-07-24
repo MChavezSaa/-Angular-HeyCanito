@@ -35,6 +35,9 @@
                         <h3 class="gift__name">Precio: {{bolsa.precio}}</h3>
                       </div>
                     </div>
+                    <div class="col-10" align="right">
+                      <button type="button" (click)="quitarElemento(bolsa)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Quitar de la bolsa</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -45,7 +48,7 @@
     </div>
     <br>
     <div class="col-10" align="right">
-      <button type="button"[routerLink]="['/home/pedido']" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Pagar</button>
+      <button type="button"[routerLink]="['/home/pedido']" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Generar Pedido</button>
     </div>
     <br>
   </div>
