@@ -28,6 +28,7 @@ import { VacioComponent } from './administrador/a-home/vacio/vacio.component';
 import { RegistroFormComponent } from './administrador/a-login/registro-form/registro-form.component';
 import { RegistrarEmpleadoComponent } from './administrador/registrar-empleado/registrar-empleado.component';
 import { PedidoComponent } from './administrador/pedido/pedido.component';
+import { CPedidoComponent } from './cliente/c-pedido/c-pedido.component';
 
 
 const routes:Routes=[
@@ -49,7 +50,7 @@ const routes:Routes=[
       },
       {
         path:'bolsa',
-        component:CBolsaComponent
+        component:CBolsaComponent,
       },
       {
         path:'catalogo/detalleProducto/:id',
@@ -70,7 +71,12 @@ const routes:Routes=[
       {
         path: 'loginAdm',
         component: ALoginComponent
+      },
+      {
+        path: 'pedido',
+        component: CPedidoComponent
       }
+      
     ]
   },
   //-------------------- RUTAS ADMINISTRADOR---------------------------
@@ -79,12 +85,9 @@ const routes:Routes=[
     children:[
       {
         path: '',
-        component: AHomeComponent
+        component: AListarProductosComponent
       },
-      {
-        path: 'vacio',
-        component: VacioComponent
-      },
+
       {
         path: 'registrarEmpleado',
         component: RegistrarEmpleadoComponent
@@ -173,7 +176,8 @@ const routes:Routes=[
     VacioComponent,
     RegistroFormComponent,
     RegistrarEmpleadoComponent,
-    PedidoComponent
+    PedidoComponent,
+    CPedidoComponent
   ],
   imports: [
     BrowserModule,
