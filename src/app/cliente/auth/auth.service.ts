@@ -10,7 +10,7 @@ import {Observable, BehaviorSubject} from 'rxjs';
 })
 export class AuthService {
 
-  AUTH_SERVER: string ='http://localhost:3005';
+  AUTH_SERVER: string ='http://colvin.chillan.ubiobio.cl:3004';
   authSubject = new BehaviorSubject(false);
   private token : string;
   constructor(private httpClient: HttpClient) { }
