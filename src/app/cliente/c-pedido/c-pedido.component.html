@@ -1,11 +1,14 @@
+<!--MIGAS DE PAN-->
 <nav aria-label="breadcrumb">
-  <!--MIGAS DE PAN-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
     <li class="breadcrumb-item"><a [routerLink]="['/home/bolsa']" style="color: #ff8000;">Bolsa</a></li>
     <li class="breadcrumb-item active" style="color: #ff0000">Generar Pedido</li>
   </ol>
 </nav>
+<!--FIN MIGAS DE PAN-->
+
+<!--STEPPER-->
 <div class="row">
   <div class="col-xs-12 col-md-8 offset-md-2 block ">
     <div class="wrapper-progressBar">
@@ -16,6 +19,111 @@
         <li>Listo para entrega</li>
         <li>Entregado</li>
       </ul>
+    </div>
+  </div>
+</div>
+<!--FIN STEPPER-->
+
+<!-- DATOS CLIENTE/PEDIDO-->
+<div class="container">
+  <hr>
+  <h2>Formulario de pedido</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <form [formGroup]="formProduct" (ngSubmit)="saveData()" novalidate>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h6>Nombre</h6>
+                  <input formControlName="nombre" class="form-control" type="text" placeholder="Ingrese nombre ">
+                  <div *ngIf="formProduct.get('nombre').errors && (formProduct.get('nombre').touched 
+                    || formProduct.get('nombre').dirty)" class="alert alert-danger">
+                    El nombre es obligatorio
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h6>Rut</h6>
+                  <input formControlName="rut" class="form-control" type="text" maxlength="12"
+                    placeholder="19.600.500-7">
+                  <div *ngIf="formProduct.get('rut').errors && (formProduct.get('rut').touched 
+                    || formProduct.get('rut').dirty)" class="alert alert-danger">
+                    El rut es obligatorio
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h6>Teléfono</h6>
+                  <input formControlName="telefono" class="form-control" type="text" length="9" placeholder="987654321">
+                  <div *ngIf="formProduct.get('telefono').errors && (formProduct.get('telefono').touched 
+                    || formProduct.get('telefono').dirty)" class="alert alert-danger">
+                    Ingrese un número de teléfono válido
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <!--metodo entrega-->
+                  <div class="form-group">
+                    <h6>Modo de entrega</h6>
+                    <select formControlName="modo_entrega" class="form-control">
+                      <option [selected]="true">Seleccione un método</option>
+                      <option value="retiro">Retiro local</option>
+                      <option value="despacho">Despacho domicilio</option>
+                    </select>
+                    <div *ngIf="formProduct.get('modo_entrega').errors && (formProduct.get('modo_entrega').touched 
+                      || formProduct.get('modo_entrega').dirty)" class="alert alert-danger">El modo de entrega es
+                      obligatorio
+                    </div>
+                  </div>
+                  <!--Fin metodo entrega-->
+                </div>
+                <div class="col-md-8" *ngIf="formProduct.get('modo_entrega').value == 'despacho'">
+                  <!-- Direccion-->
+                  <h6 for="direccion">Dirección</h6>
+                  <input formControlName="direccion" class="form-control" type="text" placeholder="Ingrese dirección ">
+                  <div *ngIf="formProduct.get('modo_entrega').value=='despacho' && formProduct.get('direccion').errors && (formProduct.get('direccion').touched 
+                    || formProduct.get('direccion').dirty)" class="alert alert-danger">La dirección es obligatorio
+                  </div>
+                  <!--Fin Direccion-->
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <!--Seleccionar metodo pago-->
+                  <h6>Método de pago</h6>
+                  <select formControlName="metodo_pago" class="form-control">
+                    <option [selected]="true">Seleccione un método</option>
+                    <option value="debito">Débito</option>
+                    <option value="credito">Crédito</option>
+                  </select>
+                  <div *ngIf="formProduct.get('metodo_pago').errors && (formProduct.get('metodo_pago').touched 
+                      || formProduct.get('metodo_pago').dirty)" class="alert alert-danger">Ingrese método de pago
+                  </div>
+                  <!--Fin seleccionar metodo pago-->
+                </div>
+
+              </div>
+
+
+
+              <!--Botones-->
+              <div class="col-md-12" style="text-align: right">
+                <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                <button type="submit" class="btn btn-warning botones" [disabled]="!formProduct.valid" style="background: #ff8800"> Guardar </button>
+              </div>
+              <!--Fin Botones-->
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
