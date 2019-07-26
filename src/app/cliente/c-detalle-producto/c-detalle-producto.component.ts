@@ -18,7 +18,7 @@ export class CDetalleProductoComponent implements OnInit {
     this.productService.getProductoID(this.id).subscribe((res: any[]) => {
       this.productService.products = res;
       this.productService.filteredProducts = res;
-      console.log(this.productService.products);
+
     })
   }
 

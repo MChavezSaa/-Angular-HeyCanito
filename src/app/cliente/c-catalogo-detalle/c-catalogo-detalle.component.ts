@@ -17,11 +17,9 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
   constructor(public productService: ProductoService,private rutaActiva: ActivatedRoute, private router: Router) { }
   ngOnInit() {
     this.id= this.rutaActiva.snapshot.params.id;
-    console.log(this.id);
     this.productService.getCategoria(this.id).subscribe((res: any[]) => {
       this.productService.products = res;
       this.productService.filteredProducts = res;
-      console.log(this.productService.products);
     })
   }
   ngOnChanges(): void {
@@ -34,7 +32,6 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
     })*/
   }
   redireccionProducto(ide:string){
-    console.log(ide);
     this.router.navigate(['home/catalogo/detalleProducto/', ide]);
   }
  

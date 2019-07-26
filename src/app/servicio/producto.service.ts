@@ -50,31 +50,29 @@ export class ProductoService {
     return this.http.get<Iproduct[]>(`${this.URL_SERVER}/productos`).pipe(map((res: any) => res.data));
   }
   getCategoria( categoria:string): Observable<Iproduct[]> {
-    console.log(categoria);
-    return this.http.get<Iproduct[]>('http://localhost:3005/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(`${this.URL_SERVER}/producto/categoria/`+ categoria).pipe(map((res: any) => res.data));
   }
   getProductoID( id:string): Observable<Iproduct[]> {
-    return this.http.get<Iproduct[]>('http://localhost:3005/producto/'+ id).pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(`${this.URL_SERVER}/producto/${id}`).pipe(map((res: any) => res.data));
   }
   saveProduct(product: Iproduct){
-    return this.http.post<Iproduct[]>('http://localhost:3005/producto', product);
+    return this.http.post<Iproduct[]>(`${this.URL_SERVER}/producto`, product);
   }
   deleteProduct(id){
-    return this.http.delete('http://localhost:3005/producto/'+ id );
+    return this.http.delete(`${this.URL_SERVER}/producto/${ id }`);
   }
   updateProduct(id, product){
     return this.http.put('http://localhost:3005/producto/'+ id, product);
   }
-  /* OPNINION */
+  /* OPINION */
   getOpinion(): Observable<IOpinion[]> {
     return this.http.get<IOpinion[]>('http://localhost:3005/opinion').pipe(map((res: any) => res.data));
   }
   saveOpinion(opinion: IOpinion) {
     return this.http.post<IOpinion[]>('http://localhost:3005/opinion', opinion);
   }
-
+/** Agrega un producto a la bolsa */
   agregarProducto( producto: Iproduct){
-    console.log(producto.id);
     var datos: Iproduct = {
       id: producto.id,
       nombre: producto.nombre,
@@ -85,11 +83,12 @@ export class ProductoService {
       cantidad_personas:producto.cantidad_personas,
       tiempo_produccion: producto.tiempo_produccion
     };
-    
-    console.log(datos);
+
     this.bolsa.push(datos);
-    console.log(this.bolsa.toString);
+
   }
+
+  
   login(email, password){
     let userLogin = { email: email, password: password};
     return this.http.post('http://localhost:3005/login', userLogin).pipe(map((res:any)=>{

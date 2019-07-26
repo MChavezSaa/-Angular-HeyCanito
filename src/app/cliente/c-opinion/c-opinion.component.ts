@@ -28,7 +28,6 @@ export class COpinionComponent implements OnInit {
   }
 
   guardarOpinion(opinion: IOpinion) {
-    console.log(opinion);
     this.productService.saveOpinion(opinion).subscribe(() => {
       return this.productService.getOpinion().subscribe((res: any[]) => {
         this.productService.opinion = res;
