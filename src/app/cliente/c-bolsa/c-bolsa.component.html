@@ -19,24 +19,24 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <div class="gift row" *ngFor="let bolsa of productService.bolsa">                 
-                  <div class="gift__img col-sm-3 col-12"><img [src]='bolsa.imagen' height="100%" width="100%" /></div>
+                <div class="gift row" *ngFor="let producto of productService.bolsa">                 
+                  <div class="gift__img col-sm-3 col-12"><img [src]='producto.imagen' height="100%" width="100%" /></div>
                   <div class="gift__info col-sm-9 col-12">
-                    <h4 class="gift__name">{{bolsa.nombre}}<br /></h4>
+                    <h4 class="gift__name">{{producto.nombre}}<br /></h4>
                     <div class="gift__details">
-                      <p><br />{{bolsa.descripcion}}<br /><br /></p>
+                      <p><br />{{producto.descripcion}}<br /><br /></p>
                       <p>Cantidad: </p>
-                      <input type="number" value={{bolsa.cantidad_personas}}>
+                      <input type="number"value= [(producto.cantidad)]>
                     </div>
                     <div class="gift__bottom row">
                       <div class="gift__price-wrap col-12 col-sm-6">
                         <div class="gift__normal-price"></div>
                         <div class="gift__today-price"></div>
-                        <h3 class="gift__name">Precio: {{bolsa.precio}}</h3>
+                        <h3 class="gift__name">Precio: {{producto.precio}}</h3>
                       </div>
                     </div>
                     <div class="col-10" align="right">
-                      <button type="button" (click)="quitarElemento(bolsa)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Quitar de la bolsa</button>
+                      <button type="button" (click)="quitarElemento(producto)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Quitar de la bolsa</button>
                     </div>
                   </div>
                 </div>
@@ -51,5 +51,13 @@
       <button type="button"[routerLink]="['/home/pedido']" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Generar Pedido</button>
     </div>
     <br>
+  </div>
+  <div *ngIf="!productService.bolsa.length">
+    <div class="container">
+        <h5>¡Tu bolsa está vacía!</h5>
+        <a href="/home/catalogo"> Agrega cositas ricas a tu bolsa</a>
+        
+    </div>
+    
   </div>
 </body>
