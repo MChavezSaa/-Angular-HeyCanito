@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ProductoService } from '../../servicio/producto.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
+import {User} from '../user';
 
 
 
@@ -14,6 +15,7 @@ import {AuthService} from '../auth/auth.service';
 export class CLoginComponent implements OnInit {
 
   formLogin: FormGroup;
+  user: User;
   constructor(private authService: AuthService, private router: Router,
               private formBuilder: FormBuilder,
               public productService: ProductoService) {
@@ -27,8 +29,14 @@ export class CLoginComponent implements OnInit {
   }
 
   login(form: { value: any; }): void {
+//    var rol:string = this.productService.getRol();
       this.authService.login(form.value).subscribe(res => {
-         this.router.navigateByUrl('/home');
+          if(localStorage.getItem('ROL') === 'admin'){
+            this.router.navigateByUrl('/administrador/vacio');
+          }else{
+            this.router.navigateByUrl('/home');
+          }
+        
       });
   }
  }

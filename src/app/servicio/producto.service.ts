@@ -7,6 +7,7 @@ import { IOpinion } from '../opnion';
 import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente';
 import { IRegistrarEmpleado } from '../administrador/registrar-empleado/IRegistrarEmpleado';
 import { IPedido } from '../administrador/pedido/IPedido';
+import { User } from '../cliente/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +20,9 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
+  getRol(): Observable<User[]> {
+    return this.http.get<User[]>('http://colvin.chillan.ubiobio.cl:3004/UserLogin').pipe(map((res: any) => res.data));
+  }
 
   savePedido(empleado: IPedido){
     return this.http.post<IPedido[]>('http://colvin.chillan.ubiobio.cl:3004/pedido', empleado);

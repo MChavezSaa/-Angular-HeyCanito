@@ -1,6 +1,12 @@
 export interface IJwtResponse{
-        id: number,
+        /*id: number,
+        rol: string,
         email: string,
-        accessToken: string,
+accessToken: string,*/
+        user: [{id: number,
+                user: string,
+                password: string,
+                rol:string
+        }], 
         token: string
 }
