@@ -35,9 +35,10 @@
           <div class="form-group">
             <form [formGroup]="formProduct" (ngSubmit)="saveData()" novalidate>
 
-              <div class="row">
+              <div class="form-row">
+                
                 <div class="col-md-6">
-                  <h6>Nombre</h6>
+                  <h6 clas="form">Nombre</h6>
                   <input formControlName="nombre" class="form-control" type="text" placeholder="Ingrese nombre ">
                   <div *ngIf="formProduct.get('nombre').errors && (formProduct.get('nombre').touched 
                     || formProduct.get('nombre').dirty)" class="alert alert-danger">
@@ -63,13 +64,34 @@
                     Ingrese un número de teléfono válido
                   </div>
                 </div>
-
+              </div>
+              <div class="form-row">
+                  <div class="col-md-8">
+                      <h6>Correo electrónico</h6>
+                      <input formControlName="mail" class="form-control" type="text" length="9" placeholder="example@mail.com">
+                      <div *ngIf="formProduct.get('mail').errors && (formProduct.get('mail').touched 
+                        || formProduct.get('mail').dirty)" class="alert alert-danger">
+                        Ingrese un correo electrónico válido
+                      </div>
+                    </div>
+                <div class="col-md-4">
+                  <!--Seleccionar metodo pago-->
+                  <h6>Método de pago</h6>
+                  <select formControlName="metodo_pago" class="form-control">
+                    <option [selected]="true">Seleccione un método</option>
+                    <option value="debito">Débito</option>
+                    <option value="credito">Crédito</option>
+                  </select>
+                  <div *ngIf="formProduct.get('metodo_pago').errors && (formProduct.get('metodo_pago').touched 
+                      || formProduct.get('metodo_pago').dirty)" class="alert alert-danger">Ingrese método de pago
+                  </div>
+                  <!--Fin seleccionar metodo pago-->
+                </div>
 
               </div>
-
-              <div class="row">
+              <div class="form-row">
                 <div class="col-md-4">
-                  <!--metodo entrega-->
+                  <!--modo de  entrega-->
                   <div class="form-group">
                     <h6>Modo de entrega</h6>
                     <select formControlName="modo_entrega" class="form-control">
@@ -88,30 +110,14 @@
                   <!-- Direccion-->
                   <h6 for="direccion">Dirección</h6>
                   <input formControlName="direccion" class="form-control" type="text" placeholder="Ingrese dirección ">
-                  <div *ngIf="formProduct.get('modo_entrega').value=='despacho' && formProduct.get('direccion').errors && (formProduct.get('direccion').touched 
-                    || formProduct.get('direccion').dirty)" class="alert alert-danger">La dirección es obligatorio
+                  <div *ngIf="formProduct.get('modo_entrega').value=='despacho' && !formProduct.get('direccion').value && (formProduct.get('direccion').touched 
+                    || formProduct.get('direccion').dirty)" class="alert alert-danger">La dirección es obligatoria
                   </div>
                   <!--Fin Direccion-->
 
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <!--Seleccionar metodo pago-->
-                  <h6>Método de pago</h6>
-                  <select formControlName="metodo_pago" class="form-control">
-                    <option [selected]="true">Seleccione un método</option>
-                    <option value="debito">Débito</option>
-                    <option value="credito">Crédito</option>
-                  </select>
-                  <div *ngIf="formProduct.get('metodo_pago').errors && (formProduct.get('metodo_pago').touched 
-                      || formProduct.get('metodo_pago').dirty)" class="alert alert-danger">Ingrese método de pago
-                  </div>
-                  <!--Fin seleccionar metodo pago-->
-                </div>
-
-              </div>
-
+              
 
 
               <!--Botones-->

@@ -27,6 +27,7 @@ export class CPedidoComponent implements OnInit {
       rut:['',[Validators.required,Validators.maxLength(12)]],
       telefono:['',[Validators.required,Validators.pattern('[1-9]{1}[0-9]{8}')]],
       direccion: ['', ],
+      mail:['',[Validators.email]],
       modo_entrega: ['', [Validators.required]],
       fecha_inicio: [today,],
       fecha_entrega: ['',],
@@ -62,7 +63,7 @@ export class CPedidoComponent implements OnInit {
   }
   guardarPedido(pedido: IPedido) {
     console.log(pedido);    //agregar cosas
-
+    
     this.productService.savePedido(pedido).subscribe(() => {
       return this.productService.getProducts().subscribe((res: any[]) => {
         this.productService.products = res;
@@ -70,18 +71,17 @@ export class CPedidoComponent implements OnInit {
         err => console.log(err));
     })
   }
-
+  /**Guarda el formulario del pedido */
   saveData() {
 
     this.bolsa=this.productService.bolsa;
-    console.log(this.bolsa);
-    
     console.log("--FORM_PRODUCT-antes-");
     console.log(this.formProduct.value);
    
     this.formProduct.setValue({
       nombre: this.formProduct.get('nombre').value,
       rut:this.formProduct.get('rut').value,
+      mail: this.formProduct.get('mail').value,
       telefono:this.formProduct.get('telefono').value,
       direccion:this.formProduct.get('direccion').value,
       modo_entrega: this.formProduct.get('modo_entrega').value,
@@ -96,6 +96,7 @@ export class CPedidoComponent implements OnInit {
     console.log(this.formProduct.value);
     this.guardarPedido(this.formProduct.value);
     //redireccionamiento a home
+
     this.router.navigate(['home']);
   }
 }
