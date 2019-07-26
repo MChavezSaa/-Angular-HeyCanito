@@ -22,27 +22,28 @@ export class ProductoService {
   URL_SERVER:string='http://localhost:3005';
 
   /*PEDIDOS */
-  savePedido(empleado: IPedido){
-    return this.http.post<IPedido[]>('http://localhost:3005/pedido', empleado);
+
+  savePedido(pedido: IPedido){
+    return this.http.post<IPedido[]>(`${this.URL_SERVER}/pedido`, pedido);
   }
   getPedido(): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>('http://localhost:3005/pedido').pipe(map((res: any) => res.data));
+    return this.http.get<IPedido[]>(`${this.URL_SERVER}/pedido`).pipe(map((res: any) => res.data));
   }
 
   /*EMPLEADOS */
   saveEmpleado(empleado: IRegistrarEmpleado){
-    return this.http.post<IRegistrarEmpleado[]>('http://localhost:3005/empleado', empleado);
+    return this.http.post<IRegistrarEmpleado[]>(`${this.URL_SERVER}/empleado`, empleado);
   }
   getEmpleado(): Observable<IRegistrarEmpleado[]> {
-    return this.http.get<IRegistrarEmpleado[]>('http://localhost:3005/empleado').pipe(map((res: any) => res.data));
+    return this.http.get<IRegistrarEmpleado[]>(`${this.URL_SERVER}/empleado`).pipe(map((res: any) => res.data));
   }
 
   /*CLIENTES */
   saveCliente(cliente: IRegistroCliente){
-    return this.http.post<IRegistroCliente[]>('http://localhost:3005/cliente', cliente);
+    return this.http.post<IRegistroCliente[]>(`${this.URL_SERVER}/cliente`, cliente);
   }
   getCliente(): Observable<IRegistroCliente[]> {
-    return this.http.get<IRegistroCliente[]>('http://localhost:3005/cliente').pipe(map((res: any) => res.data));
+    return this.http.get<IRegistroCliente[]>(`${this.URL_SERVER}/cliente`).pipe(map((res: any) => res.data));
   }
 
   /*PRODUCTOS */
@@ -62,7 +63,7 @@ export class ProductoService {
     return this.http.delete(`${this.URL_SERVER}/producto/${ id }`);
   }
   updateProduct(id, product){
-    return this.http.put('http://localhost:3005/producto/'+ id, product);
+    return this.http.put(`${this.URL_SERVER}/producto/${ id }`, product);
   }
   /* OPINION */
   getOpinion(): Observable<IOpinion[]> {
