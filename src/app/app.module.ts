@@ -32,7 +32,9 @@ import { CPedidoComponent } from './cliente/c-pedido/c-pedido.component';
 import { CErrorComponent } from './cliente/c-error/c-error.component';
 import { CVerPedidoComponent } from './cliente/c-ver-pedido/c-ver-pedido.component';
 import {AuthService} from '../app/cliente/auth/auth.service';
-import {User} from '../app/cliente/user';
+import { MapaComponent } from './administrador/mapa/mapa.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 
 const routes:Routes=[
@@ -155,6 +157,10 @@ const routes:Routes=[
       {
         path: 'vacio',
         component: VacioComponent
+      },
+      {
+        path: 'mapa',
+        component: MapaComponent
       }
     ]
   },
@@ -192,14 +198,18 @@ const routes:Routes=[
     PedidoComponent,
     CPedidoComponent,
     CErrorComponent,
-    CVerPedidoComponent
+    CVerPedidoComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAREfEDX1TbObvSPqUa2GIfUsj9ztE7AUU'
+    })
     
   ],
   providers: [AuthService],
