@@ -2,8 +2,9 @@
   <!--MIGAS DE PAN-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catalogo</a></li>
-    <li class="breadcrumb-item active" style="color: #ff0000">Detalle Producto</li>
+    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo',productService.products[0].categoria]" style="color: #ff8000;">{{productService.products[0].categoria}}</a></li>
+    <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].nombre}}</li>
   </ol>
 </nav>
 
@@ -26,10 +27,10 @@
       <div class="col-md-5"><br>
         <h2>{{product.nombre}}</h2><br>
         <p>{{product.descripcion}}</p><br>
-        <h2 class="text-left text-success">Precio: {{product.precio | currency:'CLP '}}</h2><br>
+        <h2 class="text-left text-success">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2><br>
         <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button" (click)="productService.agregarProducto(product)">
-          <i class="fa fa-cart-plus"></i>
-          Añadir al Carrito</button>
+          <i class="fa fa-shopping-bag"></i>
+          Añadir a la bolsa</button>
       </div>
     </div>
   </div>
