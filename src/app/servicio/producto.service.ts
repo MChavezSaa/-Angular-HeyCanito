@@ -20,57 +20,59 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
+  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
+
   getRol(): Observable<User[]> {
-    return this.http.get<User[]>('http://colvin.chillan.ubiobio.cl:3004/UserLogin').pipe(map((res: any) => res.data));
+    return this.http.get<User[]>(this.URL +'/UserLogin').pipe(map((res: any) => res.data));
   }
 
   savePedido(empleado: IPedido){
-    return this.http.post<IPedido[]>('http://colvin.chillan.ubiobio.cl:3004/pedido', empleado);
+    return this.http.post<IPedido[]>(this.URL+'/pedido', empleado);
   }
   getPedido(): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>('http://colvin.chillan.ubiobio.cl:3004/pedido').pipe(map((res: any) => res.data));
+    return this.http.get<IPedido[]>(this.URL+'/pedido').pipe(map((res: any) => res.data));
   }
 
 
   saveEmpleado(empleado: IRegistrarEmpleado){
-    return this.http.post<IRegistrarEmpleado[]>('http://colvin.chillan.ubiobio.cl:3004/empleado', empleado);
+    return this.http.post<IRegistrarEmpleado[]>(this.URL+'/empleado', empleado);
   }
   getEmpleado(): Observable<IRegistrarEmpleado[]> {
-    return this.http.get<IRegistrarEmpleado[]>('http://colvin.chillan.ubiobio.cl:3004/empleado').pipe(map((res: any) => res.data));
+    return this.http.get<IRegistrarEmpleado[]>(this.URL+'/empleado').pipe(map((res: any) => res.data));
   }
 
   saveCliente(cliente: IRegistroCliente){
-    return this.http.post<IRegistroCliente[]>('http://colvin.chillan.ubiobio.cl:3004/cliente', cliente);
+    return this.http.post<IRegistroCliente[]>(this.URL+'/cliente', cliente);
   }
   getCliente(): Observable<IRegistroCliente[]> {
-    return this.http.get<IRegistroCliente[]>('http://colvin.chillan.ubiobio.cl:3004/cliente').pipe(map((res: any) => res.data));
+    return this.http.get<IRegistroCliente[]>(this.URL+'/cliente').pipe(map((res: any) => res.data));
   }
 
   getProducts(): Observable<Iproduct[]> {
-    return this.http.get<Iproduct[]>('http://colvin.chillan.ubiobio.cl:3004/productos').pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(this.URL+'/productos').pipe(map((res: any) => res.data));
   }
   getCategoria( categoria:string): Observable<Iproduct[]> {
     console.log(categoria);
-    return this.http.get<Iproduct[]>('http://colvin.chillan.ubiobio.cl:3004/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(this.URL+'/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
   }
   getProductoID( id:string): Observable<Iproduct[]> {
-    return this.http.get<Iproduct[]>('http://colvin.chillan.ubiobio.cl:3004/producto/'+ id).pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(this.URL+'/producto/'+ id).pipe(map((res: any) => res.data));
   }
   saveProduct(product: Iproduct){
-    return this.http.post<Iproduct[]>('http://colvin.chillan.ubiobio.cl:3004/producto', product);
+    return this.http.post<Iproduct[]>(this.URL+'/producto', product);
   }
   deleteProduct(id){
-    return this.http.delete('http://colvin.chillan.ubiobio.cl:3004/producto/'+ id );
+    return this.http.delete(this.URL+'/producto/'+ id );
   }
   updateProduct(id, product){
-    return this.http.put('http://colvin.chillan.ubiobio.cl:3004/producto/'+ id, product);
+    return this.http.put(this.URL+'/producto/'+ id, product);
   }
 
   getOpinion(): Observable<IOpinion[]> {
-    return this.http.get<IOpinion[]>('http://colvin.chillan.ubiobio.cl:3004/opinion').pipe(map((res: any) => res.data));
+    return this.http.get<IOpinion[]>(this.URL+'/opinion').pipe(map((res: any) => res.data));
   }
   saveOpinion(opinion: IOpinion) {
-    return this.http.post<IOpinion[]>('http://colvin.chillan.ubiobio.cl:3004/opinion', opinion);
+    return this.http.post<IOpinion[]>(this.URL+'/opinion', opinion);
   }
 
   agregarProducto( producto: Iproduct){
@@ -95,7 +97,7 @@ export class ProductoService {
       Email: email,
       password: password
     }
-    return this.http.post('http://colvin.chillan.ubiobio.cl:3004/login', userLogin).pipe(map((res:any)=>{
+    return this.http.post(this.URL+'/login', userLogin).pipe(map((res:any)=>{
       localStorage.setItem('token', res.token);
       localStorage.setItem('usuario', JSON.stringify(res.usuario));
       return res;
