@@ -25,8 +25,8 @@
            Bolsa <img width="25" src="../assets/shopping-bag.svg">
           </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/home/login']">Iniciar Sesión</a>
+      <li class="nav-item" >
+        <a class="nav-link"  *ngIf="test"  [routerLink]="['/home/login']"> {{nombre?'Cerrar Sesión':'Iniciar Sesión'}}</a>
       </li>
     </ul>
   </div>
@@ -63,8 +63,8 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/home/login']">Iniciar Sesión</a>
-      </li>
+          <a class="nav-link" (click)="iniciarSesion()"> {{test?'Cerrar Sesion':'Iniciar Sesión'}}</a>
+        </li>
     </ul>
   </div>
 </nav>

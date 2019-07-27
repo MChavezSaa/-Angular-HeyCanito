@@ -31,6 +31,8 @@ import { PedidoComponent } from './administrador/pedido/pedido.component';
 import { CPedidoComponent } from './cliente/c-pedido/c-pedido.component';
 import { CErrorComponent } from './cliente/c-error/c-error.component';
 import { CVerPedidoComponent } from './cliente/c-ver-pedido/c-ver-pedido.component';
+import {AuthService} from '../app/cliente/auth/auth.service';
+import {User} from '../app/cliente/user';
 
 
 const routes:Routes=[
@@ -70,10 +72,7 @@ const routes:Routes=[
         path: 'registroCliente',
         component: CRegistrarClienteComponent
       },
-      {
-        path: 'loginAdm',
-        component: ALoginComponent
-      },
+      
       {
         path: 'pedido',
         component: CPedidoComponent
@@ -152,6 +151,10 @@ const routes:Routes=[
       {
         path: 'loginAdm',
         component: ALoginComponent
+      },
+      {
+        path: 'vacio',
+        component: VacioComponent
       }
     ]
   },
@@ -199,9 +202,7 @@ const routes:Routes=[
     FormsModule
     
   ],
-  providers: [
-    
-  ],
+  providers: [AuthService],
   bootstrap: [AppComponent],
   
 })

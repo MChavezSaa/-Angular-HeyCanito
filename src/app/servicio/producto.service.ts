@@ -8,6 +8,7 @@ import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente
 import { IRegistrarEmpleado } from '../administrador/registrar-empleado/IRegistrarEmpleado';
 import { IPedido } from '../IPedido';
 import { IDetalle } from '../IDetalle';
+import { User } from '../cliente/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  URL:string='http://localhost:3005';
+  // URL:string='http://localhost:3005';
 
 
   /* DETALLE PEDIDO */
@@ -32,6 +33,11 @@ export class ProductoService {
     console.log(detalle);
     
     return this.http.post<any[]>(this.URL+'/detallepedido',detalle);
+  }
+  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
+
+  getRol(): Observable<User[]> {
+    return this.http.get<User[]>(this.URL +'/UserLogin').pipe(map((res: any) => res.data));
   }
 
   /*PEDIDOS */
@@ -62,7 +68,8 @@ export class ProductoService {
   getProducts(): Observable<Iproduct[]> {
     return this.http.get<Iproduct[]>(this.URL+'/productos').pipe(map((res: any) => res.data));
   }
-  getCategoria( categoria:string): Observable<Iproduct[]> {
+  getCategoria( categoria: string): Observable<Iproduct[]> {
+    console.log(categoria);
     return this.http.get<Iproduct[]>(this.URL+'/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
   }
   getProductoID( id:string): Observable<Iproduct[]> {
@@ -72,10 +79,10 @@ export class ProductoService {
     return this.http.post<Iproduct[]>(this.URL+'/producto', product);
   }
   deleteProduct(id){
-    return this.http.delete(this.URL+'/producto/${ id }');
+    return this.http.delete(this.URL+'/producto/'+ id );
   }
   updateProduct(id, product){
-    return this.http.put(this.URL+'/producto/${ id }', product);
+    return this.http.put(this.URL+'/producto/'+ id, product);
   }
   /* OPINION */
   getOpinion(): Observable<IOpinion[]> {
@@ -100,10 +107,11 @@ export class ProductoService {
     this.bolsa.push(datos);
 
   }
-
-  
-  login(email, password){
-    let userLogin = { email: email, password: password};
+  login(email: string, password:string){
+    let userLogin ={
+      Email: email,
+      password: password
+    }
     return this.http.post(this.URL+'/login', userLogin).pipe(map((res:any)=>{
       localStorage.setItem('token', res.token);
       localStorage.setItem('usuario', JSON.stringify(res.usuario));
@@ -119,4 +127,5 @@ export class ProductoService {
     return precio;
   }
 
+  
 }
