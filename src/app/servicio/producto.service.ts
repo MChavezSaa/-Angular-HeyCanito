@@ -6,7 +6,8 @@ import { Observable, timer } from 'rxjs';
 import { IOpinion } from '../opnion';
 import { IRegistroCliente } from '../cliente/c-registrar-cliente/IRegitroCliente';
 import { IRegistrarEmpleado } from '../administrador/registrar-empleado/IRegistrarEmpleado';
-import { IPedido } from '../administrador/pedido/IPedido';
+import { IPedido } from '../IPedido';
+import { IDetalle } from '../IDetalle';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,19 +16,30 @@ export class ProductoService {
   public products: Iproduct[];
   public empleados: IRegistrarEmpleado[];
   public bolsa: Iproduct[] = [];
+  
   public opinion: IOpinion[];
+  public pedido: IPedido[];
 
   constructor(private http: HttpClient) { }
 
   URL_SERVER:string='http://localhost:3005';
 
-  /*PEDIDOS */
 
+  /* DETALLE PEDIDO */
+  agregarDetalle(detalle: IDetalle){
+    console.log("_SERVICE_");
+    
+    console.log(detalle);
+    
+    return this.http.post<any[]>(`${this.URL_SERVER}/detallepedido`,detalle);
+  }
+
+  /*PEDIDOS */
   savePedido(pedido: IPedido){
     return this.http.post<IPedido[]>(`${this.URL_SERVER}/pedido`, pedido);
   }
-  getPedido(): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>(`${this.URL_SERVER}/pedido`).pipe(map((res: any) => res.data));
+  getPedido(id:number): Observable<IPedido[]> {
+    return this.http.get<IPedido[]>(`${this.URL_SERVER}/pedido/${id}`).pipe(map((res: any) => res.data));
   }
 
   /*EMPLEADOS */
@@ -99,5 +111,12 @@ export class ProductoService {
     }))
   }
  
+  precioBolsa():number{
+    let precio=0;
+    for (let prod of this.bolsa) {
+      precio+=prod.precio;
+    }
+    return precio;
+  }
 
 }
