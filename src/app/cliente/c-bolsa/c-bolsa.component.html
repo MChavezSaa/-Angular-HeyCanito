@@ -12,6 +12,9 @@
   <div class="col-3" style="text-align:right; font-style:oblique">
     <h2>Bolsa de Compras</h2>
   </div>
+  <div class="col-9" style="text-align:right; font-style:oblique">
+      <h2>Total {{this.productService.precioBolsa() | currency:'$':'symbol-narrow':'1.0-3'}}</h2>
+    </div>
   <hr>
   <div *ngIf="productService.bolsa.length">
     <div class="col-12">
@@ -31,7 +34,7 @@
                       <div class="gift__price-wrap col-12 col-sm-6">
                         <div class="gift__normal-price"></div>
                         <div class="gift__today-price"></div>
-                        <h3 class="gift__name">Precio: {{producto.precio}}</h3>
+                        <h3 class="gift__name">Precio: {{producto.precio | currency:'$':'symbol-narrow':'2.0-3'}}</h3>
                       </div>
                     </div>
                     <div class="col-10" align="right">
