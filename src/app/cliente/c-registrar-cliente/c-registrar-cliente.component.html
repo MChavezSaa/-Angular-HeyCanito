@@ -13,7 +13,7 @@
       <div class="login-box-header">
         <h4 align="center"
           style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
-          Registrate con nosotros</h4>&nbsp;
+          Regístrate con nosotros</h4>&nbsp;
 
         <form [formGroup]="Registroform" (ngSubmit)="saveCliente()" novalidate>
           <div class="row">
@@ -25,7 +25,7 @@
                 <div *ngIf="Registroform.get('nombres').errors && (Registroform.get('nombres').touched 
                       || Registroform.get('nombres').dirty)">
                   <small class="form-text text-danger">
-                    El campo requiere de un Nombre (*)
+                    El campo requiere de un nombre (*)
                   </small>
                 </div>
               </div>
@@ -33,12 +33,12 @@
             <div class="col-md-6">
               <!--Nombre producto-->
               <div class="form-group">
-                <h6 for="rut">Rut</h6>
-                <input formControlName="rut" class="form-control" type="text" placeholder="Ingrese su Rut">
-                <div *ngIf="Registroform.get('rut').errors && (Registroform.get('rut').touched 
-                    || Registroform.get('rut').dirty)"> 
+                <h6 for="rut_cliente">Rut</h6>
+                <input formControlName="rut_cliente" class="form-control" type="text" placeholder="Ingrese su Rut">
+                <div *ngIf="Registroform.get('rut_cliente').errors && (Registroform.get('rut_cliente').touched 
+                    || Registroform.get('rut_cliente').dirty)"> 
                     <small class="form-text text-danger">
-                      El campo requiere de un rut valido (*)
+                      El campo requiere de un rut válido (*)
                     </small>
                 </div>
               </div>
@@ -91,10 +91,10 @@
             <div class="col-md-6">
               <!--Nombre producto-->
               <div class="form-group">
-                <h6 for="contraseña">Contraseña</h6>
-                <input formControlName="contraseña" class="form-control" type="password" placeholder="Ingrese Contraseña">
-                <div *ngIf="Registroform.get('contraseña').errors && (Registroform.get('contraseña').touched 
-                        || Registroform.get('contraseña').dirty)">
+                <h6 for="password">Contraseña</h6>
+                <input formControlName="password" class="form-control" type="password" placeholder="Ingrese Contraseña">
+                <div *ngIf="Registroform.get('password').errors && (Registroform.get('password').touched 
+                        || Registroform.get('password').dirty)">
                   <small class="form-text text-danger">
                     El campo requiere de una contraseña (*)
                   </small>

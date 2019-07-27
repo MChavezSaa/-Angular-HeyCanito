@@ -19,12 +19,13 @@ export class CRegistrarClienteComponent implements OnInit {
     private formBuilder: FormBuilder) {
 
     this.Registroform = this.formBuilder.group({
+      
       nombres: ['', [Validators.required]],
-      rut: ['', [Validators.required]],
+      rut_cliente: ['', [Validators.required]],
       ap_paterno: ['', [Validators.required]],
       ap_materno: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      contraseña: ['', [Validators.required]]
+      password: ['', [Validators.required]]
     });
   }
 
