@@ -29,6 +29,7 @@ import { RegistroFormComponent } from './administrador/a-login/registro-form/reg
 import { RegistrarEmpleadoComponent } from './administrador/registrar-empleado/registrar-empleado.component';
 import { PedidoComponent } from './administrador/pedido/pedido.component';
 import { CPedidoComponent } from './cliente/c-pedido/c-pedido.component';
+import { CErrorComponent } from './cliente/c-error/c-error.component';
 
 
 const routes:Routes=[
@@ -75,6 +76,9 @@ const routes:Routes=[
       {
         path: 'pedido',
         component: CPedidoComponent
+      },
+      { path: '**',
+        component: CErrorComponent
       }
       
     ]
@@ -146,6 +150,7 @@ const routes:Routes=[
       }
     ]
   },
+  
 ];
 
 
@@ -177,7 +182,8 @@ const routes:Routes=[
     RegistroFormComponent,
     RegistrarEmpleadoComponent,
     PedidoComponent,
-    CPedidoComponent
+    CPedidoComponent,
+    CErrorComponent
   ],
   imports: [
     BrowserModule,

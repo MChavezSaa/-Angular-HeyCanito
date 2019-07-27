@@ -3,7 +3,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
     <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
-    <li class="breadcrumb-item active" style="color: #ff0000">Detalle Catálogo</li>
+    <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].categoria}}</li>
   </ol>
 </nav>
 <div class="container">
@@ -15,11 +15,11 @@
             <a (click)="redireccionProducto(product.id)"> <h5 class="card-title">{{product.nombre}}</h5></a>
           <div class="row">
               <a (click)="redireccionProducto(product.id)"> <div class="col">
-              <p class="card-text">{{product.precio | currency:'USD':true:'2.0-3'}}</p>
+              <p class="card-text">{{product.precio | currency:'$':'symbol-narrow':'2.0-3'}}</p>
             </div></a>
             <div class="col">
-              <a class="btn btn-primary" [routerLink]="['/home/bolsa']" (click)="productService.agregarProducto(product)" id="boton"> Agregar al
-                Carrito</a>
+              <a  class="btn btn-primary" [routerLink]="['/home/bolsa']" 
+                  (click)="productService.agregarProducto(product)" id="boton"> Agregar a la bolsa</a>
             </div>
           </div>
         </div>
