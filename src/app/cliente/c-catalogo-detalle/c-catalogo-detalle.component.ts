@@ -4,6 +4,7 @@ import { Iproduct } from '../../producto';
 import { ActivatedRoute, Params } from '@angular/router';
 import { IBolsa } from '../../IBolsa';
 import {Router} from "@angular/router";
+import { IPedido } from 'src/app/IPedido';
 
 @Component({
   selector: 'app-c-catalogo-detalle',
@@ -14,6 +15,8 @@ export class CCatalogoDetalleComponent implements OnInit, OnChanges {
   id: string;
   bolsa: IBolsa[];
   prod: Iproduct[]= [];
+
+
   constructor(public productService: ProductoService,private rutaActiva: ActivatedRoute, private router: Router) { }
   ngOnInit() {
     this.id= this.rutaActiva.snapshot.params.id;

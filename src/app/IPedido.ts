@@ -1,4 +1,5 @@
 export interface IPedido {
+    id:number
     nombre:string,
     rut:string,
     telefono:string,

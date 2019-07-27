@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductoService } from 'src/app/servicio/producto.service';
-import { IPedido } from './IPedido';
+import { ProductoService } from '../../servicio/producto.service';
+import { IPedido } from '../../IPedido';
 
 @Component({
   selector: 'app-pedido',
