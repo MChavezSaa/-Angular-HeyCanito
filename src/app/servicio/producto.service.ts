@@ -66,7 +66,7 @@ export class ProductoService {
     return this.http.get<Iproduct[]>(this.URL+'/producto/categoria/'+ categoria).pipe(map((res: any) => res.data));
   }
   getProductoID( id:string): Observable<Iproduct[]> {
-    return this.http.get<Iproduct[]>(this.URL+'/producto/${id}').pipe(map((res: any) => res.data));
+    return this.http.get<Iproduct[]>(this.URL+'/producto/'+id).pipe(map((res: any) => res.data));
   }
   saveProduct(product: Iproduct){
     return this.http.post<Iproduct[]>(this.URL+'/producto', product);
