@@ -56,11 +56,9 @@ export class AuthService {
   
 public getne(): boolean{
   if(localStorage.getItem('USER')!= null){
-    console.log('entro a token');
    // this.logout();
     return true;
   }else{
-    console.log('su puta madre');
     return false;
   }
 }
