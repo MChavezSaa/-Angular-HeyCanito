@@ -23,7 +23,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <h6 for="password">Contraseña</h6>
-                        <input formControlName="password" class="form-control" type="text" placeholder="Ingrese contraseña">
+                        <input formControlName="password" class="form-control" type="password" placeholder="Ingrese contraseña">
                         <div *ngIf="formEmpleado.get('password').errors && (formEmpleado.get('password').touched 
                               || formEmpleado.get('password').dirty)" class="alert alert-danger">La contraseña es obligatoria
                         </div>

@@ -1,6 +1,34 @@
-<script async defer
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div class="container">
+ 
+  <h1>Angular Google Maps with Places Search Example</h1>
+ 
+  <div class="form-group">
+    <label>Enter address</label>
+    <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  </div>
+ 
+  <agm-map [latitude]="latitude" 
+          [longitude]="longitude" 
+          [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+      (dragEnd)="markerDragEnd($event)"></agm-marker>
+  </agm-map>
+  <h5>Address: {{address}}</h5>
+  <div>Latitude: {{latitude}}</div>
+  <div>Longitude: {{longitude}}</div>
+</div>
+<!--
+  <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAREfEDX1TbObvSPqUa2GIfUsj9ztE7AUU&callback=initMap"
-  type="text/javascript"></script>
+  type="text/javascript"></script>  
+  <div class="form-group">
+    <label for="">Ingesar Direccion</label>&nbsp;
+    <input type="text" class="form-control" (keydown)="$event.preventDefault()" placeholder="Buscar"  
+    autoid="barra">
+  </div>  
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
+
+-->

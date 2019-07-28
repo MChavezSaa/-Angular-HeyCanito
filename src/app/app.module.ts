@@ -215,7 +215,8 @@ const routes:Routes=[
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAREfEDX1TbObvSPqUa2GIfUsj9ztE7AUU'
+      apiKey: 'AIzaSyDW5HBO6BxsmddCfnFO9EEyHOsC5J9AEco',
+      libraries: ['places']
     })
     
   ],
