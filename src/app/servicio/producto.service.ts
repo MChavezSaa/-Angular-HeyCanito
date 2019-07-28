@@ -24,6 +24,7 @@ export class ProductoService {
   constructor(private http: HttpClient) { }
 
   // URL:string='http://localhost:3005';
+  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
 
 
   /* DETALLE PEDIDO */
@@ -33,8 +34,7 @@ export class ProductoService {
     console.log(detalle);
     
     return this.http.post<any[]>(this.URL+'/detallepedido',detalle);
-  }
-  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
+  }  
 
   getRol(): Observable<User[]> {
     return this.http.get<User[]>(this.URL +'/UserLogin').pipe(map((res: any) => res.data));
