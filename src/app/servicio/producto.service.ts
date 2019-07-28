@@ -28,9 +28,7 @@ export class ProductoService {
   /* DETALLE PEDIDO */
   agregarDetalle(detalle: IDetalle){
     console.log("_SERVICE_");
-    
     console.log(detalle);
-    
     return this.http.post<any[]>(this.URL+'/detallepedido',detalle);
   }
 
@@ -39,7 +37,10 @@ export class ProductoService {
     return this.http.post<IPedido[]>(this.URL+'/pedido', pedido);
   }
   getPedido(id:number): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>(this.URL+'/pedido/${id}').pipe(map((res: any) => res.data));
+    return this.http.get<IPedido[]>(this.URL+'/pedido/'+id).pipe(map((res: any) => res.data));
+  }
+  getPedidos(): Observable<IPedido[]> {
+    return this.http.get<IPedido[]>(this.URL+'/pedidos').pipe(map((res: any) => res.data));
   }
 
   /*EMPLEADOS */
