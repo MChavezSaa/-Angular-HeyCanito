@@ -34,6 +34,7 @@ import { CVerPedidoComponent } from './cliente/c-ver-pedido/c-ver-pedido.compone
 import {AuthService} from '../app/cliente/auth/auth.service';
 import { MapaComponent } from './administrador/mapa/mapa.component';
 import { AgmCoreModule } from '@agm/core';
+import { AListarPedidosComponent } from './administrador/a-listar-pedidos/a-listar-pedidos.component';
 
 
 
@@ -161,7 +162,12 @@ const routes:Routes=[
       {
         path: 'mapa',
         component: MapaComponent
+      },
+      {
+        path: 'listarPedidos',
+        component: AListarPedidosComponent
       }
+
     ]
   },
   
@@ -199,7 +205,8 @@ const routes:Routes=[
     CPedidoComponent,
     CErrorComponent,
     CVerPedidoComponent,
-    MapaComponent
+    MapaComponent,
+    AListarPedidosComponent
   ],
   imports: [
     BrowserModule,

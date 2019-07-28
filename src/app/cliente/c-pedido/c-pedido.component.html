@@ -97,8 +97,8 @@
                     <h6>Modo de entrega</h6>
                     <select formControlName="modo_entrega" class="form-control">
                       <option [selected]="true">Seleccione un método</option>
-                      <option value="retiro">Retiro local</option>
-                      <option value="despacho">Despacho domicilio</option>
+                      <option value="retiro local">Retiro local</option>
+                      <option value="despacho domicilio">Despacho domicilio</option>
                     </select>
                     <div *ngIf="formProduct.get('modo_entrega').errors && (formProduct.get('modo_entrega').touched 
                       || formProduct.get('modo_entrega').dirty)" class="alert alert-danger">El modo de entrega es
@@ -157,6 +157,7 @@
   
         <!-- Modal footer -->
         <div class="modal-footer">
+          <!--ignorar el error del routerlink-->
           <button type="button" [routerLink]="['/home/catalogo']" class="btn btn-warning" style="background: #ff8800" data-dismiss="modal">Continuar viendo el catálogo</button>
           <button *ngIf="this.productService.pedido" type="button" [routerLink]="['/home/pedido', this.productService.pedido.id]"  class="btn btn-warning" 
                data-dismiss="modal">Ir a mi pedido</button>

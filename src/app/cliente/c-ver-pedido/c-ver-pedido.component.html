@@ -70,7 +70,7 @@
                     <h6>Método de pago</h6>
                     <input class="form-control" type="text" length="9" 
                         placeholder="example@mail.com" [disabled]="true"
-                        value="{{this.productService.pedido[0].metodo_pago}}">
+                        value="{{this.productService.pedido[0].metodo_pago | titlecase }}">
                   
                     <!--Fin seleccionar metodo pago-->
                   </div>
@@ -83,7 +83,7 @@
                       <h6>Modo de entrega</h6>
                       <input class="form-control" type="text" length="9" 
                         placeholder="example@mail.com" [disabled]="true"
-                        value="{{this.productService.pedido[0].modo_entrega}}">
+                        value="{{this.productService.pedido[0].modo_entrega | titlecase}}">
                       
                     </div>
                     <!--Fin metodo entrega-->

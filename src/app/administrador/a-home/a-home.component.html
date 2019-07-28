@@ -27,6 +27,14 @@
            <li><a [routerLink]="['/administrador/listarProductos']"><i class="fas fa-birthday-cake"></i><span>Listar Produtos</span> </a></li>          
           </ul> 
        </li>
+       <li>
+        <a href="#pedidos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <i class="fas fa-paste"></i> <span> Pedidos</span> 
+        </a>
+        <ul class="collapse list-unstyled" id="pedidos">
+          <li><a [routerLink]="['/administrador/listarPedidos']"><i class="fas fa-clipboard"></i><span>Listar Pedido</span> </a></li>          
+         </ul> 
+      </li>
        <li> <a [routerLink]="['/administrador/registrarEmpleado']"><i class="fas fa-users"></i><span>Registrar empleados</span> </a> </li>
 
       </ul>

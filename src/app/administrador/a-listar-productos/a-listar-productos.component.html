@@ -42,7 +42,7 @@
 
                   <td style="vertical-align: middle"> <img style="width:50px" [src]="prod.imagen | default:'../../../assets/product-default.jpg'"></td>
                   <td style="vertical-align: middle">{{prod.nombre}}</td>
-                  <td style="vertical-align: middle">{{prod.precio}}</td>
+                  <td style="vertical-align: middle">{{prod.precio | currency:'$':'symbol-narrow':'2.0-3'}}</td>
                   <td style="vertical-align: middle">{{prod.descripcion}}</td>
                   <td style="vertical-align: middle">{{prod.categoria}}</td>
                   <td style="vertical-align: middle">{{prod.cantidad_personas }}</td>
