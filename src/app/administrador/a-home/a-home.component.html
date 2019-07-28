@@ -8,11 +8,8 @@
         <img src="../../../assets/man.png" width="100px">        
       </div>
       <div align="center">
-          <p style="color: white">Juan Perez  </p>
-      </div>   &nbsp;
-       
-      
-      
+          <p style="color: white">{{mostrarUser() | titlecase}}</p>
+      </div>&nbsp;
       <ul class="list-unstyled components">
        <p class="titulo-menu">Panel de Administración</p>
        <li><a [routerLink]="['/administrador/listarProductos']"><i class="fas fa-home"></i> <span>Home</span> </a></li>
@@ -61,8 +58,10 @@
              </div>
 
             
-                 
-             <img src="../../../assets/CanitoPng.png" width="200px">
+              <a [routerLink]="['/administrador/vacio']" >
+                <img src="../../../assets/CanitoPng.png" width="200px">
+              </a>   
+             
            
            </li>
          </ul>
