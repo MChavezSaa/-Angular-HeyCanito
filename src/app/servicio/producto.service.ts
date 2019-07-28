@@ -45,7 +45,7 @@ export class ProductoService {
     return this.http.post<IPedido[]>(this.URL+'/pedido', pedido);
   }
   getPedido(id:number): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>(this.URL+'/pedido/${id}').pipe(map((res: any) => res.data));
+    return this.http.get<IPedido[]>(this.URL+'/pedido/+id').pipe(map((res: any) => res.data));
   }
 
   /*EMPLEADOS */
