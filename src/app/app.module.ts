@@ -31,6 +31,7 @@ import { PedidoComponent } from './administrador/pedido/pedido.component';
 import { CPedidoComponent } from './cliente/c-pedido/c-pedido.component';
 import { CErrorComponent } from './cliente/c-error/c-error.component';
 import { CVerPedidoComponent } from './cliente/c-ver-pedido/c-ver-pedido.component';
+import { AListarPedidosComponent } from './administrador/a-listar-pedidos/a-listar-pedidos.component';
 
 
 const routes:Routes=[
@@ -152,7 +153,12 @@ const routes:Routes=[
       {
         path: 'loginAdm',
         component: ALoginComponent
+      },
+      {
+        path: 'listarPedidos',
+        component: AListarPedidosComponent
       }
+
     ]
   },
   
@@ -189,7 +195,8 @@ const routes:Routes=[
     PedidoComponent,
     CPedidoComponent,
     CErrorComponent,
-    CVerPedidoComponent
+    CVerPedidoComponent,
+    AListarPedidosComponent
   ],
   imports: [
     BrowserModule,
