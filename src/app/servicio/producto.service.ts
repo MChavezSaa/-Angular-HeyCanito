@@ -22,16 +22,17 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  //private URL:string='http://localhost:3005';
-  private URL:string='http://colvin.chillan.ubiobio.cl:3004';
+  private URL:string='http://localhost:3005';
+  //private URL:string='http://colvin.chillan.ubiobio.cl:3004';
 
 
 
   /* DETALLE PEDIDO */
   agregarDetalle(detalle: IDetalle){
-    console.log("_SERVICE_");
-    console.log(detalle);
     return this.http.post<any[]>(this.URL+'/detallepedido',detalle);
+  }
+  getDetallePedido(id:number){
+    return this.http.get<any[]>(this.URL+'/detallepedido/'+id);
   }
 
   /*PEDIDOS */
