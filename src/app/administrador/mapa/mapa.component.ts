@@ -14,7 +14,12 @@ export class MapaComponent implements OnInit {
   longitude: number;
   zoom: number;
   address: string;
+  public query: string;
+  public position: string;
+  public locations: Array<any>;
   private geoCoder;
+  private geocoder;
+  
 
   @ViewChild('search', {static: false})
     public searchElementRef: ElementRef;
@@ -22,14 +27,23 @@ export class MapaComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
-  ) { }
+  ) { 
+    this.query = "Comandante Jorge Lama Lama, Chillan, Chillán, Chile";
+  }
 
   ngOnInit() {
     //load Places Autocomplete
+    var address = "Comandante Jorge Lama Lama, Chillan, Chillán, Chile";
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
-
+      this.geocoder = new google.maps.Geocoder();
+      this.geocoder.geocode({ 'address': address }, (results, status) => {
+         var latitude = results[0].geometry.location.lat();
+         var longitude = results[0].geometry.location.lng();
+        console.log("lat: " + latitude + ", long: " + longitude);
+        });
+      this.getAddress2();
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["address"]
       });
@@ -87,5 +101,32 @@ export class MapaComponent implements OnInit {
  
     });
   }
-
+  public getAddress2() {
+    if(this.query != "") {
+      console.log(this.query);
+        this.getAddressPeticion(this.query).then(result => {
+            this.locations = <Array<any>>result;
+        }, error => {
+            console.error(error);
+        });
+    }
+}
+public getAddressPeticion(query2: string) {
+  console.log(query2);
+  return new Promise((resolve, reject) => {
+    this.geoCoder.geocode({ searchText: query2 }, result => {
+      if (result.Response.View.length > 0) {
+        if (result.Response.View[0].Result.length > 0) {
+          resolve(result.Response.View[0].Result);
+        } else {
+          reject({ message: "no results found" });
+        }
+      } else {
+        reject({ message: "no results found" });
+      }
+    }, error => {
+      reject(error);
+    });
+  });
+}
 }
