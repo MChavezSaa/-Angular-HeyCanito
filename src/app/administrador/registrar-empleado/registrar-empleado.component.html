@@ -35,7 +35,11 @@
                       <!--Nombre producto-->
                       <div class="form-group">
                         <h6 for="rol">Rol de usuario</h6>
-                        <input formControlName="rol" class="form-control" type="text" placeholder="Ingrese rol de usuario">
+                        <select formControlName="rol" class="form-control">
+                         <option [selected]="true">Seleccione un rol</option>
+                          <option value="admin">Administrador</option>
+                          <option value="vendedor">Vendedor</option>
+                        </select>
                         <div *ngIf="formEmpleado.get('rol').errors && (formEmpleado.get('rol').touched 
                               || formEmpleado.get('rol').dirty)" class="alert alert-danger">El rol de usuario es obligatorio
                         </div>

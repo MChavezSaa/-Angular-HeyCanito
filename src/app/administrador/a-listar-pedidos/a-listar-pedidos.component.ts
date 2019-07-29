@@ -1,10 +1,11 @@
-import { Component, OnInit, NgZone } from '@angular/core';
-import { ProductoService } from 'src/app/servicio/producto.service';
-import { IPedido } from 'src/app/IPedido';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Iproduct } from 'src/app/producto';
 import { MapsAPILoader } from '@agm/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { ProductoService } from '../../servicio/producto.service'
+import { IPedido } from './../../IPedido';
+
 
 @Component({
   selector: 'app-a-listar-pedidos',
@@ -24,7 +25,6 @@ export class AListarPedidosComponent implements OnInit {
   public query: string;
   public position: string;
   public locations: Array<any>;
-  private geoCoder;
   private geocoder;
   constructor( private productService: ProductoService,
     private datePipe: DatePipe,

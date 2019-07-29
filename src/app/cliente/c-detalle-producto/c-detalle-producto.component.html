@@ -1,15 +1,19 @@
-<nav aria-label="breadcrumb">
-  <!--MIGAS DE PAN-->
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo',productService.products[0].categoria]" style="color: #ff8000;">{{productService.products[0].categoria}}</a></li>
-    <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].nombre}}</li>
-  </ol>
-</nav>
+<div style="background: #ffffff73; padding-bottom: 5%" >
 
-<hr>
-  <div class="container">
+<nav aria-label="breadcrumb">
+    <!--MIGAS DE PAN-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo',productService.products[0].categoria]"
+          style="color: #ff8000;">{{productService.products[0].categoria}}</a></li>
+      <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].nombre}}</li>
+    </ol>
+  </nav>
+
+    <hr>
+    <div class="container" style="padding-top: 20px; background: white; padding-bottom: 20px">
+
     <h1 class="text-center">Detalle Producto</h1>
     <div class="row" *ngFor="let product of productService.products">
       <div class="col-md-7">

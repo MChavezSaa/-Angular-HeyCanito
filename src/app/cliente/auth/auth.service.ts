@@ -4,7 +4,6 @@ import {User} from '../user';
 import {IJwtResponse} from '../Ijwt-response';
 import {tap} from 'rxjs/operators'
 import {Observable, BehaviorSubject} from 'rxjs';
-import { ProductoService } from 'src/app/servicio/producto.service';
 
 @Injectable({
   providedIn: 'root'

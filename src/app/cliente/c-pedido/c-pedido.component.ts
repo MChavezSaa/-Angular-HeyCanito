@@ -2,11 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { ProductoService } from '../../servicio/producto.service';
 import { IPedido } from '../../IPedido';
-import { Iproduct } from 'src/app/producto';
-import { log } from 'util';
-import { IDetalle } from 'src/app/IDetalle';
+import { Iproduct } from '../../producto';
+import { IDetalle } from '../../IDetalle';
 
 @Component({
   selector: 'app-c-pedido',

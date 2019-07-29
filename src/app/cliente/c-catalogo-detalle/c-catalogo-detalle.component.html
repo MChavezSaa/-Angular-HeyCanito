@@ -1,4 +1,6 @@
-<nav aria-label="breadcrumb">
+<div class="row" style="background: #ffffff73">
+
+<nav aria-label="breadcrumb" class="col-md-12">
   <!--MIGAS DE PAN-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
@@ -9,7 +11,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4" *ngFor="let product of productService.products">
-      <div class="card">
+      <div class="card" style="margin-bottom: 20px" >
         <a (click)="redireccionProducto(product.id)"><img [src]="product.imagen" class="card-img-top" height=300> </a>
         <div class="card-body">
             <a (click)="redireccionProducto(product.id)"> <h5 class="card-title">{{product.nombre}}</h5></a>
