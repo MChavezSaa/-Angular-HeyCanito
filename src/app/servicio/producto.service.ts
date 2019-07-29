@@ -32,7 +32,7 @@ export class ProductoService {
     return this.http.post<any[]>(this.URL+'/detallepedido',detalle);
   }
   getDetallePedido(id:number){
-    return this.http.get<any[]>(this.URL+'/detallepedido/'+id);
+    return this.http.get<any[]>(this.URL+'/detallePedido/'+id);
   }
 
   /*PEDIDOS */

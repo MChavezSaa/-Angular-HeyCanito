@@ -3,6 +3,7 @@ import { ProductoService } from 'src/app/servicio/producto.service';
 import { IPedido } from 'src/app/IPedido';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { Iproduct } from 'src/app/producto';
 
 @Component({
   selector: 'app-a-listar-pedidos',
@@ -13,14 +14,7 @@ import { DatePipe } from '@angular/common';
 export class AListarPedidosComponent implements OnInit {
 
   formPedido: FormGroup;
-  detalle= [
-    {nombre:'Brasileria',
-    categoria:'Tortas',
-    precio:5000},
-    {nombre:'Queso Camarón',
-    categoria:'Empanadas',
-    precio:2500},
-  ]
+  detalle:any[];
   constructor( private productService: ProductoService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder 
@@ -104,7 +98,11 @@ export class AListarPedidosComponent implements OnInit {
   }
   llenarTablas(pedido:IPedido){
     this.productService.getDetallePedido(pedido.id).subscribe((res:any[])=>{
-      this.detalle=res;
+      console.log('llenarTablas');
+      
+      console.log(res.data);
+      
+      this.detalle=res.data;
     },error=>console.log(error))
   }
 
