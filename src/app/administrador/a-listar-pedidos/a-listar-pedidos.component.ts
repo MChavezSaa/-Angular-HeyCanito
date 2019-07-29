@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ProductoService } from 'src/app/servicio/producto.service';
 import { IPedido } from 'src/app/IPedido';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Iproduct } from 'src/app/producto';
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-a-listar-pedidos',
@@ -15,9 +16,21 @@ export class AListarPedidosComponent implements OnInit {
 
   formPedido: FormGroup;
   detalle:any[];
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+  direccion: string;
+  public query: string;
+  public position: string;
+  public locations: Array<any>;
+  private geoCoder;
+  private geocoder;
   constructor( private productService: ProductoService,
     private datePipe: DatePipe,
-    private formBuilder: FormBuilder 
+    private formBuilder: FormBuilder ,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone
     ) {
       this.formPedido = this.formBuilder.group({
         nombre:[{value: '',disabled:true} , [Validators.required]],
@@ -105,5 +118,17 @@ export class AListarPedidosComponent implements OnInit {
       this.detalle=res.data;
     },error=>console.log(error))
   }
-
+  mostrarMapa(address: string){
+    //var address = "Comandante Jorge Lama Lama, Chillan, Chillán, Chile";
+    console.log(address);
+    this.direccion= address;
+    this.geocoder = new google.maps.Geocoder();
+      this.geocoder.geocode({ 'address': address }, (results, status) => {
+         this.latitude = results[0].geometry.location.lat();
+        this.longitude = results[0].geometry.location.lng();
+        this.zoom = 15;
+        //console.log("lat: " + latitude + ", long: " + longitude);
+        });
+     
+  }
 }

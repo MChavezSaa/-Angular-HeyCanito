@@ -2,4 +2,6 @@ button.info{
     background-color: #ff8800;
 
 }
-
+agm-map {
+    height: 300px;
+  }

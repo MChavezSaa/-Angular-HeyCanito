@@ -39,9 +39,9 @@ export class MapaComponent implements OnInit {
       this.geoCoder = new google.maps.Geocoder;
       this.geocoder = new google.maps.Geocoder();
       this.geocoder.geocode({ 'address': address }, (results, status) => {
-         var latitude = results[0].geometry.location.lat();
-         var longitude = results[0].geometry.location.lng();
-        console.log("lat: " + latitude + ", long: " + longitude);
+         this.latitude = results[0].geometry.location.lat();
+        this.longitude = results[0].geometry.location.lng();
+        //console.log("lat: " + latitude + ", long: " + longitude);
         });
       this.getAddress2();
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -58,8 +58,8 @@ export class MapaComponent implements OnInit {
           }
 
           //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
+          //this.latitude = place.geometry.location.lat();
+          //this.longitude = place.geometry.location.lng();
           this.zoom = 12;
         });
       });
