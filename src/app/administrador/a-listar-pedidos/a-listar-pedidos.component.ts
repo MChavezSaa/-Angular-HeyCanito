@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService } from 'src/app/servicio/producto.service';
-import { IPedido } from 'src/app/IPedido';
+import { ProductoService } from '../../servicio/producto.service'
+import { IPedido } from './../../IPedido';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { Iproduct } from 'src/app/producto';
+
 
 @Component({
   selector: 'app-a-listar-pedidos',

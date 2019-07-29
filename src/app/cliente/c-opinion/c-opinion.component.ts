@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOpinion} from 'src/app/opnion';
+import { IOpinion} from '../../opnion';
 import { ProductoService } from '../../servicio/producto.service';
 import { FormGroup, FormBuilder, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms'
 import { Router } from '@angular/router';

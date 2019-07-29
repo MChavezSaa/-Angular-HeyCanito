@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { ProductoService } from '../../servicio/producto.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { IRegistrarEmpleado } from './IRegistrarEmpleado';
 

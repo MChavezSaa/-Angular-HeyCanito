@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { IRegistroCliente } from './IRegitroCliente';
-import { ProductoService } from 'src/app/servicio/producto.service';
+import { ProductoService } from '../../servicio/producto.service';
 
 @Component({
   selector: 'app-c-registrar-cliente',

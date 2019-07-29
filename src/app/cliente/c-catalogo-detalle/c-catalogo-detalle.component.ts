@@ -4,7 +4,6 @@ import { Iproduct } from '../../producto';
 import { ActivatedRoute, Params } from '@angular/router';
 import { IBolsa } from '../../IBolsa';
 import {Router} from "@angular/router";
-import { IPedido } from 'src/app/IPedido';
 
 @Component({
   selector: 'app-c-catalogo-detalle',

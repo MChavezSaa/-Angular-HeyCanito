@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Iproduct } from 'src/app/producto';
+import { Iproduct } from '../../producto';
 import { ProductoService} from '../../servicio/producto.service';
 import { FormGroup, FormBuilder, Validators, AsyncValidatorFn, AbstractControl } from '@angular/forms'
 import { Router } from '@angular/router';
