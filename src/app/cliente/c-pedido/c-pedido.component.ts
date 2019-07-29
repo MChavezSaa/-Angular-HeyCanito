@@ -116,6 +116,7 @@ export class CPedidoComponent implements OnInit {
       estado: 'Generado', 
     });
     this.guardarPedido(this.formProduct.value);
+    this.bolsa=[];
     //redireccionamiento a home
     //this.router.navigate(['home']);
     

@@ -1,4 +1,3 @@
-<body>
     <div>
       <div class="container">
         <div class="row">
@@ -25,11 +24,11 @@
                 <tbody *ngFor="let ped of productoService.pedido">
                   <tr style="text-align: center">
                     <td style="vertical-align: middle">{{ped.id}}</td>
-                    <td style="vertical-align: middle">{{ped.nombre}}</td>
-                    <td style="vertical-align: middle">{{ped.estado}} </td>
-                    <td style="vertical-align: middle">{{ped.metodo_pago}}</td>
-                    <td style="vertical-align: middle">{{ped.modo_entrega}}</td>
-                    <td style="vertical-align: middle">{{ped.valor_total }}</td>
+                    <td style="vertical-align: middle">{{ped.nombre | titlecase}}</td>
+                    <td style="vertical-align: middle">{{ped.estado | titlecase}} </td>
+                    <td style="vertical-align: middle">{{ped.metodo_pago | titlecase}}</td>
+                    <td style="vertical-align: middle">{{ped.modo_entrega | titlecase}}</td>
+                    <td style="vertical-align: middle">{{ped.valor_total | currency:'$':'symbol-narrow':'2.0-3'}}</td>
                     <td style="vertical-align: middle">
                       <div style="width: 100%">      
                         <button type="button" (click)="llenarDetalle(ped.id)"
@@ -46,7 +45,6 @@
         </div>
       </div>
     </div>
-  </body>
 
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,8 +66,8 @@
           </thead>
           <tbody *ngFor="let products of productoService.products">
             <tr style="text-align: center">
-              <td style="vertical-align: middle">{{products.nombre}}</td>
-              <td style="vertical-align: middle">{{products.precio}} </td>                          
+              <td style="vertical-align: middle">{{products.nombre | titlecase}}</td>
+              <td style="vertical-align: middle">{{products.precio | currency:'$':'symbol-narrow':'2.0-3'}} </td>                          
             </tr>
           </tbody>
         </table>
