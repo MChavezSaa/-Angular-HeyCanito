@@ -107,11 +107,11 @@
                   </div>
                   <!--Fin metodo entrega-->
                 </div>
-                <div class="col-md-8" *ngIf="formProduct.get('modo_entrega').value == 'despacho'">
+                <div class="col-md-8" *ngIf="formProduct.get('modo_entrega').value == 'despacho domicilio'">
                   <!-- Direccion-->
                   <h6 for="direccion">Dirección</h6>
                   <input formControlName="direccion" class="form-control" type="text" placeholder="Ingrese dirección ">
-                  <div *ngIf="formProduct.get('modo_entrega').value=='despacho' && !formProduct.get('direccion').value && (formProduct.get('direccion').touched 
+                  <div *ngIf="formProduct.get('modo_entrega').value=='despacho domicilio' && !formProduct.get('direccion').value && (formProduct.get('direccion').touched 
                     || formProduct.get('direccion').dirty)" class="alert alert-danger">La dirección es obligatoria
                   </div>
                   <!--Fin Direccion-->
