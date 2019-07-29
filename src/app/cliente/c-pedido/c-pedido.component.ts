@@ -34,7 +34,7 @@ export class CPedidoComponent implements OnInit {
         rut:['',[Validators.required,Validators.maxLength(12)]],
         telefono:['',[Validators.required,Validators.pattern('[1-9]{1}[0-9]{8}')]],
         direccion: ['', ],
-        mail:['',[Validators.email, Validators.required]],
+        mail:[{value: localStorage.getItem('USER'), disabled: this.verificarUser()},[Validators.email, Validators.required]],
         modo_entrega: ['', [Validators.required]],
         fecha_inicio: [today,],
         fecha_entrega: ['',],
@@ -52,6 +52,14 @@ export class CPedidoComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  verificarUser(){
+    if(localStorage.getItem('USER')!= null){
+      return true;
+    }else{
+      return false;
+    }
   }
   /* Suma el precio de los productos en la bolsa */
   calcularTotal():number{

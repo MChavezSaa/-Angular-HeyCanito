@@ -123,7 +123,7 @@
 
               <!--Botones-->
               <div class="col-md-12" style="text-align: right">
-                <button class="btn btn-danger botones" style="background: #ff0000"> Cancelar </button> &nbsp;
+                <button class="btn btn-danger botones" style="background: #ff0000" [routerLink]="['/home/bolsa']" > Cancelar </button> &nbsp;
                 <button type="submit" class="btn btn-warning botones" 
                 [disabled]="!formProduct.valid || this.bolsa" style="background: #ff8800"
                 data-toggle="modal" href="#modal-submit" 

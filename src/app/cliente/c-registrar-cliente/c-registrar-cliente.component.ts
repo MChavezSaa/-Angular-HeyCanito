@@ -31,7 +31,7 @@ export class CRegistrarClienteComponent implements OnInit {
 
   ngOnInit() {
   }
-
+//
   guardarCliente(registro: IRegistroCliente) {
     console.log(registro);
     this.productService.saveCliente(registro).subscribe(() => {
@@ -41,9 +41,25 @@ export class CRegistrarClienteComponent implements OnInit {
        err => console.log(err));
     });
   }
+  guardarLogin(clienteARegistrar: IRegistroCliente) {
+    let clienteLoged = {
+      user: clienteARegistrar.email,
+      password: clienteARegistrar.password,
+      rol: 'cliente'
+    }
+
+    console.log(clienteARegistrar);
+    this.productService.saveLogin(clienteLoged).subscribe(() => {
+       return this.productService.getCliente().subscribe((res: any[]) =>{
+         this.productService.clientes = res;
+       },
+       err => console.log(err));
+    })
+  }
 
   saveCliente() {
     this.guardarCliente(this.Registroform.value);
+    this.guardarLogin(this.Registroform.value);
     this.router.navigate(['/home']);
     alert('Registrado');
     console.log(this.Registroform.value);

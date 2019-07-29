@@ -16,6 +16,7 @@ export class ProductoService {
   public filteredProducts: Iproduct[];
   public products: Iproduct[];
   public empleados: IRegistrarEmpleado[];
+  public clientes: IRegistroCliente[];
   public bolsa: Iproduct[] = [];
 
   public opinion: IOpinion[];

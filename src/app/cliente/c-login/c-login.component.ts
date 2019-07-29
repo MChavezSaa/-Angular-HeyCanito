@@ -32,7 +32,7 @@ export class CLoginComponent implements OnInit {
 //    var rol:string = this.productService.getRol();
       this.authService.login(form.value).subscribe(res => {
           if(localStorage.getItem('ROL') === 'admin'){
-            this.router.navigateByUrl('/administrador/vacio');
+            this.router.navigateByUrl('/administrador/listarProductos');
           }else{
             this.router.navigateByUrl('/home');
           }
