@@ -12,8 +12,14 @@
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2 block ">
       <div class="wrapper-progressBar">
-        <ul class="progressBar">
+        <ul *ngIf="this.productService.pedido[0].estado != 'Cancelado'" class="progressBar">
           <li *ngFor="let est of estados; let i = index" [ngClass]="clases[i]">{{est}}</li>
+        </ul>
+        <ul *ngIf=" this.productService.pedido[0].estado == 'Cancelado'" class="progressBarCancel">
+          <li class='active'>Bolsa de Compras</li>
+          <li class='active'>Generado</li>
+          <li class='cancel'>Cancelado</li>
+          
         </ul>
       </div>
     </div>
