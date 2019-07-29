@@ -22,7 +22,8 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  URL:string='http://localhost:3005';
+  //URL:string='http://localhost:3005';
+  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
 
 
   /* DETALLE PEDIDO */
@@ -39,7 +40,7 @@ export class ProductoService {
     return this.http.post<IPedido[]>(this.URL+'/pedido', pedido);
   }
   getPedido(id:number): Observable<IPedido[]> {
-    return this.http.get<IPedido[]>(this.URL+'/pedido/${id}').pipe(map((res: any) => res.data));
+    return this.http.get<IPedido[]>(this.URL+'/pedido/'+id).pipe(map((res: any) => res.data));
   }
 
   /*EMPLEADOS */
