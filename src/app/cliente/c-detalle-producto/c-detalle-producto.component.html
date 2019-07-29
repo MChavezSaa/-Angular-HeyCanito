@@ -8,7 +8,7 @@
   </ol>
 </nav>
 
-<body><hr>
+<hr>
   <div class="container">
     <h1 class="text-center">Detalle Producto</h1>
     <div class="row" *ngFor="let product of productService.products">
@@ -28,10 +28,29 @@
         <h2>{{product.nombre}}</h2><br>
         <p>{{product.descripcion}}</p><br>
         <h2 class="text-left text-success">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2><br>
-        <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button" (click)="productService.agregarProducto(product)">
+        <button class="btn btn-danger btn-lg center-block" data-toggle="modal" data-target="#exampleModalLong" type="button" (click)="productService.agregarProducto(product)">
           <i class="fa fa-shopping-bag"></i>
           Añadir a la bolsa</button>
       </div>
     </div>
   </div>
-</body>
+<!-- Modal  [routerLink]="['/home/bolsa']"-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">¿Quiere Seguir comprando?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">                
+          <button [routerLink]="['/home/catalogo']" type="button" class="btn btn-secondary" data-dismiss="modal">Seguir Comprando</button> &nbsp;
+          <button [routerLink]="['/home/pedido']" type="button" class="btn btn-primary" data-dismiss="modal">Finalizar compra</button>
+      </div>
+      <div class="modal-footer">        
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>
