@@ -13,6 +13,14 @@ import { DatePipe } from '@angular/common';
 export class AListarPedidosComponent implements OnInit {
 
   formPedido: FormGroup;
+  detalle= [
+    {nombre:'Brasileria',
+    categoria:'Tortas',
+    precio:5000},
+    {nombre:'Queso Camarón',
+    categoria:'Empanadas',
+    precio:2500},
+  ]
   constructor( private productService: ProductoService,
     private datePipe: DatePipe,
     private formBuilder: FormBuilder 
@@ -56,14 +64,6 @@ export class AListarPedidosComponent implements OnInit {
       metodo_pago: pedido.metodo_pago,
       estado: pedido.estado, 
     });
-    console.log("Llenar DAtos");
-    console.log(this.formPedido.value);
-    console.log(this.formPedido.getRawValue());
-    console.log("raw form");
-
-    console.log(this.formPedido.getRawValue().nombre);
-
-    
   
   }
   ngOnInit() {
@@ -71,6 +71,7 @@ export class AListarPedidosComponent implements OnInit {
       this.pedidos = res;
       });
   }
+
   guardarPedido(pedido: IPedido) {
 
     /* hace la peticion a la bdd */
@@ -78,12 +79,9 @@ export class AListarPedidosComponent implements OnInit {
       alert('Su pedido ha sido actualizado correctamente')
       },err => console.log(err));  
   }
+
   saveData(){
     //modificar la fecha antes de enviar el pedido...
-
-    console.log("raw form");
-
-    console.log(this.formPedido.getRawValue());
     this.formPedido.setValue({
       nombre: this.formPedido.getRawValue().nombre,
       rut:this.formPedido.getRawValue().rut,
@@ -97,17 +95,17 @@ export class AListarPedidosComponent implements OnInit {
       valor_total: this.formPedido.getRawValue().valor_total,
       metodo_pago: this.formPedido.getRawValue().metodo_pago,
       estado: this.formPedido.getRawValue().estado,
-
     });
-
-
-
-    
     this.guardarPedido(this.formPedido.getRawValue());
-    
     this.productService.getPedidos().subscribe((res: any[]) => {
       this.pedidos = res;
-      });
+      },error=>console.log(error)
+      );
+  }
+  llenarTablas(pedido:IPedido){
+    this.productService.getDetallePedido(pedido.id).subscribe((res:any[])=>{
+      this.detalle=res;
+    },error=>console.log(error))
   }
 
 }
