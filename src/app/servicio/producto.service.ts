@@ -39,6 +39,18 @@ export class ProductoService {
   }
 
   /*PEDIDOS */
+getPedidosCliente(user: string){
+  return this.http.get<IPedido[]>(this.URL+'/pedidosClientes/'+user).pipe(map((res: any) => res.data));
+}
+
+getDetallePedido(id: number){
+  return this.http.get<Iproduct[]>(this.URL+'/clienteDetallePedido/'+id).pipe(map((res: any) => res.data));
+}
+
+saveLogin(empleado: IRegistrarEmpleado ){
+  return this.http.post<IRegistrarEmpleado[]>(this.URL+'/saveLogin', empleado);
+}
+
   savePedido(pedido: IPedido){
     return this.http.post<IPedido[]>(this.URL+'/pedido', pedido);
   }

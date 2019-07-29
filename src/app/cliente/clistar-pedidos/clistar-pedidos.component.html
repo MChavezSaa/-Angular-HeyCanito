@@ -1,0 +1,82 @@
+<body>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2 style="width: 343px;">Lista de Pedidos</h2>
+            <br>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-12" >
+            <div class="table-responsive">
+              <table id="example" class="table table-striped table-bordered" width="100%">
+                <thead>
+                  <tr style="text-align: center">
+                    <th style="vertical-align: middle">N°</th>
+                    <th style="vertical-align: middle">Nombre Cliente</th>
+                    <th style="vertical-align: middle">Estado</th>
+                    <th style="vertical-align: middle">Pago</th>
+                    <th style="vertical-align: middle">Entrega</th>
+                    <th style="vertical-align: middle">Valor</th>
+                    <th style="vertical-align: middle">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let ped of productoService.pedido">
+                  <tr style="text-align: center">
+                    <td style="vertical-align: middle">{{ped.id}}</td>
+                    <td style="vertical-align: middle">{{ped.nombre}}</td>
+                    <td style="vertical-align: middle">{{ped.estado}} </td>
+                    <td style="vertical-align: middle">{{ped.metodo_pago}}</td>
+                    <td style="vertical-align: middle">{{ped.modo_entrega}}</td>
+                    <td style="vertical-align: middle">{{ped.valor_total }}</td>
+                    <td style="vertical-align: middle">
+                      <div style="width: 100%">      
+                        <button type="button" (click)="llenarDetalle(ped.id)"
+                        class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+                          <i class="fas fa-info-circle d-xl-flex justify-content-xl-center align-items-xl-center"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="example" class="table table-striped table-bordered" width="100%">
+          <thead>
+            <tr style="text-align: center">              
+              <th style="vertical-align: middle">Producto</th>
+              <th style="vertical-align: middle">Precio</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let products of productoService.products">
+            <tr style="text-align: center">
+              <td style="vertical-align: middle">{{products.nombre}}</td>
+              <td style="vertical-align: middle">{{products.precio}} </td>                          
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

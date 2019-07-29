@@ -17,8 +17,14 @@
         <a class="nav-link" href="#">Opiniones</a>
       </li>
       <form class="form-inline my-2 my-lg-0">
+        <!--
         <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar producto" aria-label="Buscar">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        -->
+        <li class="nav-item" *ngIf="test">        
+            <a class="nav-link"  [routerLink]="['/home/pedido']">{{nombre?'':'Mis Pedidos'}}</a>        
+        </li>
+        
       </form>
       <li class="nav-item">
         <a class="nav-link" href="#">
@@ -54,15 +60,21 @@
         <a class="nav-link" [routerLink]="['opinion']" href="#">Opiniones</a>
       </li>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
+        <!--
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar producto" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        -->
+        <li class="nav-item" *ngIf="test">        
+            <a class="nav-link"  [routerLink]="['/home/ClientePedidos']">{{nombre?'':'Mis Pedidos'}}</a>        
+        </li>
+
       </form>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['bolsa']">
           Bolsa <img width="25" src="../assets/shopping-bag.svg">
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" >
           <a class="nav-link" (click)="iniciarSesion()"> {{test?'Cerrar Sesion':'Iniciar Sesión'}}</a>
         </li>
     </ul>

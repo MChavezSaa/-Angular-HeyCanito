@@ -35,6 +35,7 @@ import {AuthService} from '../app/cliente/auth/auth.service';
 import { MapaComponent } from './administrador/mapa/mapa.component';
 import { AgmCoreModule } from '@agm/core';
 import { AListarPedidosComponent } from './administrador/a-listar-pedidos/a-listar-pedidos.component';
+import { ClistarPedidosComponent } from './cliente/clistar-pedidos/clistar-pedidos.component';
 
 
 
@@ -83,6 +84,10 @@ const routes:Routes=[
       {
         path: 'pedido/:id',
         component: CVerPedidoComponent
+      },
+      {
+        path: 'ClientePedidos',
+        component: ClistarPedidosComponent
       },
       { path: '**',
         component: CErrorComponent
@@ -206,7 +211,8 @@ const routes:Routes=[
     CErrorComponent,
     CVerPedidoComponent,
     MapaComponent,
-    AListarPedidosComponent
+    AListarPedidosComponent,
+    ClistarPedidosComponent
   ],
   imports: [
     BrowserModule,

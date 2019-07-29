@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ProductoService } from '../../servicio/producto.service';
 import { Iproduct } from '../../producto';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Iproduct } from '../../producto';
 })
 export class AListarProductosComponent implements OnInit {
 eliminar: Iproduct;
+formProducto: FormGroup;
 
   constructor(public productoService: ProductoService) { }
   ngOnInit() {

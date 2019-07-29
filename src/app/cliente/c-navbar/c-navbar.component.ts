@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 })
 export class CNavbarComponent implements OnInit,OnChanges {
   @Input() test: boolean = true;
+
   nombre: boolean;
   constructor(private authService: AuthService,public router:Router ) { }
   
@@ -32,5 +33,4 @@ export class CNavbarComponent implements OnInit,OnChanges {
 
     }
   }
-
 }
