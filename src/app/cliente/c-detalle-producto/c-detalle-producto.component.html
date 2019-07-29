@@ -1,37 +1,43 @@
-<nav aria-label="breadcrumb">
-  <!--MIGAS DE PAN-->
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo',productService.products[0].categoria]" style="color: #ff8000;">{{productService.products[0].categoria}}</a></li>
-    <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].nombre}}</li>
-  </ol>
-</nav>
+<div style="background: #ffffff73; padding-bottom: 5%" >
 
-<body><hr>
-  <div class="container">
-    <h1 class="text-center">Detalle Producto</h1>
-    <div class="row" *ngFor="let product of productService.products">
-      <div class="col-md-7">
-        <div class="row"><br>
-          <div class="col-md-12 " style="text-align: center;"><img class="img-thumbnail img-fluid imagen1"
-              [src]="product.imagen"></div>
+  <nav aria-label="breadcrumb">
+    <!--MIGAS DE PAN-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo',productService.products[0].categoria]"
+          style="color: #ff8000;">{{productService.products[0].categoria}}</a></li>
+      <li class="breadcrumb-item active" style="color: #ff0000">{{productService.products[0].nombre}}</li>
+    </ol>
+  </nav>
+
+    <hr>
+    <div class="container" style="background: white; padding-bottom: 20px">
+      <h1 class="text-center" style="padding-top: 20px; padding-bottom: 20px" >Detalle Producto</h1>
+      <div class="row" *ngFor="let product of productService.products">
+        <div class="col-md-7">
+          <div class="row"><br>
+            <div class="col-md-12 " style="text-align: center;"><img class="img-thumbnail img-fluid imagen1"
+                [src]="product.imagen"></div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-6 col-md-6" style="text-align: center;"><img
+                class="img-thumbnail img-fluid center-block imagen2" [src]="product.imagen"></div>
+            <div class="col-6 col-sm-6 col-md-6" style="text-align: center;"><img
+                class="img-thumbnail img-fluid center-block imagen2" [src]="product.imagen"></div>
+          </div>
+        </div><br>
+        <div class="col-md-5"><br>
+          <h2>{{product.nombre}}</h2><br>
+          <p>{{product.descripcion}}</p><br>
+          <h2 class="text-left " style="color: #ff8000">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2>
+          <br>
+          <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button"
+            (click)="productService.agregarProducto(product)">
+            <i class="fa fa-shopping-bag"></i>
+            Añadir a la bolsa</button>
         </div>
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6"  style="text-align: center;"><img class="img-thumbnail img-fluid center-block imagen2"
-            [src]="product.imagen"></div>
-          <div class="col-6 col-sm-6 col-md-6"  style="text-align: center;"><img class="img-thumbnail img-fluid center-block imagen2"
-            [src]="product.imagen"></div>
-        </div>
-      </div><br>
-      <div class="col-md-5"><br>
-        <h2>{{product.nombre}}</h2><br>
-        <p>{{product.descripcion}}</p><br>
-        <h2 class="text-left text-success">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2><br>
-        <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button" (click)="productService.agregarProducto(product)">
-          <i class="fa fa-shopping-bag"></i>
-          Añadir a la bolsa</button>
       </div>
     </div>
+
   </div>
-</body>

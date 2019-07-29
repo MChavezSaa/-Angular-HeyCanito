@@ -1,129 +1,134 @@
-<div class="row">
-<div class="col-3">
+<div style="background: #ffffff73; padding-top: 2%">
 
-</div>
-<div class="col-6">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-xl-flex justify-content-xl-center">
-        <img style="width: 200px"
-          src="https://scontent.fpmc1-1.fna.fbcdn.net/v/t1.0-9/66209556_10220005048936664_1558829852910419968_n.jpg?_nc_cat=109&_nc_oc=AQkn9yWaaTgF_Kq2o_RoO5uIhKi3idgYHql2oQhLdTLBp2QYvn5znUv-xK7tEbKZDJk&_nc_ht=scontent.fpmc1-1.fna&oh=d8dbdb26224f01564382a585d3129061&oe=5DB1E4AE" />
-      </div>
-      <hr style="width: 100%;margin-bottom: 3px;margin-top: 0px;" />
-      <div class="login-box-header">
-        <h4 align="center"
-          style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
-          Regístrate con nosotros</h4>&nbsp;
+  <div class="row">
+    <div class="col-3">
 
-        <form [formGroup]="Registroform" (ngSubmit)="saveCliente()" novalidate>
-          <div class="row">
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="nombres">Nombre </h6>
-                <input formControlName="nombres" class="form-control" type="text" placeholder="Ingrese su Nombre ">
-                <div *ngIf="Registroform.get('nombres').errors && (Registroform.get('nombres').touched 
-                      || Registroform.get('nombres').dirty)">
-                  <small class="form-text text-danger">
-                    El campo requiere de un nombre (*)
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="rut_cliente">Rut</h6>
-                <input formControlName="rut_cliente" class="form-control" type="text" placeholder="Ingrese su Rut">
-                <div *ngIf="Registroform.get('rut_cliente').errors && (Registroform.get('rut_cliente').touched 
-                    || Registroform.get('rut_cliente').dirty)"> 
-                    <small class="form-text text-danger">
-                      El campo requiere de un rut válido (*)
-                    </small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="ap_paterno">Apellido Paterno </h6>
-                <input formControlName="ap_paterno" class="form-control" type="text"
-                  placeholder="Ingrese Apellido Paterno">
-                  <div *ngIf="Registroform.get('ap_paterno').errors && (Registroform.get('ap_paterno').touched 
-                      || Registroform.get('ap_paterno').dirty)">
-                    <small class="form-text text-danger">
-                      El campo requiere de un apellido paterno (*)
-                    </small>
-                  </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="ap_materno">Apellido Materno</h6>
-                <input formControlName="ap_materno" class="form-control" type="text"
-                  placeholder="Ingrese Apellido Materno">
-                  <div *ngIf="Registroform.get('ap_materno').errors && (Registroform.get('ap_materno').touched 
-                         || Registroform.get('ap_materno').dirty)">
-                    <small class="form-text text-danger">
-                      El campo requiere de un apellido materno (*)
-                    </small>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="email">Email</h6>
-                <input formControlName="email" class="form-control" type="text" placeholder="Ingrese Email">
-                <div *ngIf="Registroform.get('email').errors && (Registroform.get('email').touched 
-                       || Registroform.get('email').dirty)">
-                  <small class="form-text text-danger">
-                    El campo requiere de un email con formato example@dom.com (*)
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <!--Nombre producto-->
-              <div class="form-group">
-                <h6 for="password">Contraseña</h6>
-                <input formControlName="password" class="form-control" type="password" placeholder="Ingrese Contraseña">
-                <div *ngIf="Registroform.get('password').errors && (Registroform.get('password').touched 
-                        || Registroform.get('password').dirty)">
-                  <small class="form-text text-danger">
-                    El campo requiere de una contraseña (*)
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-          &nbsp;&nbsp;
-          <div class="col-md-12" style="text-align: center">
-            <button type="button" class="btn btn-danger botones" style="background: #ff0000" data-toggle="modal" data-target="#modalSalir"> Cancelar </button>
-            &nbsp;
-            <button type="submit" [disabled]="!Registroform.valid" class="btn btn-warning botones" style="background: #ff8800">
-              Registrar
-            </button>
-          </div>
-          <!--Fin Botones-->
-
-        </form>
-      </div>
-      
-      
     </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-xl-flex justify-content-xl-center">
+            <img style="width: 200px"
+              src="https://scontent.fpmc1-1.fna.fbcdn.net/v/t1.0-9/66209556_10220005048936664_1558829852910419968_n.jpg?_nc_cat=109&_nc_oc=AQkn9yWaaTgF_Kq2o_RoO5uIhKi3idgYHql2oQhLdTLBp2QYvn5znUv-xK7tEbKZDJk&_nc_ht=scontent.fpmc1-1.fna&oh=d8dbdb26224f01564382a585d3129061&oe=5DB1E4AE" />
+          </div>
+          <hr style="width: 100%;margin-bottom: 3px;margin-top: 0px;" />
+          <div class="login-box-header">
+            <h4 align="center"
+              style="color: rgb(139,139,139);margin-bottom: 0px;font-weight: 400;font-size: 27px;font-family: 'Playfair Display', serif;">
+              Regístrate con nosotros</h4>&nbsp;
 
+            <form [formGroup]="Registroform" (ngSubmit)="saveCliente()" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="nombres">Nombre </h6>
+                    <input formControlName="nombres" class="form-control" type="text" placeholder="Ingrese su Nombre ">
+                    <div *ngIf="Registroform.get('nombres').errors && (Registroform.get('nombres').touched 
+                      || Registroform.get('nombres').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de un nombre (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="rut_cliente">Rut</h6>
+                    <input formControlName="rut_cliente" class="form-control" type="text" placeholder="Ingrese su Rut">
+                    <div *ngIf="Registroform.get('rut_cliente').errors && (Registroform.get('rut_cliente').touched 
+                    || Registroform.get('rut_cliente').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de un rut válido (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="ap_paterno">Apellido Paterno </h6>
+                    <input formControlName="ap_paterno" class="form-control" type="text"
+                      placeholder="Ingrese Apellido Paterno">
+                    <div *ngIf="Registroform.get('ap_paterno').errors && (Registroform.get('ap_paterno').touched 
+                      || Registroform.get('ap_paterno').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de un apellido paterno (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="ap_materno">Apellido Materno</h6>
+                    <input formControlName="ap_materno" class="form-control" type="text"
+                      placeholder="Ingrese Apellido Materno">
+                    <div *ngIf="Registroform.get('ap_materno').errors && (Registroform.get('ap_materno').touched 
+                         || Registroform.get('ap_materno').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de un apellido materno (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="email">Email</h6>
+                    <input formControlName="email" class="form-control" type="text" placeholder="Ingrese Email">
+                    <div *ngIf="Registroform.get('email').errors && (Registroform.get('email').touched 
+                       || Registroform.get('email').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de un email con formato example@dom.com (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <!--Nombre producto-->
+                  <div class="form-group">
+                    <h6 for="password">Contraseña</h6>
+                    <input formControlName="password" class="form-control" type="password"
+                      placeholder="Ingrese Contraseña">
+                    <div *ngIf="Registroform.get('password').errors && (Registroform.get('password').touched 
+                        || Registroform.get('password').dirty)">
+                      <small class="form-text text-danger">
+                        El campo requiere de una contraseña (*)
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              &nbsp;&nbsp;
+              <div class="col-md-12" style="text-align: center">
+                <button type="button" class="btn btn-danger botones" style="background: #ff0000" data-toggle="modal"
+                  data-target="#modalSalir"> Cancelar </button>
+                &nbsp;
+                <button type="submit" [disabled]="!Registroform.valid" class="btn btn-warning botones"
+                  style="background: #ff8800">
+                  Registrar
+                </button>
+              </div>
+              <!--Fin Botones-->
+
+            </form>
+          </div>
+
+
+        </div>
+
+      </div>
+      <br>
+    </div>
+    <div class="col-3">
+    </div>
   </div>
-<br>
-</div>
-<div class="col-3">
-
-</div>
 </div>
 
 <!-- Modal -->
