@@ -29,46 +29,58 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
 <!--end carousel-->
+<div style="background: white; padding-top: 1%">
 
+</div>
 <!--Sección comentarios-->
+<div class="row" style="background: #ffffff73" >
 
-<div class="container">
-  <div class="row tittle">
-    <div>
-      <h1><em>¡Déjanos tus comentarios!</em></h1>
+
+  <div class="container">
+    <div class="row tittle">
+      <div>
+        <h1><em> <b>¡Déjanos tus comentarios!</b></em></h1>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="card-body" *ngFor="let opi of productService.opinion">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <div class="media">
-            <div class="media-body">
-              <div class="media">
-                <div>
-                  <img class="mr-3" src="../../../assets/user.png" width="60px">
-                </div>
-                <div class="media-body">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h5>{{opi.nombreUsuario}}</h5>&nbsp;
-                        {{opi.comentario}}<br>
-                        <div class="text-right">
-                          <button class="btn btn-danger" type="button">
-                            <i class="fa fa-heart"></i>
-                            &nbsp; Me Gusta
-                          </button>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let opi of productService.opinion">
+
+        <div class="card" style="margin-bottom: 20px">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item ">
+                <div class="media">
+                  <div class="media-body">
+                    <div class="media">
+                      <div>
+                        <img class="mr-3" src="../../../assets/user.png" width="60px">
+                      </div>
+                      <div class="media-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <h5>{{opi.nombreUsuario}}</h5>&nbsp;
+                            {{opi.comentario}}<br>
+                            <div class="text-right">
+                              <button class="btn btn-danger" type="button">
+                                <i class="fa fa-heart"></i>
+                                &nbsp; Me Gusta
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div> 
-              </div>
+                </div>
+              </li>
+            </ul>
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>

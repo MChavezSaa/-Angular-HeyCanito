@@ -1,65 +1,76 @@
-<nav aria-label="breadcrumb">
-  <!--MIGAS DE PAN-->
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
-    <li class="breadcrumb-item active" style="color: #ff0000">Bolsa</li>
-  </ol>
-</nav>
+<div style="background: #ffffff73; padding-bottom: 6%">
 
-<body>
-  <hr>
-  <div class="col-3" style="text-align:right; font-style:oblique">
-    <h2>Bolsa de Compras</h2>
-  </div>
-  <div class="col-9" style="text-align:right; font-style:oblique">
-      <h2>Total {{this.productService.precioBolsa() | currency:'$':'symbol-narrow':'1.0-3'}}</h2>
-    </div>
-  <hr>
-  <div *ngIf="productService.bolsa.length">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="gift row" *ngFor="let producto of productService.bolsa">                 
-                  <div class="gift__img col-sm-3 col-12"><img [src]='producto.imagen' height="100%" width="100%" /></div>
-                  <div class="gift__info col-sm-9 col-12">
-                    <h4 class="gift__name">{{producto.nombre}}<br /></h4>
-                    <div class="gift__details">
-                      <p><br />{{producto.descripcion}}<br /><br /></p>
-                    </div>
-                    <div class="gift__bottom row">
-                      <div class="gift__price-wrap col-12 col-sm-6">
-                        <div class="gift__normal-price"></div>
-                        <div class="gift__today-price"></div>
-                        <h3 class="gift__name">Precio: {{producto.precio | currency:'$':'symbol-narrow':'2.0-3'}}</h3>
+  <nav aria-label="breadcrumb">
+    <!--MIGAS DE PAN-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/']" style="color: #ff8000;">Inicio</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home/catalogo']" style="color: #ff8000;">Catálogo</a></li>
+      <li class="breadcrumb-item active" style="color: #ff0000">Bolsa</li>
+    </ol>
+  </nav>
+
+    <div class="container" style="margin-top: 5%; background: white">
+      <div class="row" style="padding-top: 30px; margin-left: 20px">
+        <div class="col-md-6" style=" font-style:oblique">
+          <h2> Bolsa de Compras</h2>
+        </div>
+        <div class="col-md-6" style=" font-style:oblique; text-align: right; padding-right: 5rem">
+          <h2><b> Total {{this.productService.precioBolsa() | currency:'$':'symbol-narrow':'1.0-3'}}</b></h2>
+        </div>
+        <hr>
+        <div *ngIf="productService.bolsa.length">
+          <div class="col-12">
+            <div class="card" style="margin-top: 5%">
+              <div class="card-body" >
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="gift row" *ngFor="let producto of productService.bolsa">
+                        <div class="gift__img col-sm-3 col-12"><img [src]='producto.imagen' height="100%"
+                            width="100%" /></div>
+                        <div class="gift__info col-sm-9 col-12">
+                          <h4 class="gift__name">{{producto.nombre}}<br /></h4>
+                          <div class="gift__details">
+                            <p><br />{{producto.descripcion}}<br /><br /></p>
+                          </div>
+                          <div class="gift__bottom row">
+                            <div class="gift__price-wrap col-12 col-sm-6">
+                              <div class="gift__normal-price"></div>
+                              <div class="gift__today-price"></div>
+                              <h3 class="gift__name">Precio: {{producto.precio | currency:'$':'symbol-narrow':'2.0-3'}}
+                              </h3>
+                            </div>
+                          </div>
+                          <div class="col-10" align="right">
+                            <button type="button" (click)="quitarElemento(producto)" class="btn btn-danger"><i
+                                class="fa fa-trash" aria-hidden="true"></i> Quitar de la bolsa</button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-10" align="right">
-                      <button type="button" (click)="quitarElemento(producto)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Quitar de la bolsa</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <br>
+          <div class="col-10" align="right">
+            <button type="button" [routerLink]="['/home/pedido']" class="btn btn-warning"><i
+                class="far fa-money-bill-alt"></i> Generar Pedido</button>
+          </div>
+          <br>
         </div>
+        <div class="container" style="margin-top: 5%; text-align: center; margin-bottom: 2%">
+          <div *ngIf="!productService.bolsa.length">
+            <div class="container">
+              <img  [routerLink]="['/home/catalogo']" src="../../../assets/BolsitaTriste.png" width="20%">
+              <h3>¡Tu bolsa está vacía!</h3>
+              <a href="/home/catalogo" style="color: #ff8000"> <b> AGREGA COSITAS RICAS A TU BOLSA </b></a>
+            </div>
+          </div>
+        </div>
+        
+
       </div>
     </div>
-    <br>
-    <div class="col-10" align="right">
-      <button type="button"[routerLink]="['/home/pedido']" class="btn btn-warning"><i class="far fa-money-bill-alt"></i> Generar Pedido</button>
-    </div>
-    <br>
-  </div>
-  <div *ngIf="!productService.bolsa.length">
-    <div class="container">
-        <h3>¡Tu bolsa está vacía!</h3>
-        <a href="/home/catalogo"> Agrega cositas ricas a tu bolsa</a>
-        
-    </div>
-    
-  </div>
-</body>
+</div>
