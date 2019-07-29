@@ -30,6 +30,15 @@ export class RegistrarEmpleadoComponent implements OnInit {
 
   guardarEmpleado(empleado: IRegistrarEmpleado) {
     console.log(empleado);
+    this.productService.saveLogin(empleado).subscribe(() => {
+       return this.productService.getEmpleado().subscribe((res: any[]) =>{
+         this.productService.empleados = res;
+       },
+       err => console.log(err));
+    })
+  }
+  guardarLogin(empleado: IRegistrarEmpleado) {
+    console.log(empleado);
     this.productService.saveEmpleado(empleado).subscribe(() => {
        return this.productService.getEmpleado().subscribe((res: any[]) =>{
          this.productService.empleados = res;
@@ -39,6 +48,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
   }
   saveEmpleado() {    
     this.guardarEmpleado(this.formEmpleado.value);
+    this.guardarLogin(this.formEmpleado.value);
     this.router.navigate(['administrador/vacio']);
     console.log(this.formEmpleado.value);
   }

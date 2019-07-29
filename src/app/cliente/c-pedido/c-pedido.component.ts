@@ -34,7 +34,7 @@ export class CPedidoComponent implements OnInit {
         rut:['',[Validators.required,Validators.maxLength(12)]],
         telefono:['',[Validators.required,Validators.pattern('[1-9]{1}[0-9]{8}')]],
         direccion: ['', ],
-        mail:['',[Validators.email]],
+        mail:['',[Validators.email, Validators.required]],
         modo_entrega: ['', [Validators.required]],
         fecha_inicio: [today,],
         fecha_entrega: ['',],
