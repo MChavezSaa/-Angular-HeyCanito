@@ -49,9 +49,9 @@ export class AListarPedidosComponent implements OnInit {
       telefono:pedido.telefono,
       direccion:pedido.direccion,
       modo_entrega: pedido.modo_entrega,
-      fecha_inicio: this.datePipe.transform(pedido.fecha_inicio,'dd-MM-yyyy'),
-      fecha_entrega: this.datePipe.transform(pedido.fecha_entrega,'dd-MM-yyyy'),
-      fecha_pago: this.datePipe.transform(pedido.fecha_pago,'dd-MM-yyyy'),
+      fecha_inicio: this.datePipe.transform(pedido.fecha_inicio,'yyyy-MM-dd'),
+      fecha_entrega: this.datePipe.transform(pedido.fecha_entrega,'yyyy-MM-dd'),
+      fecha_pago: this.datePipe.transform(pedido.fecha_pago,'yyyy-MM-dd'),
       valor_total: pedido.valor_total,
       metodo_pago: pedido.metodo_pago,
       estado: pedido.estado, 
@@ -83,13 +83,28 @@ export class AListarPedidosComponent implements OnInit {
 
     console.log("raw form");
 
-    console.log(this.formPedido.getRawValue().nombre);
+    console.log(this.formPedido.getRawValue());
+    this.formPedido.setValue({
+      nombre: this.formPedido.getRawValue().nombre,
+      rut:this.formPedido.getRawValue().rut,
+      mail: this.formPedido.getRawValue().mail,
+      telefono:this.formPedido.getRawValue().telefono,
+      direccion:this.formPedido.getRawValue().direccion,
+      modo_entrega: this.formPedido.getRawValue().modo_entrega,
+      fecha_inicio: this.formPedido.getRawValue().fecha_inicio,
+      fecha_entrega: this.formPedido.getRawValue().fecha_entrega,
+      fecha_pago: this.formPedido.getRawValue().fecha_pago,
+      valor_total: this.formPedido.getRawValue().valor_total,
+      metodo_pago: this.formPedido.getRawValue().metodo_pago,
+      estado: this.formPedido.getRawValue().estado,
+
+    });
 
 
 
-    /*
+    
     this.guardarPedido(this.formPedido.getRawValue());
-    */
+    
     this.productService.getPedidos().subscribe((res: any[]) => {
       this.pedidos = res;
       });
