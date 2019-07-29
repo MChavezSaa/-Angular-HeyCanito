@@ -44,7 +44,7 @@ getPedidosCliente(user: string){
 }
 
 getDetallePedido(id: number){
-  return this.http.get<Iproduct[]>(this.URL+'/clienteDetallePedido/'+id).pipe(map((res: any) => res.data));
+  return this.http.get<Iproduct[]>(this.URL+'/detallePedido/'+id).pipe(map((res: any) => res.data));
 }
 
 saveLogin(empleado: IRegistrarEmpleado ){

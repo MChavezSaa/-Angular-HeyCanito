@@ -18,7 +18,6 @@ export class ClistarPedidosComponent implements OnInit {
   }
   llenarDetalle(id: number){
     this.productoService.getDetallePedido(id).subscribe((res: any[]) => {
-      console.log(res);
       this.productoService.products = res;
     })
   }
