@@ -1,3 +1,4 @@
+<div style="background: #ffffff73; padding-bottom: 5%" >
 
   <nav aria-label="breadcrumb">
     <!--MIGAS DE PAN-->
@@ -10,10 +11,9 @@
     </ol>
   </nav>
 
-  <body>
     <hr>
-    <div class="container">
-      <h1 class="text-center">Detalle Producto</h1>
+    <div class="container" style="background: white; padding-bottom: 20px">
+      <h1 class="text-center" style="padding-top: 20px; padding-bottom: 20px" >Detalle Producto</h1>
       <div class="row" *ngFor="let product of productService.products">
         <div class="col-md-7">
           <div class="row"><br>
@@ -30,7 +30,7 @@
         <div class="col-md-5"><br>
           <h2>{{product.nombre}}</h2><br>
           <p>{{product.descripcion}}</p><br>
-          <h2 class="text-left text-success">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2>
+          <h2 class="text-left " style="color: #ff8000">Precio: {{product.precio  | currency:'$':'symbol-narrow':'2.0-3' }}</h2>
           <br>
           <button class="btn btn-danger btn-lg center-block" [routerLink]="['/home/bolsa']" type="button"
             (click)="productService.agregarProducto(product)">
@@ -39,4 +39,5 @@
         </div>
       </div>
     </div>
-  </body>
+
+  </div>
