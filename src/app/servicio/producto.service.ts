@@ -22,7 +22,9 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  URL:string='http://localhost:3005';
+  //private URL:string='http://localhost:3005';
+  private URL:string='http://colvin.chillan.ubiobio.cl:3004';
+
 
 
   /* DETALLE PEDIDO */
@@ -41,6 +43,9 @@ export class ProductoService {
   }
   getPedidos(): Observable<IPedido[]> {
     return this.http.get<IPedido[]>(this.URL+'/pedidos').pipe(map((res: any) => res.data));
+  }
+  updatePedido(id, pedido){
+    return this.http.put(this.URL+'/pedido/'+id, pedido);
   }
 
   /*EMPLEADOS */
@@ -73,10 +78,10 @@ export class ProductoService {
     return this.http.post<Iproduct[]>(this.URL+'/producto', product);
   }
   deleteProduct(id){
-    return this.http.delete(this.URL+'/producto/${ id }');
+    return this.http.delete(this.URL+'/producto/'+id);
   }
   updateProduct(id, product){
-    return this.http.put(this.URL+'/producto/${ id }', product);
+    return this.http.put(this.URL+'/producto/'+id, product);
   }
   /* OPINION */
   getOpinion(): Observable<IOpinion[]> {
