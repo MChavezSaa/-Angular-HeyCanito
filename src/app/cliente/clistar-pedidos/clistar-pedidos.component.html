@@ -40,8 +40,9 @@
                     <td style="vertical-align: middle">{{ped.valor_total | currency:'$':'symbol-narrow':'2.0-3'}}</td>
                     <td style="vertical-align: middle">
                       <div style="width: 100%">      
-                        <button type="button" (click)="llenarDetalle(ped.id)"
-                        class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" 
+                        class="btn btn-warning btn-lg btn-block" 
+                        [routerLink]="['/home/pedido',ped.id]">
                           <i class="fas fa-info-circle d-xl-flex justify-content-xl-center align-items-xl-center"></i>
                         </button>
                       </div>

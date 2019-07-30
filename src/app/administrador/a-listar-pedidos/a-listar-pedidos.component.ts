@@ -113,9 +113,9 @@ export class AListarPedidosComponent implements OnInit {
     this.productService.getDetallePedido(pedido.id).subscribe((res:any[])=>{
       console.log('llenarTablas');
       
-      console.log(res.data);
+      console.log(res);
       
-      this.detalle=res.data;
+      this.detalle=res;
     },error=>console.log(error))
   }
   mostrarMapa(address: string){
