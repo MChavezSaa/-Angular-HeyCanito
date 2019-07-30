@@ -199,16 +199,17 @@
 
           <!--Botones-->
           <div class="col-md-12" style="text-align: right">
-            <button type="button" class="btn btn-danger botones" style="background: #ff0000" data-toggle="modal" data-target="#modalSalir"> Cancelar </button> &nbsp;
+            <button type="button" class="btn btn-danger botones" style="background: #ff0000" data-toggle="modal" data-target="#modalSalir" data-dismiss="modal"> Cancelar </button> &nbsp;
             <button type="submit" [disabled]="!formProduct.valid" class="btn btn-warning botones" style="background: #ff8800"> Guardar </button>
           </div>
           <!--Fin Botones-->
         </form>
       </div>
 
-      <!-- Modal footer -->
+      <!-- Modal footer 
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
 
     </div>

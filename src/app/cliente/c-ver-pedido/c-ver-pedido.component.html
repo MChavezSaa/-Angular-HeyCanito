@@ -98,13 +98,7 @@
       <!--Fin metodo entrega-->
     </div>
 
-    <div *ngIf="this.productService.pedido[0].modo_entrega=='despacho domicilio'" class="col-md-8">
-      <!-- Direccion-->
-      <h6 for="direccion">Dirección</h6>
-      <input class="form-control" type="text" placeholder="Ingrese dirección " [disabled]="true"
-        value="{{this.productService.pedido[0].direccion}}">
-      <!--Fin Direccion-->
-    </div>
+    
     <!--</form>-->
 
     <!--TABLA de Productos-->
@@ -125,7 +119,7 @@
             <tr style="text-align: center">
               <td style="vertical-align: middle">{{i+1}}</td>
               <td style="vertical-align: middle">{{products.nombre}}</td>
-              <td style="vertical-align: middle">{{products.precio}} </td>
+              <td style="vertical-align: middle">{{products.precio |  currency:'$':'symbol-narrow':'2.0-3'}} </td>
 
             </tr>
           </tbody>

@@ -49,7 +49,7 @@ export class RegistrarEmpleadoComponent implements OnInit {
   saveEmpleado() {    
     this.guardarEmpleado(this.formEmpleado.value);
     this.guardarLogin(this.formEmpleado.value);
-    this.router.navigate(['administrador/vacio']);
+    this.router.navigate(['administrador/listarProductos']);
     console.log(this.formEmpleado.value);
   }
 
