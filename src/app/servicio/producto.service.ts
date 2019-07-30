@@ -22,31 +22,26 @@ export class ProductoService {
   public opinion: IOpinion[];
   public pedido: IPedido[];
 
-  constructor(private http: HttpClient) { }
 
   // URL:string='http://localhost:3005';
   private URL = 'http://colvin.chillan.ubiobio.cl:3004';
 
+  constructor(private http: HttpClient) { }
 
   /* DETALLE PEDIDO */
   agregarDetalle(detalle: IDetalle) {
     return this.http.post<any[]>(this.URL + '/detallepedido', detalle);
   }
-
   getRol(): Observable<User[]> {
     return this.http.get<User[]>(this.URL + '/UserLogin').pipe(map((res: any) => res.data));
   }
-
-
   /*PEDIDOS */
   getPedidosCliente(user: string) {
     return this.http.get<IPedido[]>(this.URL + '/pedidosClientes/' + user).pipe(map((res: any) => res.data));
   }
-
   getDetallePedido(id: number) {
     return this.http.get<Iproduct[]>(this.URL + '/detallePedido/' + id).pipe(map((res: any) => res.data));
   }
-
   saveLogin(empleado: IRegistrarEmpleado) {
     return this.http.post<IRegistrarEmpleado[]>(this.URL + '/saveLogin', empleado);
   }
