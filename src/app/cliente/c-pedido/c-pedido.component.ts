@@ -78,9 +78,13 @@ export class CPedidoComponent implements OnInit {
     console.log(pedido);    //agregar cosas
     /* hace la peticion a la bdd */
     this.productService.savePedido(pedido).subscribe((res: any[]) => {
+      console.log('respuesta save pedido');
+      console.log(res);
+
       this.productService.getPedido(res.datos.insertId).subscribe((res2: any[])=>{
         this.productService.pedido=res2[0];
-        
+        console.log('respuesta get pedido');
+        console.log(res2[0]);
         },err => console.log(err))
         /* agregar cada detalle */
         if(this.bolsa){
@@ -93,7 +97,10 @@ export class CPedidoComponent implements OnInit {
             }
             console.log(detalle);
             this.productService.agregarDetalle(detalle)
-              .subscribe((res3:any[])=>{console.log(res3);},err => console.log(err));     
+              .subscribe((res3:any[])=>{   console.log('respuesta agregar detalle');
+              console.log(res3);
+                console.log(res3);},err => console.log(err));     
+                this.bolsa=[];
           }
         }
       },err => console.log(err));
@@ -111,7 +118,7 @@ export class CPedidoComponent implements OnInit {
     this.formProduct.setValue({
       nombre: this.formProduct.get('nombre').value,
       rut:this.formProduct.get('rut').value,
-      mail: this.formProduct.get('mail').value,
+      mail: this.formProduct.getRawValue().mail,
       telefono:this.formProduct.get('telefono').value,
       direccion:this.formProduct.get('direccion').value,
       modo_entrega: this.formProduct.get('modo_entrega').value,
@@ -122,8 +129,8 @@ export class CPedidoComponent implements OnInit {
       metodo_pago: this.formProduct.get('metodo_pago').value,
       estado: 'Generado', 
     });
-    this.guardarPedido(this.formProduct.value);
-    this.bolsa=[];
+    this.guardarPedido(this.formProduct.getRawValue());
+   
     //redireccionamiento a home
     //this.router.navigate(['home']);
     
