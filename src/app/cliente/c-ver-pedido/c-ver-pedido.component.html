@@ -97,6 +97,7 @@
       </div>
       <!--Fin metodo entrega-->
     </div>
+
     <div *ngIf="this.productService.pedido[0].modo_entrega=='despacho domicilio'" class="col-md-8">
       <!-- Direccion-->
       <h6 for="direccion">Dirección</h6>
@@ -134,29 +135,4 @@
 
   </div>
   <!--</form>-->
-</div>
-<!--TABLA de Productos-->
-<div class="container" *ngIf="this.productService.pedido">
-    <hr>
-    <h2>Productos incluídos en el pedido</h2>
-<div class="row">
-  <table id="example" class="table table-striped table-bordered" width="100%">
-    <thead>
-      <tr style="text-align: center">
-        <th style="vertical-align: middle">#</th>
-        <th style="vertical-align: middle">Producto</th>
-        <th style="vertical-align: middle">Precio</th>
-
-      </tr>
-    </thead>
-    <tbody *ngFor="let products of this.productService.products; let i=index">
-      <tr style="text-align: center">
-        <td style="vertical-align: middle">{{i+1}}</td>
-        <td style="vertical-align: middle">{{products.nombre}}</td>
-        <td style="vertical-align: middle">{{products.precio}} </td>
-
-      </tr>
-    </tbody>
-  </table>
-</div>
 </div>
