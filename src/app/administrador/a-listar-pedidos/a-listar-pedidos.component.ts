@@ -17,9 +17,9 @@ export class AListarPedidosComponent implements OnInit {
 
   formPedido: FormGroup;
   detalle:any[];
-  latitude: number;
-  longitude: number;
-  zoom: number;
+  latitude: number =-36.604497;
+  longitude: number = -72.080858;
+  zoom: number = 15 ;
   address: string;
   direccion: string;
   public query: string;
@@ -123,12 +123,17 @@ export class AListarPedidosComponent implements OnInit {
     console.log(address);
     this.direccion= address;
     this.geocoder = new google.maps.Geocoder();
+    if(address.length!=0){
       this.geocoder.geocode({ 'address': address }, (results, status) => {
-         this.latitude = results[0].geometry.location.lat();
-        this.longitude = results[0].geometry.location.lng();
-        this.zoom = 15;
-        //console.log("lat: " + latitude + ", long: " + longitude);
-        });
+        this.latitude = results[0].geometry.location.lat();
+       this.longitude = results[0].geometry.location.lng();
+       this.zoom = 15;
+       //console.log("lat: " + latitude + ", long: " + longitude);
+       });
+    }else{
+      this.latitude=-36.604497;
+      this.longitude=-72.080858;
+    }
      
   }
 }
