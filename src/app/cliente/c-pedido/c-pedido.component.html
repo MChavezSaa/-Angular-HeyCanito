@@ -161,7 +161,7 @@
         <div class="modal-footer">
           <!--ignorar el error del routerlink-->
           <button type="button" [routerLink]="['/home/catalogo']" class="btn btn-warning" style="background: #ff8800" data-dismiss="modal">Continuar viendo el catálogo</button>
-          <button *ngIf="this.productService.pedido" type="button" [routerLink]="['/home/pedido', this.productService.pedido.id]"  class="btn btn-warning" 
+          <button *ngIf="this.productService.pedido" type="button" [routerLink]="['/home/pedido', this.productService.pedido[0].id]"  class="btn btn-warning" 
                data-dismiss="modal">Ir a mi pedido</button>
         </div>
   
