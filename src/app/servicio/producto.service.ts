@@ -23,8 +23,8 @@ export class ProductoService {
   public pedido: IPedido[];
 
 
-  // URL:string='http://localhost:3005';
-  private URL = 'http://colvin.chillan.ubiobio.cl:3004';
+  URL:string='http://localhost:3005';
+  //private URL = 'http://colvin.chillan.ubiobio.cl:3004';
 
   constructor(private http: HttpClient) { }
 
